@@ -9,15 +9,17 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Logboek Jesse Postma | Wetenschappelijke Cyclus 2026
+# Logboek Jesse Postma \| Wetenschappelijke Cyclus 2026
 
 ## Introductie
 
-De Duitse taalbeheersing onder Nederlanders staat onder druk. Waar in 2018 nog circa 68.000 eindexamens Duits werden afgenomen, waren dit er in 2025 nog circa 49.000, wat een afname van ongeveer 23% weergeeft. Deze trend weerspiegelt zich ook in het hoger onderwijs, waar universitaire Duitse studies kampen met dalende studentenaantallen. Onderzoek suggereert dat dit deels te verklaren is door een curriculum dat zich voornamelijk richt op technische vaardigheden zoals leesbegripstraining, ten koste van taal- en cultuurspecifieke inhouden die leerlingen kunnen enthousiasmeren voor talenstudie.
-Met dit in gedachten willen wij onderzoeken in welke mate Nederlanders de Duitse taal beheersen, en welke factoren hierop van invloed zijn. Specifiek richten wij ons op leeftijd, opleidingsniveau en woonlocatie (grensregio versus Randstad). De verwachting is dat oudere generaties gemiddeld een hogere taalbeheersing hebben dan jongere generaties, dat mensen in grensregio's meer blootstelling hebben gehad aan het Duits in dagelijks leven (via boodschappen, werk of sociale contacten) en daardoor beter scoren, en dat een hoger behaald opleidingsniveau samenhangt met een betere taalbeheersing.
-Om dit te onderzoeken voeren wij een kwantitatief onderzoek uit waarbij deelnemers een taaltoets afleggen op basis van de CEFR-niveaus, gecombineerd met een vragenlijst over relevante achtergrondkenmerken. De resultaten worden per groep vergeleken om verbanden tussen de genoemde factoren en het taalniveau in kaart te brengen.
+De Duitse taalbeheersing onder Nederlanders neemt af, met een daling in eindexamens Duits van circa 68.000 in 2018 naar 49.000 in 2025 (−23%). Ook in het hoger onderwijs is een vergelijkbare terugloop zichtbaar. Mogelijke oorzaken zijn een curriculum dat vooral focust op technische taalvaardigheden, ten koste van motivatie en culturele context. Dit onderzoek bekijkt hoe goed Nederlanders Duits beheersen en welke factoren daarbij een rol spelen, met focus op leeftijd, opleidingsniveau en woonlocatie (grensregio vs. Randstad). Verwacht wordt dat oudere generaties, hoger opgeleiden en inwoners van grensregio’s beter scoren. Hiervoor wordt een kwantitatieve studie uitgevoerd met een CEFR-gebaseerde taaltoets en een achtergrondvragenlijst, waarna de resultaten per groep worden vergeleken.
 
 ### 20/05/26
+
 Start logboek, we hebben voor vandaag afgesproken voor de kopjes introductie, methoden en materialen een eerste versie af te maken. We gaan vandaag individueel ontdekken wat voor figuren we willen genereren met R.
 
-Ik heb de taak op mij genomen om het excel bestand wat uit de Forms kwam op te schonen aangezien daar niet gemakkelijk juiste/onjuiste antwoorden uit kwamen helaas. Dit hield in dat ik alle antwoorden in een aparte regel zet en daar de antwoorden van de respondents mee vergelijk in een aparte sheet en de rest van de form overneem in de resultaatsheet. Ik heb voor de formules ChatGPT gebruikt.
+Ik heb de taak op mij genomen om het excel bestand wat uit de Forms kwam op te schonen aangezien daar niet gemakkelijk juiste/onjuiste antwoorden uit kwamen helaas. Dit hield in dat ik alle antwoorden in een aparte regel zet en daar de antwoorden van de respondents mee vergelijk in een aparte sheet en de rest van de form overneem in de resultaatsheet. Ik heb voor de formules ChatGPT gebruikt:
+
+```{=--(TRIM(LOWER(Sheet1!Q4))=TRIM(LOWER(Sheet1!Q$1)))}
+```
