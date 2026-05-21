@@ -21,5 +21,12 @@ Start logboek, we hebben voor vandaag afgesproken voor de kopjes introductie, me
 
 Ik heb de taak op mij genomen om het excel bestand wat uit de Forms kwam op te schonen aangezien daar niet gemakkelijk juiste/onjuiste antwoorden uit kwamen helaas. Dit hield in dat ik alle antwoorden in een aparte regel zet en daar de antwoorden van de respondents mee vergelijk in een aparte sheet en de rest van de form overneem in de resultaatsheet. Ik heb voor de formules ChatGPT gebruikt:
 
-```{=--(TRIM(LOWER(Sheet1!Q4))=TRIM(LOWER(Sheet1!Q$1)))}
-```
+`{=--(TRIM(LOWER(Sheet1!Q4))=TRIM(LOWER(Sheet1!Q$1)))}`
+
+## 20/05/26
+
+Ik was vandaag iets te laat bij de workshop schrijven van Dave, gelukkig denk ik dat ik wel prima schrijf. Dus maar zelfstandig bezig. Ik heb het logistic regression voorbeeld wat Emile gister op brightspace had gedeeld gedownload, en probeer nu het model toe te passen op ons dataset. Daarvoor heb ik een testbestandje gemaakt in de repo waarin ik de csv inlaad en daar wat mee ga prutsen.
+
+Het wil allemaal niet echt, het voorbeeld is erg specifiek en onze data is heel anders. Ik heb eerst onze kolomnamen veranderd naar kortere namen aangezien daar hele vragen in stonden.
+
+Daarna heb ik de df gepivot met tidyr zodat de vragen en antwoorden er apart in stonden. Daarna heb ik chatgpt geraadpleegd omdat ik het lastig vond het voorbeeld toe te passen op onze data.

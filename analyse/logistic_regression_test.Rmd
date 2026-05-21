@@ -1,0 +1,62 @@
+---
+title: "Logistic Regression Test"
+author: "Jesse Postma"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(ggplot2)
+library(tidyr)
+```
+
+```{r}
+german_form <- read.table("../ruwe_data/Duitse taalvaardigheid onderzoek(1-154).csv", header = T, sep = ';', fileEncoding = 'latin1')
+colnames(german_form) <- paste0("V", 1:ncol(german_form)) # verander headers naar kortere alternatief
+head(german_form)
+```
+#### Dont forget: V16 is scale 1-5 dus geen vraag
+
+```{r}
+german_long <- pivot_longer(
+  german_form,
+  cols = 16:66,
+  names_to = "question",
+  values_to = "answer"
+)
+summary(german_long)
+german_long$answer <- as.numeric(as.character(german_long$answer))
+german_long <- subset(german_long, answer %in% c(0,1))
+
+german_long$question_num <- as.numeric(gsub("V", "", german_long$question))
+
+model <- glm(answer ~ question_num, data = german_long, family = binomial)
+
+a_0 <- coef(model)[1]
+a_1 <- coef(model)[2]
+
+x_50 <- -a_0 / a_1
+
+pred_data <- data.frame(
+  question_num = seq(
+    min(german_long$question_num),
+    max(german_long$question_num)
+  )
+)
+
+pred_data$prob <- predict(model, newdata = pred_data, type = "response")
+
+ggplot(german_long, aes(x = question_num, y = answer)) +
+  geom_jitter(alpha = 0.1, height = 0.05) +
+  geom_line(data = pred_data, aes(y = prob), color = "darkred") +
+  geom_point(data = pred_data, aes(y = prob), color = "darkred") +
+  labs(
+    x = "Question number",
+    y = "Probability correct",
+    title = "Difficulty curve across questions"
+  ) +
+  theme_minimal()
+
+```
