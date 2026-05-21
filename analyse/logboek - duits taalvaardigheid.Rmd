@@ -1,0 +1,44 @@
+---
+Title: "R-logboek - Duits taalvaardigheid"
+Autheur: "Vani Rembet"
+Output: html_document
+---
+
+# INTRODUCTIE
+
+Wij doen een onderzoek naar de Duitse taalvaardigheid in Nederland. Het doel van dit onderzoek is het gemiddelde taalniveau volgens het CEFR voor Duits onder Nederlanders te bepalen. 
+
+## Onderzoeksvraag
+In hoeverre verschilt de Duitse taalvaardigheid tussen Nederlandse volwassenen van 40 jaar en ouder en jongere volwassenen (18–39 jaar)? 
+
+## Hypothese
+Het gemiddelde niveau onder jongeren is A2, B2 is zeer hoog. Het gemiddelde niveau onder 40-plussers is B1, C1 en C2 zijn extreem hoge niveaus. 
+
+## Gebruikte data
+- Leeftijdsgroepen 
+- Locatie
+- Onderwijsniveau
+- Gebruik aan Duitse taal
+- Hoe belangrijk is de Duitse taal
+
+- Behaalde niveau op basis van de taaltoets
+
+
+# LOGBOEK
+
+---
+Datum: "20-05-2026"
+
+# Doel van de dag
+- Logboek maken
+- Kijken of wij kunnen beginnen met onze vragenlijstresultaat kunnen toepassen in R
+- Werken aan de Journal Club.
+
+# Motivatie
+- Wij krigen als opdracht om een logboek te maken en elke dag bijhouden.
+- Wij hebben inmiddels al genoeg gegevens verzameld door onze vragenlijst aan deelnemers te laten maken.
+- Journal Club moet voor 24/05 al af zijn.
+
+# Wat heb ik gedaan?
+- Logboek gemaakt
+---
