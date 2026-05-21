@@ -13,32 +13,42 @@ library(tidyr)
 ```
 
 ```{r}
+# Lees bestand
 german_form <- read.table("../ruwe_data/Duitse taalvaardigheid onderzoek(1-154).csv", header = T, sep = ';', fileEncoding = 'latin1')
 colnames(german_form) <- paste0("V", 1:ncol(german_form)) # verander headers naar kortere alternatief
+
 head(german_form)
 ```
 #### Dont forget: V16 is scale 1-5 dus geen vraag
 
 ```{r}
+# Data uithalen
 german_long <- pivot_longer(
   german_form,
   cols = 16:66,
   names_to = "question",
   values_to = "answer"
 )
+
 summary(german_long)
+
+# Data opschonen
 german_long$answer <- as.numeric(as.character(german_long$answer))
+
 german_long <- subset(german_long, answer %in% c(0,1))
 
-german_long$question_num <- as.numeric(gsub("V", "", german_long$question))
+# Vraagnummers
+german_long$question_num <- as.numeric(gsub("V", "", german_long$question)) - min(as.numeric(gsub("V", "", german_long$question))) + 1
 
+# Logistic regression
 model <- glm(answer ~ question_num, data = german_long, family = binomial)
 
-a_0 <- coef(model)[1]
-a_1 <- coef(model)[2]
+a_0 <- coef(model)[1] # intercept
+a_1 <- coef(model)[2] # helling
 
-x_50 <- -a_0 / a_1
+x_50 <- -a_0 / a_1 # 50% kans
 
+# Voorspelling: wat is de kans dat iemand een vraag goed beantwoordt, gegeven het vraagnummer?
 pred_data <- data.frame(
   question_num = seq(
     min(german_long$question_num),
@@ -48,15 +58,15 @@ pred_data <- data.frame(
 
 pred_data$prob <- predict(model, newdata = pred_data, type = "response")
 
+# Grafiek maken
 ggplot(german_long, aes(x = question_num, y = answer)) +
   geom_jitter(alpha = 0.1, height = 0.05) +
   geom_line(data = pred_data, aes(y = prob), color = "darkred") +
   geom_point(data = pred_data, aes(y = prob), color = "darkred") +
   labs(
-    x = "Question number",
-    y = "Probability correct",
+    x = "Vraagnummer",
+    y = "Slagingskans",
     title = "Difficulty curve across questions"
   ) +
   theme_minimal()
-
 ```
