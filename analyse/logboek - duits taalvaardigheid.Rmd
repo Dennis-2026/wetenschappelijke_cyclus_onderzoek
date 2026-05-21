@@ -41,4 +41,21 @@ Datum: "20-05-2026"
 
 # Wat heb ik gedaan?
 - Logboek gemaakt
+- Presentatie gemaakt voor Journal Club
 ---
+
+---
+Datum: "21-05-2026"
+
+# Doel van de dag
+- R-code dat Jesse heeft gemaakt even goed schoonmaken
+- Werken aan de Journal Club
+
+# Motivatie
+- R moet deze week af zijn volgens de planning in PvA
+
+# Wat heb ik gedaan?
+- R-code van Jesse verbeterd (zie git)
+- Verder met de Journal Club
+---
+
