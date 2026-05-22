@@ -70,3 +70,30 @@ ggplot(german_long, aes(x = question_num, y = answer)) +
   ) +
   theme_minimal()
 ```
+
+```{r}
+
+# Bereken per persoon het gemiddelde
+persoon_id <- goede_personen[126] #persoon ID
+persoon_data <- subset(german_long, V1 == persoon_id)
+
+model_persoon <- glm(answer ~ question_num, data = persoon_data, family = binomial)
+
+## Voorspellingen
+pred_persoon <- data.frame(
+  question_num = seq(min(persoon_data$question_num), max(persoon_data$question_num))
+)
+pred_persoon$prob <- predict(model_persoon, newdata = pred_persoon, type = "response")
+
+# Plotten
+ggplot(persoon_data, aes(x = question_num, y = answer)) +
+  geom_jitter(alpha = 0.1, height = 0.05) +
+  geom_line(data = pred_persoon, aes(y = prob), color = "darkred") +
+  geom_point(data = pred_persoon, aes(y = prob), color = "darkred") +
+  labs(
+    x = "Vraagnummer",
+    y = "Slagingskans",
+    title = paste("Niveau persoon", persoon_id)
+  ) +
+  theme_minimal()
+```
