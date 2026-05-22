@@ -18,6 +18,7 @@ library(dplyr)
 ### Dit is een implementatie van logistic regression per persoon zodat er een niveau uit valt te halen.
 
 #### Inlezen en fitten aan model
+
 ```{r}
 german_res <- read.table("../ruwe_data/Duitse taalvaardigheid onderzoek(1-154).csv", sep = ';', fileEncoding = 'latin1', skip = 1)
 
@@ -31,7 +32,9 @@ individual_scores <- fscores(irt_model) # haal resultaten uit model
 item_params <- coef(irt_model, IRTpars = TRUE, simplify = TRUE)$item
 head(item_params)
 ```
+
 #### Drempel gebruiken
+
 ```{r}
 # Define the logit for your chosen probability (e.g., 80% mastery)
 prob_target <- 0.60
@@ -43,7 +46,7 @@ diff_B1 <- mean(item_params[paste0("V", 37:46), "b"])
 diff_B2 <- mean(item_params[paste0("V", 47:56), "b"])
 diff_C1C2 <- mean(item_params[paste0("V", 57:66), "b"])
 
-# Calculate the final threshold required to accomplish that level with 80% probability
+# Calculate the final threshold required to accomplish that level with probability
 threshold_A2 <- diff_A2 + logit_add
 threshold_B1 <- diff_B1 + logit_add
 threshold_B2 <- diff_B2 + logit_add
@@ -52,8 +55,11 @@ threshold_C1C2 <- diff_C1C2 + logit_add
 # Print them out so you can see your exact mathematical cut-offs!
 cat("Threshold for A2:", threshold_A2, "\n")
 cat("Threshold for B1:", threshold_B1, "\n")
+cat("Threshold for B2:", threshold_B2, "\n")
+cat("Threshold for C1/2:", threshold_C1C2, "\n")
 
 ```
+
 #### Nu kunnen we nieuwe kolommen genereren met score en niveau pp
 
 ```{r}
@@ -77,18 +83,20 @@ cleaned_data <- german_res %>%
 ```
 
 #### Basic info
+
 ```{r}
 cat("Hoogste score: " ,which.max(cleaned_data$score), "\n")
 cat("Laagste score: " ,which.min(cleaned_data$score), "\n")
 ```
 
 #### Goede namen voor kolommen toevoegen en file uitschrijven
+
 ```{r}
 names <- c("id", "t_start", "t_end", "auth", "consent", "leeftijd", "opleiding", "d_grens", "woonwerk_duits", "fam_kennis", "gebruik_hoevaak", "situaties", "interesse_taal", "interesse_duits", "duits_belang", "schatting", "score", "CEFR")
 
 colnames(cleaned_data) <- names
 
-cleaned_data[99,]
+cleaned_data
 
 write.csv(cleaned_data, "../ruwe_data/cleaned_scores.csv")
 ```
