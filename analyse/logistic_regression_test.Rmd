@@ -13,10 +13,8 @@ library(tidyr)
 ```
 
 ```{r}
-# Lees bestand
-german_form <- read.table("../ruwe_data/Duitse taalvaardigheid onderzoek(1-154).csv", header = T, sep = ';', fileEncoding = 'latin1')
+german_form <- read.table("Duitse taalvaardigheid onderzoek(1-154).csv", header = T, sep = ';', fileEncoding = 'latin1')
 colnames(german_form) <- paste0("V", 1:ncol(german_form)) # verander headers naar kortere alternatief
-
 head(german_form)
 ```
 #### Dont forget: V16 is scale 1-5 dus geen vraag
@@ -25,12 +23,10 @@ head(german_form)
 # Data uithalen
 german_long <- pivot_longer(
   german_form,
-  cols = 16:66,
+  cols = 17:66,
   names_to = "question",
   values_to = "answer"
 )
-
-summary(german_long)
 
 # Data opschonen
 german_long$answer <- as.numeric(as.character(german_long$answer))
@@ -66,34 +62,52 @@ ggplot(german_long, aes(x = question_num, y = answer)) +
   labs(
     x = "Vraagnummer",
     y = "Slagingskans",
-    title = "Difficulty curve across questions"
+    title = "Gemiddelde behaalde niveau van alle deelnemers"
   ) +
   theme_minimal()
 ```
-
 ```{r}
+# Data uithalen
+german_long <- pivot_longer(
+  german_form,
+  cols = 17:66,
+  names_to = "question",
+  values_to = "answer"
+)
 
-# Bereken per persoon het gemiddelde
-persoon_id <- goede_personen[126] #persoon ID
+# Data opschonen
+german_long$answer <- as.numeric(as.character(german_long$answer))
+german_long <- subset(german_long, answer %in% c(0,1))
+
+# Vraagnummers
+german_long$question_num <- as.numeric(gsub("V", "", german_long$question)) - min(as.numeric(gsub("V", "", german_long$question))) + 1
+
+# Niveaus
+german_long$gedeelte <- ceiling(german_long$question_num / 10) * 10
+
+# Aantal goed per persoon per niveau
+scores_gedeelte <- aggregate(answer ~ V1 + gedeelte, data = german_long, FUN = sum)
+
+# Kies een persoon
+persoon_id <- scores_per_persoon$persoon[67]
 persoon_data <- subset(german_long, V1 == persoon_id)
 
-model_persoon <- glm(answer ~ question_num, data = persoon_data, family = binomial)
+# Drempel
+drempel <- 6
 
-## Voorspellingen
-pred_persoon <- data.frame(
-  question_num = seq(min(persoon_data$question_num), max(persoon_data$question_num))
-)
-pred_persoon$prob <- predict(model_persoon, newdata = pred_persoon, type = "response")
+persoon_scores <- subset(scores_gedeelte, V1 == persoon_id)
+persoon_scores <- persoon_scores[order(persoon_scores$gedeelte), ]
+behaald <- persoon_scores$gedeelte[cumprod(persoon_scores$answer >= drempel) == 1] # cumall: TRUE zolang alle voorgaande ook TRUE zijn, stopt bij eerste FALSE
+hoogste_niveau <- ifelse(length(behaald) > 0, max(behaald), 0)
 
 # Plotten
-ggplot(persoon_data, aes(x = question_num, y = answer)) +
+ggplot(persoon_data, aes(x = factor(gedeelte), y = answer)) +
   geom_jitter(alpha = 0.1, height = 0.05) +
-  geom_line(data = pred_persoon, aes(y = prob), color = "darkred") +
-  geom_point(data = pred_persoon, aes(y = prob), color = "darkred") +
+  geom_boxplot() +
   labs(
     x = "Vraagnummer",
     y = "Slagingskans",
-    title = paste("Niveau persoon", persoon_id)
+    title = paste("Niveau persoon", persoon_id, "->", hoogste_niveau)
   ) +
   theme_minimal()
 ```
