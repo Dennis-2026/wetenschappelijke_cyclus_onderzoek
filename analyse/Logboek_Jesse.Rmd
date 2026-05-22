@@ -38,3 +38,19 @@ Vandaag 8:30 begonnen, Dave was daar blij mee. Ik realiseerde mij gister nog dat
 Het is inmiddels gelukt, ik met wat hulp van NotebookLM Item Response Theory geimplementeerd met de library MIRT. Item Response Theory is een model wat vaak wordt gebruikt in educatie en psychologie en geeft per persoon een score die gemakkelijk kan worden omgezet naar CEFR.
 
 Vani heeft ook geprobeerd dit te tackelen en heeft een mooie visuele representatie van de niveaus, in combinatie is dit erg handig denk ik dus we beide implementaties houden voor nu.
+
+Ik heb nog thresholding toegevoegd aan de scoring, nu moet iemand 60 % goed hebben. Vani en mijn approaches verschillen nog wel wat. Dus dat proberen we te verhelpen, maar ik weet niet waar het probleem nu nog moet liggen - zeker niet met de nieuwe thresholding:
+
+```{bash}
+prob_target <- 0.60
+logit_add <- log(prob_target / (1 - prob_target))
+
+            ...
+            score < threshold_A2 ~ "A1",
+            score >= threshold_A2 & score < threshold_B1 ~ "A2",
+            score >= threshold_B1 & score < threshold_B2 ~ "B1",
+            score >= threshold_B2 & score < threshold_C1C2 ~ "B2",
+            score >= threshold_C1C2 ~ "C1/C2",
+            ...
+
+```
