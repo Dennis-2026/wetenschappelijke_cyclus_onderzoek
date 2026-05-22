@@ -1,6 +1,6 @@
 ---
 title: "Logistic Regression Test"
-author: "Jesse Postma"
+author: "Jesse Postma, Vani Rembet"
 date: "`r Sys.Date()`"
 output: html_document
 ---
