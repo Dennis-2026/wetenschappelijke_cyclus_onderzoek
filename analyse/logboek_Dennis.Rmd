@@ -1,0 +1,27 @@
+---
+title: "logboek"
+output: html_document
+date: "2026-05-20"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+20-5-2026
+Ik ga nu werken aan de introductie van onze paper. Ik ga eerst kijken welke relevante informatie ik kan vinden in onze literatuur over de motivatie en het niveau van jongeren aangaande de Duitse taal.Nu voeg ik een nieuw artikel toe aan onze literatuurlijst. Het artikel is van de Radboud Universiteit en het legt uit wat de officiële taalniveaus zijn volgens de CEFR-taalniveaus. Dit artikel voeg ik toe, omdat ik in de introductie wil uitleggen welke officiële niveaus van de Duitse taal worden erkend en dat moet ik met literatuur kunnen onderbouwen. Ik ga nu mijn artikel lezen van de journal club.
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
