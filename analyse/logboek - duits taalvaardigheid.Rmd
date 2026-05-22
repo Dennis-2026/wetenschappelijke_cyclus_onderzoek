@@ -32,12 +32,12 @@ Datum: "20-05-2026"
 # Doel van de dag
 - Logboek maken
 - Kijken of wij kunnen beginnen met onze vragenlijstresultaat kunnen toepassen in R
-- Werken aan de Journal Club.
+- Werken aan de Journal Club
 
 # Motivatie
-- Wij krigen als opdracht om een logboek te maken en elke dag bijhouden.
-- Wij hebben inmiddels al genoeg gegevens verzameld door onze vragenlijst aan deelnemers te laten maken.
-- Journal Club moet voor 24/05 al af zijn.
+- Wij krijgen als opdracht om een logboek te maken en het elke dag bij te houden
+- Wij hebben inmiddels al genoeg gegevens verzameld door onze vragenlijst aan deelnemers te laten maken
+- Journal Club moet voor 24/05 al af zijn
 
 # Wat heb ik gedaan?
 - Logboek gemaakt
@@ -59,3 +59,20 @@ Datum: "21-05-2026"
 - Verder met de Journal Club
 ---
 
+---
+Datum: "22-05-2026"
+
+# Doel van de dag
+- R-code verbeteren
+- Andere grafieken maken voor andere deelvragen in onze R-code
+- Laatste dingen voor Journal Club afmaken en eventueel inleveren
+- Elkaars Git beoordelen
+
+# Motivatie
+- We hebben een grafiek gemaakt voor een gemiddelde niveau van alle deelnemers, maar nog niet op basis van 1 persoon
+- Taak gekregen om elkaars Git te beoordelen
+- Journal Club graag voor mezelf voor het weekend afmaken zodat weekend alleen hoeft te oefenen
+
+# Wat heb ik gedaan?
+- 
+---
