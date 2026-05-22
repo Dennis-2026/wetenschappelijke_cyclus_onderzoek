@@ -23,10 +23,14 @@ Ik heb de taak op mij genomen om het excel bestand wat uit de Forms kwam op te s
 
 `{=--(TRIM(LOWER(Sheet1!Q4))=TRIM(LOWER(Sheet1!Q$1)))}`
 
-## 20/05/26
+### 21/05/26
 
 Ik was vandaag iets te laat bij de workshop schrijven van Dave, gelukkig denk ik dat ik wel prima schrijf. Dus maar zelfstandig bezig. Ik heb het logistic regression voorbeeld wat Emile gister op brightspace had gedeeld gedownload, en probeer nu het model toe te passen op ons dataset. Daarvoor heb ik een testbestandje gemaakt in de repo waarin ik de csv inlaad en daar wat mee ga prutsen.
 
 Het wil allemaal niet echt, het voorbeeld is erg specifiek en onze data is heel anders. Ik heb eerst onze kolomnamen veranderd naar kortere namen aangezien daar hele vragen in stonden.
 
-Daarna heb ik de df gepivot met tidyr zodat de vragen en antwoorden er apart in stonden. Daarna heb ik chatgpt geraadpleegd omdat ik het lastig vond het voorbeeld toe te passen op onze data.
+Daarna heb ik de df gepivot met tidyr zodat de vragen en antwoorden er apart in stonden. Daarna heb ik chatgpt geraadpleegd omdat ik het lastig vond het voorbeeld toe te passen op onze data. Uiteindelijk wel een mooi model en grafiekje erbij.
+
+### 22/05/26
+
+Vandaag 8:30 begonnen, Dave was daar blij mee. Ik realiseerde mij gister nog dat het logistic model wat ik gister had uitgewerkt alleen op het totaalplaatje slaat. Dus het verteld alleen hoe moeilijk elke vraag is (kans op goed hebben). Dit geeft geen info over het niveau van een individu zelf, dus ik wil graag vandaag proberen om dat te gaan doen en om dan ook onze data aan te passen met nieuwe kolommen voor het niveau/score (2 zodat we een catagorische niveau hebben en een numerische score).
