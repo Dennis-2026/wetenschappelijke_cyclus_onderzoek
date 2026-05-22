@@ -1,5 +1,5 @@
 ---
-Title: "R-logboek - Duits taalvaardigheid"
+Title: "Logboek - Vani"
 Autheur: "Vani Rembet"
 Output: html_document
 ---
