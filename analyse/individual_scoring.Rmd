@@ -1,0 +1,67 @@
+---
+title: "Logistic Individual"
+author: "Jesse Postma"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(ggplot2)
+library(tidyr)
+library(mirt)
+library(dplyr)
+
+```
+
+### Dit is een implementatie van logistic regression per persoon zodat er een niveau uit valt te halen.
+
+#### Inlezen en fitten aan model
+```{r}
+german_res <- read.table("../ruwe_data/Duitse taalvaardigheid onderzoek(1-154).csv", sep = ';', fileEncoding = 'latin1', skip = 1)
+
+
+questions <- german_res %>% select(V17:V66) # pak alle antwoorden (1/0)
+
+irt_model <- mirt(data = questions, model = 1, itemtype = "Rasch")
+# fit aan een irt model
+
+individual_scores <- fscores(irt_model) # haal resultaten uit model
+```
+#### Nu kunnen we nieuwe kolommen genereren met score en niveau pp
+
+```{r}
+# met dplyr df aanpassen:
+
+cleaned_data <- german_res %>% 
+    mutate(
+        score = as.numeric(individual_scores),
+        
+        CEFR = case_when(
+            score <= -1.0 ~ "A1",
+            score >= -1.0 & score < -0.5 ~ "A2",
+            score >= -0.5 & score < 0.5 ~ "B1",
+            score >= 0.5 & score < 1.5 ~ "B2",
+            score >= 1.5 ~ "C1/C2",
+            TRUE ~ "Unknown"
+        )
+    ) %>% 
+    select(-(V17:V66))
+
+```
+
+#### Basic info
+```{r}
+cat("Hoogste score: " ,which.max(cleaned_data$score), "\n")
+cat("Laagste score: " ,which.max(cleaned_data$score), "\n")
+```
+
+#### Goede namen voor kolommen toevoegen en file uitschrijven
+```{r}
+names <- c("id", "t_start", "t_end", "auth", "consent", "leeftijd", "opleiding", "d_grens", "woonwerk_duits", "fam_kennis", "gebruik_hoevaak", "situaties", "interesse_taal", "interesse_duits", "duits_belang", "schatting", "score", "CEFR")
+
+colnames(cleaned_data) <- names
+
+write.csv(cleaned_data, "../ruwe_data/cleaned_scores.csv")
+```
