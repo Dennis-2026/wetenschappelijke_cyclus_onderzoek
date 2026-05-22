@@ -54,3 +54,5 @@ logit_add <- log(prob_target / (1 - prob_target))
             ...
 
 ```
+
+We hebben bij statistiek vanmiddag nog met Emile gesproken en besloten om inderdaad beide approaches te houden, elk heeft zijn voordeel. Uit beide kunnen we goede resultaten houden.
