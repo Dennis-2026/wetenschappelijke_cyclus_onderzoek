@@ -54,7 +54,7 @@ cleaned_data <- german_res %>%
 #### Basic info
 ```{r}
 cat("Hoogste score: " ,which.max(cleaned_data$score), "\n")
-cat("Laagste score: " ,which.max(cleaned_data$score), "\n")
+cat("Laagste score: " ,which.min(cleaned_data$score), "\n")
 ```
 
 #### Goede namen voor kolommen toevoegen en file uitschrijven

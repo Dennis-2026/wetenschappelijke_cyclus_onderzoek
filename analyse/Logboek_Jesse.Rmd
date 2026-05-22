@@ -33,4 +33,8 @@ Daarna heb ik de df gepivot met tidyr zodat de vragen en antwoorden er apart in 
 
 ### 22/05/26
 
-Vandaag 8:30 begonnen, Dave was daar blij mee. Ik realiseerde mij gister nog dat het logistic model wat ik gister had uitgewerkt alleen op het totaalplaatje slaat. Dus het verteld alleen hoe moeilijk elke vraag is (kans op goed hebben). Dit geeft geen info over het niveau van een individu zelf, dus ik wil graag vandaag proberen om dat te gaan doen en om dan ook onze data aan te passen met nieuwe kolommen voor het niveau/score (2 zodat we een catagorische niveau hebben en een numerische score).
+Vandaag 8:30 begonnen, Dave was daar blij mee. Ik realiseerde mij gister nog dat het logistic model wat ik gister had uitgewerkt alleen op het totaalplaatje slaat. Dus het vertelt alleen hoe moeilijk elke vraag bevonden is (kans op goed hebben). Dit geeft geen info over het niveau van een individu zelf, dus ik wil graag vandaag proberen om dat te gaan doen en om dan ook onze data aan te passen met nieuwe kolommen voor het niveau/score (2 zodat we een catagorische niveau hebben en een numerische score).
+
+Het is inmiddels gelukt, ik met wat hulp van NotebookLM Item Response Theory geimplementeerd met de library MIRT. Item Response Theory is een model wat vaak wordt gebruikt in educatie en psychologie en geeft per persoon een score die gemakkelijk kan worden omgezet naar CEFR.
+
+Vani heeft ook geprobeerd dit te tackelen en heeft een mooie visuele representatie van de niveaus, in combinatie is dit erg handig denk ik dus we beide implementaties houden voor nu.
