@@ -5,14 +5,13 @@ Output: html_document
 ---
 
 # INTRODUCTIE
-
 Wij doen een onderzoek naar de Duitse taalvaardigheid in Nederland. Het doel van dit onderzoek is het gemiddelde taalniveau volgens het CEFR voor Duits onder Nederlanders te bepalen. 
 
 ## Onderzoeksvraag
 In hoeverre verschilt de Duitse taalvaardigheid tussen Nederlandse volwassenen van 40 jaar en ouder en jongere volwassenen (18–39 jaar)? 
 
 ## Hypothese
-Het gemiddelde niveau onder jongeren is A2, B2 is zeer hoog. Het gemiddelde niveau onder 40-plussers is B1, C1 en C2 zijn extreem hoge niveaus. 
+Het gemiddelde niveau onder jongeren is A2 en B2 is zeer hoog. Het gemiddelde niveau onder 40-plussers is B1 en C1+ zijn extreem hoge niveaus. 
 
 ## Gebruikte data
 - Leeftijdsgroepen 
@@ -21,7 +20,7 @@ Het gemiddelde niveau onder jongeren is A2, B2 is zeer hoog. Het gemiddelde nive
 - Gebruik aan Duitse taal
 - Hoe belangrijk is de Duitse taal
 
-- Behaalde niveau op basis van de taaltoets
+- Behaalde niveau op basis van de taaltoets (!!!)
 
 
 # LOGBOEK
@@ -74,5 +73,7 @@ Datum: "22-05-2026"
 - Journal Club graag voor mezelf voor het weekend afmaken zodat weekend alleen hoeft te oefenen
 
 # Wat heb ik gedaan?
-- 
+- Een aangepaste grafiek gemaakt waarmee je ziet wat voor niveau per persoon heeft gehaald op basis van de hoeveel gehaalde vragen per niveau.
+- Een drempel toegevoegd in de code om niveau makkelijker te bepalen
+- Verder met de Journal Club gewerkt. Het is nog steeds niet af :(
 ---
