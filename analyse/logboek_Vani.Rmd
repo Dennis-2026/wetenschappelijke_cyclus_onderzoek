@@ -77,3 +77,21 @@ Datum: "22-05-2026"
 - Een drempel toegevoegd in de code om niveau makkelijker te bepalen
 - Verder met de Journal Club gewerkt. Het is nog steeds niet af :(
 ---
+
+---
+Datum: "25-05-2026"
+
+# Doel van de dag
+- R-code verbeteren
+- Laatste dingen voor Journal Club afmaken en eventueel inleveren
+- Eventueel andere grafieken maken voor andere deelvragen in R
+
+# Motivatie
+- Van Jesse en Dennis een probleem gekregen over mijn R-code dat gefixt moet
+- Journal Club moet echt af zijn voor 26/05
+- Mocht ik nog tijd heb, dan misschien alvast beginnen met het maken van andere grafieken
+
+# Wat heb ik gedaan?
+- Probleem van mijn R-code gefixt: scores_per_persoon was niet gedefinieerd, maar nu wel.
+- 
+---
