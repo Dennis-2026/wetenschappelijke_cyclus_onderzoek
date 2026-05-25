@@ -89,6 +89,9 @@ german_long$gedeelte <- ceiling(german_long$question_num / 10) * 10
 scores_gedeelte <- aggregate(answer ~ V1 + gedeelte, data = german_long, FUN = sum)
 
 # Kies een persoon
+scores_per_persoon <- aggregate(answer ~ V1, data = german_long, FUN = mean)
+colnames(scores_per_persoon) <- c("persoon", "score")
+
 persoon_id <- scores_per_persoon$persoon[67]
 persoon_data <- subset(german_long, V1 == persoon_id)
 
