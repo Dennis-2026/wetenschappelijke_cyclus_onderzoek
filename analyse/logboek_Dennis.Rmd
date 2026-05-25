@@ -1,12 +1,8 @@
 ---
-title: "logboek"
+title: "logboek_Dennis"
 output: html_document
 date: "2026-05-20"
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 ## R Markdown
 20-5-2026
@@ -15,16 +11,6 @@ Ik ga nu werken aan de introductie van onze paper. Ik ga eerst kijken welke rele
 22-5-2026
 Ik ga werken aan mijn presentatie van de journalclub en mijn artikel lezen.
 
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+25-5-2026
+Ik ga mijn artikel lezen en als ik iets niet begrijp ga ik het opzoeken.
+Ik ga kijken of ik de logistische regresse van Vani kan gebruiken om de niveaus van mensen te bepalen en te visualiseren.
