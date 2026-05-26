@@ -2,6 +2,8 @@
 title: "logboek_jesse"
 author: "Jesse Postma"
 date: '`r Sys.Date()`'
+bibliography: references_jesse.bib
+link-citations: TRUE
 output: html_document
 ---
 
@@ -33,15 +35,45 @@ Daarna heb ik de df gepivot met tidyr zodat de vragen en antwoorden er apart in 
 
 ### 22/05/26
 
-Vandaag 8:30 begonnen, Dave was daar blij mee. Ik realiseerde mij gister nog dat het logistic model wat ik gister had uitgewerkt alleen op het totaalplaatje slaat. Dus het vertelt alleen hoe moeilijk elke vraag bevonden is (kans op goed hebben). Dit geeft geen info over het niveau van een individu zelf, dus ik wil graag vandaag proberen om dat te gaan doen en om dan ook onze data aan te passen met nieuwe kolommen voor het niveau/score (2 zodat we een catagorische niveau hebben en een numerische score).
+Vandaag 8:30 begonnen, Dave was daar blij mee. Ik realiseerde mij gister nog dat het logistic model wat ik gister had uitgewerkt alleen op het totaalplaatje slaat (zie figuur onder). Dus het vertelt alleen hoe moeilijk elke vraag bevonden is (kans op goed hebben). Dit geeft geen info over het niveau van een individu zelf, dus ik wil graag vandaag proberen om dat te gaan doen en om dan ook onze data aan te passen met nieuwe kolommen voor het niveau/score (2 zodat we een catagorische niveau hebben en een numerische score).
 
-Het is inmiddels gelukt, ik met wat hulp van NotebookLM Item Response Theory geimplementeerd met de library MIRT. Item Response Theory is een model wat vaak wordt gebruikt in educatie en psychologie en geeft per persoon een score die gemakkelijk kan worden omgezet naar CEFR.
+![](images/clipboard-3492323176.png)
+
+Het is inmiddels gelukt, ik met wat hulp van NotebookLM Item Response Theory geimplementeerd met de library MIRT. Item Response Theory is een model wat vaak wordt gebruikt in educatie en psychologie en geeft per persoon een score die gemakkelijk kan worden omgezet naar CEFR[@Krabbe2017].
+
+<details>
+
+<summary>*promts used:*</summary>
+
+> I dont understand the logistic regression and the way it is implemented here. Also, this model is based on all answers which means we cant find the level of an individual easily.}
+
+> So, i am not very indulged in R so can you just go through the steps for the current implementation a bit deeper and after that we can look at using MELR or IRT.
+
+> ok, aside from limited R experience i think i understand now. Since you said IRT i think that is a good direction to follow. However, i want to add some context: this is concerning a dataset where the first couple of columns are background questions (e.g. how far do you live from ..) and from V17 it starts a language proficiency test. our goal is to not only generate an arbitrary score for each individual but also link their score to a CEFR level for catagorical labeling
+
+> ok, walk me through the implementation and also: i need to manipulate my inital dataset to include the columns (CEFR, score) which means i want a catagorical cefr level per person and a mathematically easy numerical score aswell for calculations. also, when i have that i want to remove the initial v17-v66 columns and output a cleaned csv for analysis.
+
+> example: teammate made a graphical representation of level with logistic regression but there are some differences between our results. i tamper with the numbers but they have exclaimed that i should use a threshold to measure if CEFR levels have been accomplished
+
+> walk me through this please
+
+</details>
+
+
+voorbeeld (shortened names):
+
+| ... | int taal | int duits | belang duits | eig schatt |        score | CEFR |
+|-----|:---------|:----------|:-------------|-----------:|-------------:|:-----|
+| ... | ja       | nee       | ja           |          1 | -1.160389810 | A1   |
+| ... | ja       | nee       | ja           |          2 |  0.310393979 | B1   |
+| ... | ja       | nee       | nee          |          2 | -1.674543131 | A1   |
+| ... | ja       | nee       | nee          |          2 | -0.191005321 | B1   |
 
 Vani heeft ook geprobeerd dit te tackelen en heeft een mooie visuele representatie van de niveaus, in combinatie is dit erg handig denk ik dus we beide implementaties houden voor nu.
 
-Ik heb nog thresholding toegevoegd aan de scoring, nu moet iemand 60 % goed hebben. Vani en mijn approaches verschillen nog wel wat. Dus dat proberen we te verhelpen, maar ik weet niet waar het probleem nu nog moet liggen - zeker niet met de nieuwe thresholding:
+Ik heb nog thresholding toegevoegd aan de scoring, nu moet iemand 60 % goed hebben (volgens CEFR regelgeving). Vani en mijn approaches verschillen nog wel wat. Dus dat proberen we te verhelpen, maar ik weet niet waar het probleem nu nog moet liggen - zeker niet met de nieuwe thresholding die gebaseerd is op alle antwoorden ipv random waardes te kiezen:
 
-```{bash}
+```{r, eval = F}
 prob_target <- 0.60
 logit_add <- log(prob_target / (1 - prob_target))
 
@@ -55,4 +87,8 @@ logit_add <- log(prob_target / (1 - prob_target))
 
 ```
 
-We hebben bij statistiek vanmiddag nog met Emile gesproken en besloten om inderdaad beide approaches te houden, elk heeft zijn voordeel. Uit beide kunnen we goede resultaten houden.
+We hebben bij statistiek vanmiddag nog met Emile gesproken en besloten om inderdaad beide approaches te houden, elk heeft zijn voordeel: LogReg geeft meer toepasselijke score, IRT gemakkelijker uit te lezen en relatief. Uit beide kunnen we goede resultaten halen. De resultaten verschillen overigens gewoon omdat het verschillende modellen zijn, dat maakt in principe niet uit.
+
+### 23/05/26
+
+In het weekend was het het plan om een scatterplot te maken van beide implementaties door Dennis, maar dat is niet gelukt helaas dus we lopen nu weer achter op schema. Ik heb daardoor eigenlijk geen idee wat ik nu kan doen omdat het probleem niet bij mijn implementatie lag. Ik denk dat ik vanochtend vooral ga werken aan mijn eigen journalclub presentatie.
