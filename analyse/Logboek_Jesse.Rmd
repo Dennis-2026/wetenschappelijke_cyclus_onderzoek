@@ -1,5 +1,6 @@
 ---
-title: "logboek_jesse"
+title: "Logboek Jesse"
+subtitle: "Wetenschappelijke Cyclus | Duitse Taal"
 author: "Jesse Postma"
 date: '`r Sys.Date()`'
 bibliography: references_jesse.bib
@@ -24,6 +25,23 @@ Start logboek, we hebben voor vandaag afgesproken voor de kopjes introductie, me
 Ik heb de taak op mij genomen om het excel bestand wat uit de Forms kwam op te schonen aangezien daar niet gemakkelijk juiste/onjuiste antwoorden uit kwamen helaas. Dit hield in dat ik alle antwoorden in een aparte regel zet en daar de antwoorden van de respondents mee vergelijk in een aparte sheet en de rest van de form overneem in de resultaatsheet. Ik heb voor de formules ChatGPT gebruikt:
 
 `{=--(TRIM(LOWER(Sheet1!Q4))=TRIM(LOWER(Sheet1!Q$1)))}`
+
+<details>
+
+<summary>*promts used:*</summary>
+> i exported a excel doc from forms which doesnt contain right/wrong answer instead it contains the full answer. How can i convert these into true/false values?
+
+> ok, i put all answers in the top row, i skip a couple of cells because they are not test answers rather background info. the test starts from column AR and ends at Gi. in between of those columns there are columns that contain "Points - {question}" and "Feedback - {question}" which i want removed.
+
+> id rather have it different, i have answers in row 1, headers in row2, 3-156 are student answers
+
+> ok yeah i want it in the same sheet but i cant remove the points, feedback : it just gives me back columns with "column1", "column2" etc
+
+> so i put this: =--(TRIM(LOWER(AR3))=TRIM(LOWER(AR$1))) into the same cell that already holds an answer?
+
+> ok, yeah seperate sheet it is; also answers start from Q now
+
+</details>
 
 ### 21/05/26
 
@@ -92,3 +110,7 @@ We hebben bij statistiek vanmiddag nog met Emile gesproken en besloten om inderd
 ### 23/05/26
 
 In het weekend was het het plan om een scatterplot te maken van beide implementaties door Dennis, maar dat is niet gelukt helaas dus we lopen nu weer achter op schema. Ik heb daardoor eigenlijk geen idee wat ik nu kan doen omdat het probleem niet bij mijn implementatie lag. Ik denk dat ik vanochtend vooral ga werken aan mijn eigen journalclub presentatie.
+
+Ik en Vani hebben nog deel 3 van de FAIR-checklist ingevuld, niet veel werk we hadden maar 1 verschil: bestandsnaam.
+
+

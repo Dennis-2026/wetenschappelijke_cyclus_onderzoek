@@ -13,7 +13,7 @@
 
 <meta name="date" content="2026-05-26" />
 
-<title>logboek_jesse</title>
+<title>Logboek Jesse</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -372,7 +372,8 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">logboek_jesse</h1>
+<h1 class="title toc-ignore">Logboek Jesse</h1>
+<h3 class="subtitle">Wetenschappelijke Cyclus | Duitse Taal</h3>
 <h4 class="author">Jesse Postma</h4>
 <h4 class="date">2026-05-26</h4>
 
@@ -409,6 +410,39 @@ aparte regel zet en daar de antwoorden van de respondents mee vergelijk
 in een aparte sheet en de rest van de form overneem in de
 resultaatsheet. Ik heb voor de formules ChatGPT gebruikt:</p>
 <p><code>{=--(TRIM(LOWER(Sheet1!Q4))=TRIM(LOWER(Sheet1!Q$1)))}</code></p>
+<details>
+<summary>
+<em>promts used:</em>
+</summary>
+<blockquote>
+<p>i exported a excel doc from forms which doesnt contain right/wrong
+answer instead it contains the full answer. How can i convert these into
+true/false values?</p>
+</blockquote>
+<blockquote>
+<p>ok, i put all answers in the top row, i skip a couple of cells
+because they are not test answers rather background info. the test
+starts from column AR and ends at Gi. in between of those columns there
+are columns that contain “Points - {question}” and “Feedback -
+{question}” which i want removed.</p>
+</blockquote>
+<blockquote>
+<p>id rather have it different, i have answers in row 1, headers in
+row2, 3-156 are student answers</p>
+</blockquote>
+<blockquote>
+<p>ok yeah i want it in the same sheet but i cant remove the points,
+feedback : it just gives me back columns with “column1”, “column2”
+etc</p>
+</blockquote>
+<blockquote>
+<p>so i put this: =–(TRIM(LOWER(AR3))=TRIM(LOWER(AR$1))) into the same
+cell that already holds an answer?</p>
+</blockquote>
+<blockquote>
+<p>ok, yeah seperate sheet it is; also answers start from Q now</p>
+</blockquote>
+</details>
 </div>
 <div id="section-1" class="section level3">
 <h3>21/05/26</h3>
@@ -577,6 +611,8 @@ nu weer achter op schema. Ik heb daardoor eigenlijk geen idee wat ik nu
 kan doen omdat het probleem niet bij mijn implementatie lag. Ik denk dat
 ik vanochtend vooral ga werken aan mijn eigen journalclub
 presentatie.</p>
+<p>Ik en Vani hebben nog deel 3 van de FAIR-checklist ingevuld, niet
+veel werk we hadden maar 1 verschil: bestandsnaam.</p>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Krabbe2017" class="csl-entry">
 Krabbe, Paul F. M. 2017. <span>“Item Response Theory.”</span> <em>The
