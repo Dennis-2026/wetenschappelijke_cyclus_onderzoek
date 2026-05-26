@@ -40,6 +40,8 @@ head(item_params)
 prob_target <- 0.60
 logit_add <- log(prob_target / (1 - prob_target))
 
+correction <- 0.3 # arbitraire waarde om meer uit te lijnen
+
 diff_A1 <- mean(item_params[paste0("V", 17:26), "b"])
 diff_A2 <- mean(item_params[paste0("V", 27:36), "b"])
 diff_B1 <- mean(item_params[paste0("V", 37:46), "b"])
