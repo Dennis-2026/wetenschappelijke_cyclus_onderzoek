@@ -22,6 +22,14 @@ de presentatie zetten. Dit doe ik, omdat de powerpoint dan overzichtelijk de bel
  
 27-5-2026
 Ik heb de powerpoint ingeleverd.
-Het doel van vandaag is om beter voorbereid te zijn op de presentatie van de journalclub op 29 mei 2026. Ik heb inmiddels de onderwerpen die ik ga aankaarten in de powerpoint gezet als steekwoorden en als afbeeldingen. Deze onderwerpen ga ik één voor één bij langs. Als ik iets niet kan uitleggen, ga ik het onderwerp opzoeken in het artikel om te kijken of het daar uitgelegd wordt. Zo niet, dan ga ik het onderwerp opzoeken in google. Ook ga ik vantevoren een aantal vragen bedenken die gesteld kunnen worden na de presentatie zodat ik die vragen kan beantwoorden. Ik kies voor deze werkwijze, omdat ik dan alle onderwerpen die ik het meest belangrijk vind om te vertellen goed kan uitleggen. Ik heb als eerste opgezocht wat ImageJ precies is via google. Ik heb deze zoekopdracht in google: 'ImageJ'. Vervolgens heb ik via wikipedia informatie gekregen over ImageJ: https://en.wikipedia.org/wiki/ImageJ
+Het doel van vandaag is om beter voorbereid te zijn op de presentatie van de journalclub op 29 mei 2026. Ik heb inmiddels de onderwerpen die ik ga aankaarten in de powerpoint gezet als steekwoorden en als afbeeldingen. Deze onderwerpen ga ik één voor één bij langs. Als ik iets niet kan uitleggen, ga ik het onderwerp opzoeken in het artikel om te kijken of het daar uitgelegd wordt. Zo niet, dan ga ik het onderwerp opzoeken in google. Ook ga ik vantevoren een aantal vragen bedenken die gesteld kunnen worden na de presentatie zodat ik die vragen kan beantwoorden. Ik kies voor deze werkwijze, omdat ik dan alle onderwerpen die ik het meest belangrijk vind om te vertellen goed kan uitleggen. Ik heb als eerste opgezocht wat ImageJ precies is via google. Ik heb deze zoekopdracht in google: 'ImageJ'. Vervolgens heb ik via wikipedia informatie gekregen over ImageJ: https://en.wikipedia.org/wiki/ImageJ.
+Ik heb nu op google gezocht naar de betekenis van iterative imputation. Mijn zoekopdracht was: 'iterative imputation', waarna ik de volgende website gebruikte om informatie uit te halen: https://machinelearningmastery.com/iterative-imputation-for-missing-values-in-machine-learning/
+Ik heb deze zoekopdracht gebruikt in google: 'PAST software' om informatie over het programma PAST te zoeken. Ik heb deze website gebruikt als informatiebron: https://palaeo-electronica.org/2001_1/past/pastprog/index.html.
+
+Ik gebruik deze zoekopdracht in google om informatie over BayesTraits te krijgen: 'BayesTraits'. Ik gebruik deze website als informatiebron: https://www.evolution.reading.ac.uk/BayesTraitsV5.0.3/BayesTraitsV5.0.3.html.
+
+Ik gebruik deze zoekopdracht in google om uit te zoeken wat de APE package in R is: 'APE package in R'. Ik gebruik deze website als informatiebron: https://academic.oup.com/bioinformatics/article/20/2/289/204981
+
+Ik gebruik deze zoekopdracht om uit te zoeken wat de ACE functie in de APE package in R doet: 'APE package in R ACE function'. Ik gebruik deze site als informatiebron: https://www.rdocumentation.org/packages/ape/versions/5.8-1/topics/ace. 
 
 
