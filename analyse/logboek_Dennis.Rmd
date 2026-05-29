@@ -30,6 +30,8 @@ Ik gebruik deze zoekopdracht in google om informatie over BayesTraits te krijgen
 
 Ik gebruik deze zoekopdracht in google om uit te zoeken wat de APE package in R is: 'APE package in R'. Ik gebruik deze website als informatiebron: https://academic.oup.com/bioinformatics/article/20/2/289/204981
 
-Ik gebruik deze zoekopdracht om uit te zoeken wat de ACE functie in de APE package in R doet: 'APE package in R ACE function'. Ik gebruik deze site als informatiebron: https://www.rdocumentation.org/packages/ape/versions/5.8-1/topics/ace. 
+Ik gebruik deze zoekopdracht om uit te zoeken wat de ACE functie in de APE package in R doet: 'APE package in R ACE function'. Ik gebruik deze site als informatiebron: https://www.rdocumentation.org/packages/ape/versions/5.8-1/topics/ace.
+
+Vervolgstappen: ik ga morgen de belangrijke punten uit het artikel die in de powerpoint staan uit mijn hoofd leren en de presentatie oefenen.
 
 
