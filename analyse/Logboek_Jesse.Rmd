@@ -149,7 +149,7 @@ All of the above \^, toch niet heel serieus. Gister werd gezegd dat het toch voo
 
 ### 29/05/26
 
-Vandaag Alphafold presenteren voor de JournalClub, zin in..
+Vandaag Alphafold presenteren voor de JournalClub.
 
 #### Wat ga ik doen vandaag:
 
@@ -175,5 +175,91 @@ Vandaag Alphafold presenteren voor de JournalClub, zin in..
 
 </details>
 
+------------------------------------------------------------------------
 
 - Logboek bijgewerkt :)
+
+### 31/05/26
+
+#### Wat ga ik vandaag doen:
+
+- Aantal suggesties voor wat we kunnen gaan visualiseren in de teamsthread zetten.
+- Volgorde van paper schrijven beetje vastleggen via de volgorde van de suggesties.
+- verwijderen excel remnant van editen (\~filename ding).
+
+------------------------------------------------------------------------
+
+Niemand anders heeft nog suggesties erin geplaatst, niet heel erg. Nu kan ik een beetje sturen waar het heen gaat en ik denk dat ik daar voorkeur aan heb dan dat iedereen door elkaar heen suggereert.
+
+Ik laat mij een beetje sturen door AI, heb gevraagd wat een goede volgorde is voor de paper/visualisaties en daaruit ook mogelijk te vergelijken variabelen meegenomen.
+
+#### Wat heb ik gedaan:
+
+- Suggesties gemaakt (zie summary onder).
+- Volgorde van paper schrijven vastgelegd d.m.v. volgorde suggesties.
+- Excel remnant verwijderd.
+
+<details>
+
+<summary>*suggesties*</summary>
+
+1.  **Beschrijven resultaten:**
+
+- Aantal respondenten
+
+- verdeling leeftijden
+
+- verdeling opleidingen
+
+- verdeling afstand grens
+
+- verdeling niveaus (bar plot)
+
+- gem theta score (irt) (histogram miss normaalcurve te zien) (theta score p leeftijdsgrp boxplot?)
+
+2.  **Hoofdvraag antwoorden:**
+
+- Gemiddelde niveau per leeftijdsgroep (tabel: groep, gem theta, SD, gem CEFR, irq/1.349?)
+
+- percentage niv x per leeftijdsgroep (tabel: groep. A1, A2, ..)
+
+3.  **hypotheses testen:**
+
+- Vergelijk gem score (theta wss) per groep met t-toets?
+- geef terug: gemiddelden verschil p-waarde effectgrootte (Cohen's d)
+- vb voor res: De gemiddelde theta-score van de groep 40+ (M = 0.41) was significant hoger dan die van de groep 18–39 (M = -0.12), t(154)=3.52, p\<0.001, d=0.56.
+
+4.  **Locatie:**
+
+- d_grens categoriseren in stukjes van x km
+- gemiddelde score vs afstand correlatie (pearson/spearman) onderzoeken (scatterplot?)
+
+5.  **onderwijs:**
+
+- oplniveau vs score/cefr
+
+6.  **blootstelling duits:**
+
+- woon/werk vs score
+- fam/kennis vs score
+- gebruik vs score
+
+7.  **situaties:**
+
+- frequentie (percentages) staafdiag 2 staven per categorie voor elke leeftijdsgroep
+- (misschien) vergelijken welke situatie het niveau meest bevorderd (per leeftijdsgroep)
+
+8.  **belang v duits:**
+
+- vinden ouderen belangrijken dan jongeren? ja/nee idk staafdiag denk ik?
+
+9.  **schatting vs werkelijke score:**
+
+- correlatie schatting vs score (tabel of gestapelde staafdiag?)
+- wie onderschat/overschat meest
+
+10. **regressie?**
+
+- welke variabele heeft meest impact op niveau (wel interessant)
+
+</details>
