@@ -263,3 +263,24 @@ Ik laat mij een beetje sturen door AI, heb gevraagd wat een goede volgorde is vo
 - welke variabele heeft meest impact op niveau (wel interessant)
 
 </details>
+
+---
+
+### 01/06/26
+
+#### Wat ga ik vandaag doen:
+
+- Taken verdelen
+- Publicatie start maken in Rmd (docx overzetten naar Rmd)
+- beginnen aan mijn deel
+
+#### Wat heb ik gedaan vandaag:
+
+We hebben de taken verdeeld, en ik ga de volgende dingen doen:
+- Beschrijven resultaten
+- Hypotheses testen
+- Regressie (welke var heeft meeste impact)
+
+Ik heb de paper tot zo ver in Rmd gezet met het overnemen van een template van vorige jaren. (thanks Yamila Timmer, Tai Vo, Mirte Draaijer)
+
+

@@ -1,7 +1,81 @@
 ---
-title: "Paper - Duitse Taalvaardigheid"
-author: "Jesse Postma, Dennis Kuiper, Vani Rembet"
-date: "`r Sys.Date()`"
-output: html_document
+title: Duitse taalvaardigheid
+
+author: |
+  | Jesse Postma $^1$, Dennis Kuiper $^1$, Vani Rembet $^1$
+  | $^1$Hanzehogeschool
+
+lang: en # dit zorgt er voor dat "abstract" "samenvatting" gaat heten
+
+abstract: |
+  De Duitse taalbeheersing onder Nederlanders staat onder druk. Waar in 2018 nog circa 68.000 eindexamens Duits werden afgenomen, waren dit er in 2025 nog circa 49.000, wat een afname van ongeveer 23% weergeeft. Deze trend weerspiegelt zich ook in het hoger onderwijs, waar universitaire Duitse studies kampen met dalende studentenaantallen. Onderzoek suggereert dat dit deels te verklaren is door een curriculum dat zich voornamelijk richt op technische vaardigheden zoals leesbegripstraining, ten koste van taal- en cultuurspecifieke inhouden die leerlingen kunnen enthousiasmeren voor talenstudie. Met dit in gedachten willen wij onderzoeken in welke mate Nederlanders de Duitse taal beheersen, en welke factoren hierop van invloed zijn. Specifiek richten wij ons op leeftijd, opleidingsniveau en woonlocatie (grensregio versus Randstad). De verwachting is dat oudere generaties gemiddeld een hogere taalbeheersing hebben dan jongere generaties, dat mensen in grensregio's meer blootstelling hebben gehad aan het Duits in dagelijks leven (via boodschappen, werk of sociale contacten) en daardoor beter scoren, en dat een hoger behaald opleidingsniveau samenhangt met een betere taalbeheersing. Om dit te onderzoeken voeren wij een kwantitatief onderzoek uit waarbij deelnemers een taaltoets afleggen op basis van de CEFR-niveaus, gecombineerd met een vragenlijst over relevante achtergrondkenmerken. De resultaten worden per groep vergeleken om verbanden tussen de genoemde factoren en het taalniveau in kaart te brengen.
+
+
+# bibliography: ppg_publicatie.bib
+
+output:
+  bookdown::pdf_document2:
+    keep_tex: false    # set this to true if you want to investigate the generated tex
+    toc: false         # table of contents
+    fig_caption: true  # includes figure captions with numbering in output
+    includes:  
+        in_header: include_tex_header.tex #will include rules for linespacing and figure floating
 ---
 
+# Introductie
+
+De kennis van de Duitse taal gaat in Nederland al jaren achteruit. Veel scholieren hebben zelfs na hun eindexamen een laag niveau Duits. Ook is de interesse in de Duitse taal niet hoog onder jonge mensen in Nederland. Het aantal studenten van Duitse Taal aan universiteiten is al jaren aan het dalen. Wij vermoeden daarom dat het niveau Duits onder jongeren lager is dan dat van oudere mensen. Het niveau van Duits (en Europese talen in het algemeen) wordt gemeten aan de hand van de CEFR-niveaus. Dit staat voor 'Common European Framework of Reference'. Deze niveaus zijn: A1, A2, B1, B2, C1, C2. Het absolute beginnersniveau is A1 en vanaf daar loopt het op tot het hoogste niveau: C2. Dit laatste niveau wordt ook wel 'near native' genoemd. Wij gaan onderzoeken of het niveau Duits van jonge mensen en oudere mensen van elkaar verschillen.
+
+# Methodologie
+
+## Materialen
+
+Voor dit onderzoek is gebruikgemaakt van een digitale vragenlijst opgesteld in Microsoft Forms. De vragenlijst bestond uit drie onderdelen: een achtergrondvragenlijst, een Duitse leestoets en evaluatievragen met betrekking tot de beheersingsgraad van de Duitse taal. De digitale omgeving maakte het mogelijk om de gegevens automatisch en gestructureerd op te slaan.
+
+Ten behoeve van de dataverzameling zijn A5-posters met een QR-code ontwikkeld, waarmee deelnemers direct toegang kregen tot de vragenlijst. Daarnaast zijn smartphones van deelnemers gebruikt voor het invullen van de vragenlijst. Indien nodig was er een tablet of dergelijk smart-apparaat beschikbaar om de vragenlijst in te vullen.
+
+### Benodigde software
+
+Voor de verwerking en statistische analyse van de onderzoeksgegevens is gebruikgemaakt van de programmeertaal R. Hiermee zijn de verzamelde data georganiseerd, verwerkt en geanalyseerd, en gevisualiseerd.
+
+Er is gebruik gemaakt van verschillende software voor verwerking en analyse:
+
+- Microsoft Forms
+
+- Microsoft Excel
+
+- Rstudio
+
+- R
+
+- ... placeholder...
+
+## Methoden
+
+### Doelgroepbepaling
+
+Om de betrouwbaarheid van de resultaten te waarborgen, is er voorafgaand aan het experiment een screening uitgevoerd onder de potentiële deelnemers. Hierbij werd bekeken of de deelnemers voldeden aan de volgende specifieke criteria:
+
+- Deelnemer is minstens ouder zijn dan 18 jaar en heeft een schoolopleiding afgerond.
+
+<!-- -->
+
+- Deelnemer moet Duits niet als moedertaal hebben.
+
+<!-- -->
+
+- Deelnemer is minstens langer dan 10 jaar woonachtig in Nederland.
+
+Deelnemers die aan deze criteria voldeden, werden vervolgens geïnformeerd over het doel van het onderzoek en de opzet van het experiment. Daarna werd hen gevraagd of zij wilden deelnemen door de QR-code te scannen.
+
+### Procedure
+
+Nadat de respondent akkoord ging met deelname, werd de vragenlijst in drie onderdelen doorlopen:
+
+- De achtergrondvragen bracht demografische variabelen in kaart.
+
+- De Duitse leestoets bracht een objectieve meting per individu, opgedeeld in secties per taalniveau van het CEFR.
+
+- De evaluatievragen met betrekking tot de beheersingsgraad van de Duitse taal bracht een subjectieve ervaring en zelf ingeschatte beheersingsgraad van de deelnemers in kaart.
+
+Om de motivatie voor de deelnemers te houden en vroegtijdige uitval te voorkomen, was de vragenlijst kort en bondig van opzet. Daarnaast werd vooraf benadrukt dat deelname aan het onderzoek anoniem was en dat "weinig/geen kennis van de Duitse taal" nog steeds een waardevol resultaat oplevert voor het onderzoek. Dit diende om eventuele prestatiedruk bij de respondenten weg te nemen en deelname laagdrempelig te maken.
