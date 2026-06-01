@@ -283,4 +283,6 @@ We hebben de taken verdeeld, en ik ga de volgende dingen doen:
 
 Ik heb de paper tot zo ver in Rmd gezet met het overnemen van een template van vorige jaren. (thanks Yamila Timmer, Tai Vo, Mirte Draaijer)
 
+Ik heb een begin gemaakt voor de plots en resultaten voor Beschrijvende Resulataten. Ik ga vanavond Hypotheses Testen en daar plots bij maken en dan ga ik voor deze beide kopjes eerst schrijven en dan komt later Regressie nog wel terug.
+
 
