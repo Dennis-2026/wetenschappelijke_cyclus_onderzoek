@@ -1,0 +1,7 @@
+---
+title: "Paper - Duitse Taalvaardigheid"
+author: "Jesse Postma, Dennis Kuiper, Vani Rembet"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
