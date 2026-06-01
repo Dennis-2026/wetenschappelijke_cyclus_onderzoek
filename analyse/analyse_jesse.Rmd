@@ -1,0 +1,96 @@
+---
+title: "analyse_jesse"
+author: "Jesse Postma"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+```
+
+# Beschrijvende statistiek
+
+```{r}
+data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
+str(data)
+head(data)
+```
+```{r}
+data$leeftijd <- factor(data$leeftijd)
+data$opleiding <- factor(data$opleiding)
+data$woonwerk_duits <- factor(data$woonwerk_duits)
+data$fam_kennis <- factor(data$fam_kennis)
+data$gebruik_hoevaak <- factor(data$gebruik_hoevaak, ordered = TRUE)
+```
+
+```{r}
+cat("Aantal respondenten: ", nrow(data))
+```
+```{r}
+# plot voor leeftijdsverhouding
+ggplot(data, aes(x = leeftijd)) + 
+    geom_bar(fill = '#7ac1ac') +
+    labs(x = "Leeftijd", y = "Aantal", title = "Verhouding leeftijd respondenten") +
+    theme_classic()
+
+# plot voor cefr verdeling
+ggplot(data, aes(x = CEFR)) +
+    geom_bar(fill = "#7ac2fc") +
+    labs(x = "CEFR level", y = "Aantal", title = "CEFR niveau verhouding tussen respondenten") +
+    theme_classic()
+
+```
+```{r}
+# theta score
+mu <- mean(data$score)
+sigma <- sd(data$score)
+
+ggplot(data, aes(x = score)) +
+    geom_histogram(
+        aes(y = after_stat(density)),
+        bins = 20
+        ) +
+    stat_function(fun = dnorm,
+                  args = list(mean = mu, sd = sigma),
+                  color = "red4",
+                  linewidth = 1
+                  ) +
+    labs(x = "IRT theta score", y = "Kansdichtheid", title = "Verhouding theta score respondenten") +
+    theme_minimal()
+```
+
+```{r}
+ggplot(data = data, aes(x = score, y = leeftijd)) +
+    geom_boxplot() +
+    coord_flip() +
+    labs(x = "Leeftijdsgroep", y = "IRT theta score", title = "IRT score per leeftijdsgroep.")
+    theme_minimal()
+```
+```{r}
+# opleidingsverdeling
+table(data$opleiding)
+prop.table(table(data$opleiding)) * 100
+```
+```{r}
+# afstand grens
+summary(data$d_grens)
+hist(data$d_grens,
+     main = "Afstand tot Duitse grens",
+     xlab = "km",
+     col = "lightgreen")
+```
+```{r}
+# gem score per leeftijd
+data %>%
+  group_by(leeftijd) %>%
+  summarise(
+    n = n(),
+    mean_score = mean(score, na.rm = TRUE),
+    sd_score = sd(score, na.rm = TRUE)
+  )
+```
