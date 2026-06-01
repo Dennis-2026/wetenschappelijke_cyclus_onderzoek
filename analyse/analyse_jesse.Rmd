@@ -11,6 +11,8 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(ggplot2)
 library(dplyr)
+library(effectsize)
+library(flextable)
 ```
 
 # Beschrijvende statistiek
@@ -64,13 +66,7 @@ ggplot(data, aes(x = score)) +
     theme_minimal()
 ```
 
-```{r}
-ggplot(data = data, aes(x = score, y = leeftijd)) +
-    geom_boxplot() +
-    coord_flip() +
-    labs(x = "Leeftijdsgroep", y = "IRT theta score", title = "IRT score per leeftijdsgroep.")
-    theme_minimal()
-```
+
 ```{r}
 # opleidingsverdeling
 table(data$opleiding)
@@ -94,3 +90,72 @@ data %>%
     sd_score = sd(score, na.rm = TRUE)
   )
 ```
+
+# hypotheses testen
+Threshold for A2: -0.5890936 
+Threshold for B1: -0.2340141 
+Threshold for B2: 0.4347344 
+Threshold for C1/2: 0.8854923
+
+```{r}
+tr_A2 <- -0.5890936
+tr_B1 <- -0.2340141
+tr_B2 <- 0.4347344
+tr_c12 <- 0.8854923
+```
+
+## primaire
+
+- H₀: Er is geen verschil in het gemiddelde niveau van Duitse taalvaardigheid tussen personen van 40 jaar en ouder en personen jonger dan 40 jaar.
+- H₁: Personen van 40 jaar en ouder hebben een hoger gemiddeld niveau van Duitse taalvaardigheid dan personen jonger dan 40 jaar.
+
+
+```{r}
+get_level <- function(score) {
+  thresholds <- c(tr_A2, tr_B1, tr_B2, tr_c12)
+  levels <- c("A1", "A2", "B1", "B2", "C1_2")
+  levels[findInterval(score, thresholds) + 1]
+}
+
+
+data_summary <- data %>%
+  group_by(leeftijd) %>%
+  summarise(
+    n = n(),
+    mean = mean(score, na.rm = TRUE),
+    sd = sd(score, na.rm = TRUE),
+    lvl = get_level(mean(score))
+  )
+
+ft <- flextable(data_summary)
+ft
+save_as_image(ft, "images/summary_lvls.png")
+
+```
+```{r}
+ggplot(data = data, aes(x = score, y = leeftijd)) +
+    geom_boxplot() +
+    coord_flip() +
+    labs(x = "Leeftijdsgroep", y = "IRT theta score", title = "IRT score per leeftijdsgroep.")
+    theme_minimal()
+```
+```{r}
+shapiro.test(data$score[data$leeftijd == "18-40"])
+shapiro.test(data$score[data$leeftijd == "40+"])
+```
+Groep 18–40
+W = 0.95872
+p = 0.02421
+
+p < 0.05 dus sterke afwijking van normaliteit maar ttest is robuust dus toch gewoon doen:
+```{r}
+t.test(score ~ leeftijd,
+       data = data)
+```
+Er is een statistisch verschil: t = -5.9697, p = 1.938 x 10^-8 dit is extreem klein dus verschil is niet door toeval ontstaan.
+
+```{r}
+# effect size
+cohens_d(score ~ leeftijd, data = data)
+```
+negatieve waarde betekend dat groep 1 slechter scoort dan groep 2, verschil is bijna 1 sd wat behoorlijk is. 
