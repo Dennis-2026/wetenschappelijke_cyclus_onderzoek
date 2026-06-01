@@ -285,4 +285,9 @@ Ik heb de paper tot zo ver in Rmd gezet met het overnemen van een template van v
 
 Ik heb een begin gemaakt voor de plots en resultaten voor Beschrijvende Resulataten. Ik ga vanavond Hypotheses Testen en daar plots bij maken en dan ga ik voor deze beide kopjes eerst schrijven en dan komt later Regressie nog wel terug.
 
+Het is avond, ik heb inmiddels analyse gedaan voor de hypothese. Ik liep daar wel tegen een hindernis aan; vani beantwoord de hoofdvraag, ik de primaire hypothese. Wat is daar het verschil in: Bij de hypothese ga ik dieper in op statistische correctheid en of het resultaat wel valide is etc, vani hoeft alleen het resultaat mee te nemen. Dus nu dat duidelijk is heb ik een aantal van mijn analyses in een Rmd gezet waar vani resultaten uit kan halen zoals (gemiddelde niveau (categorisch en score), IRT score vs leeftijd, effectgrootte, shapiro normaliteitstest, ttoets).
+
+Ik laat het hier nu bij en ga morgen beginnen met schrijven rond deze eerste 2 punten (beschrijvende statistiek en hypotheses). En dan ga ik later nog een blik werpen op regressie en welke variabele nu het meest impact heeft op niveau.
+
+
 
