@@ -3,6 +3,7 @@ title: "analyse_jesse"
 author: "Jesse Postma"
 date: "`r Sys.Date()`"
 output: html_document
+bibliography: references_jesse.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -30,28 +31,35 @@ data$fam_kennis <- factor(data$fam_kennis)
 data$gebruik_hoevaak <- factor(data$gebruik_hoevaak, ordered = TRUE)
 ```
 
+In de resultatensectie worden beschrijvende statistieken en afgeleide resultaten gepresenteerd op basis van de dataset van de onderzochte respondenten. De steekproef bedroeg 154 respondenten. De respondenten zijn opgesplitst in 2 leeftijdsgroepen (18-40, 40+) waarvan ~44% (N = 68) jonger dan 40 (18-40) tegen ~56% (N=86) ouder dan 40 (40+). De meerderheid van de respondenten had een HBO of WO diploma (~31%, ~29% respectievelijk). Basisonderwijs was de kleinste groep met ~1.3% (N=2) van alle respondenten. Verder bedroeg de gemiddelde woonafstand tot de Duitse grens ~65.2km en was de standaard deviatie daarop ~51.8km (zie Figuur 1). De initiële verdeling van taalniveau is weergegeven in Figuren 2 en 3. De theta-scores benaderen een normaalverdeling (M = 0.0003, SD = 0.81; zie Figuur 3), wat verder wordt getoetst in §Hypothese Testen.
+
 ```{r}
 cat("Aantal respondenten: ", nrow(data))
 ```
 ```{r}
 # plot voor leeftijdsverhouding
-ggplot(data, aes(x = leeftijd)) + 
-    geom_bar(fill = '#7ac1ac') +
-    labs(x = "Leeftijd", y = "Aantal", title = "Verhouding leeftijd respondenten") +
-    theme_classic()
+#ggplot(data, aes(x = leeftijd)) + 
+ #   geom_bar(fill = '#7ac1ac') +
+  #  labs(x = "Leeftijd", y = "Aantal", title = "Verhouding leeftijd respondenten") +
+   # theme_classic()
 
-# plot voor cefr verdeling
+table(data$leeftijd)
+prop.table(table(data$leeftijd)) * 100
+
+# plot voor cefr verdeling (figuur 2)
 ggplot(data, aes(x = CEFR)) +
-    geom_bar(fill = "#7ac2fc") +
-    labs(x = "CEFR level", y = "Aantal", title = "CEFR niveau verhouding tussen respondenten") +
-    theme_classic()
+    geom_bar(fill = "#6D8325FF") +
+    labs(x = "CEFR niveau", y = "N respondenten") +
+    theme_minimal()
+# title = "CEFR niveau verhouding tussen respondenten"
 
 ```
 ```{r}
 # theta score
-mu <- mean(data$score)
-sigma <- sd(data$score)
+( mu <- mean(data$score) )
+( sigma <- sd(data$score) )
 
+#Figuur 3
 ggplot(data, aes(x = score)) +
     geom_histogram(
         aes(y = after_stat(density)),
@@ -62,8 +70,10 @@ ggplot(data, aes(x = score)) +
                   color = "red4",
                   linewidth = 1
                   ) +
-    labs(x = "IRT theta score", y = "Kansdichtheid", title = "Verhouding theta score respondenten") +
+    geom_density(linewidth = 1, colour = "blue") +
+    labs(x = "IRT theta score", y = "Kansdichtheid") +
     theme_minimal()
+# title = "Verhouding theta score respondenten"
 ```
 
 
@@ -75,11 +85,19 @@ prop.table(table(data$opleiding)) * 100
 ```{r}
 # afstand grens
 summary(data$d_grens)
-hist(data$d_grens,
-     main = "Afstand tot Duitse grens",
-     xlab = "km",
-     col = "lightgreen")
+
+( mu <- mean(data$d_grens) )
+( sigm <- sd(data$d_grens) )
+
+# figuur 1
+ggplot(data, aes(x = d_grens)) +
+    geom_histogram(bins = 20, fill = "#7ac2fc", colour = "black") +
+    labs(x = "Afstand tot Duitse grens (km)", y = "N respondenten")
+    theme_minimal()
+    #title = "Verhouding afstand grens respondenten."
 ```
+
+# hypotheses testen
 ```{r}
 # gem score per leeftijd
 data %>%
@@ -91,7 +109,6 @@ data %>%
   )
 ```
 
-# hypotheses testen
 Threshold for A2: -0.5890936 
 Threshold for B1: -0.2340141 
 Threshold for B2: 0.4347344 
@@ -117,7 +134,7 @@ get_level <- function(score) {
   levels[findInterval(score, thresholds) + 1]
 }
 
-
+# figuur 4
 data_summary <- data %>%
   group_by(leeftijd) %>%
   summarise(
@@ -133,11 +150,14 @@ save_as_image(ft, "images/summary_lvls.png")
 
 ```
 ```{r}
+# figuur 5
 ggplot(data = data, aes(x = score, y = leeftijd)) +
-    geom_boxplot() +
+    geom_boxplot(colour = "grey5") +
+    scale_x_continuous(n.breaks = 20) +
     coord_flip() +
-    labs(x = "Leeftijdsgroep", y = "IRT theta score", title = "IRT score per leeftijdsgroep.")
+    labs(x = "IRT theta-score", y = "Leeftijdsgroep")+
     theme_minimal()
+#title = "IRT score per leeftijdsgroep."
 ```
 ```{r}
 shapiro.test(data$score[data$leeftijd == "18-40"])
@@ -159,3 +179,14 @@ Er is een statistisch verschil: t = -5.9697, p = 1.938 x 10^-8 dit is extreem kl
 cohens_d(score ~ leeftijd, data = data)
 ```
 negatieve waarde betekend dat groep 1 slechter scoort dan groep 2, verschil is bijna 1 sd wat behoorlijk is. 
+
+De nulhypothese (H0) stelt dat er geen verschil is in het gemiddelde niveau van Duitse taalvaardigheid tussen personen van 40 jaar en ouder en personen jonger dan 40 jaar.
+De alternatieve hypothese (H1) stelt dat personen van 40 jaar en ouder hoger scoren op Duitse taalvaardigheid dan personen jonger dan 40 jaar.
+
+Om de hypothese te toetsen dat oudere respondenten het Duits beter beheersen dan jongere, werd een onafhankelijke t-toets uitgevoerd op de IRT theta-scores van beide leeftijdsgroepen. Figuur 5 toont de gemiddelde theta-scores per groep. De 40+ groep scoorde gemiddeld hoger (M = ~0.32, SD = ~0.70, CEFR = B1) dan de 18-40 groep (M = ~-0.40, SD = ~0.77, CEFR = A2; zie ook Figuur 4).
+
+Shapiro-Wilk toonde een significante afwijking van de normaliteit in de 18-40 groep (W = 0.95872, P = 0.02421; p < 0.05 wat een significante afwijking toont), de 40+ groep vertoonde geen significante afwijking van normaliteit (W = 0.98715, P = 0.5574). Gezien de relatief grote steekproefgroottes (N = 68 en N = 86) en de robuustheid van de t-toets bij lichte afwijkingen van de normaliteit, is de analyse met de onafhankelijke t-toets alsnog uitgevoerd.
+
+De uitgevoerde t-toets toonde een significant verschil tussen beide groepen (t = -5.9697, df = 136.72, p-value = 1.938e-08), het geteste effect (Cohen's d) was bijna 1 Standaard deviatie (|d| = 0.98). Dit komt overeen met een common language effect size (CLES ≈ 0.84), wat betekent dat er een geschatte kans van 84% is dat een willekeurig geselecteerde deelnemer uit de 40+ groep hoger scoort dan een willekeurig geselecteerde deelnemer uit de 18–40 groep.
+
+De hypothese wordt ondersteund: oudere respondenten beheersen het Duits significant beter dan jongere respondenten.
