@@ -1,0 +1,33 @@
+---
+title: "analyse_Dennis"
+output: html_document
+date: "2026-06-01"
+---
+
+```{r}
+data <- read.csv('cleaned_scores.csv')
+data$opleiding <- factor(data$opleiding)
+opleidingsniveaus <- data$opleiding
+niveau_Duits <- data[, 18]
+
+data
+opleidingsniveaus
+niveau_Duits
+
+for (niveau in opleidingsniveaus){
+  if (niveau <- 'hbo') print(niveau_Duits)
+}
+```
+
+
+```{r}
+
+```
+
+
+
+```{r}
+
+```
+
+
