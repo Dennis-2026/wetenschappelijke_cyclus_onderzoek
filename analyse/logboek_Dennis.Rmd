@@ -34,5 +34,5 @@ Ik gebruik deze zoekopdracht om uit te zoeken wat de ACE functie in de APE packa
 Vervolgstappen: ik ga morgen de belangrijke punten uit het artikel die in de powerpoint staan uit mijn hoofd leren en de presentatie oefenen.
 
 2-6-2026
-Ik ga bezig met de grafiek die moet visualiseren of het hoogst behaalde niveau op school invloed heeft op het niveau Duits van mensen. Hiervoor gebruik ik momenteel een for-loop en een if-statement. Met deze methode wil ik van elk schoolniveau de behaalde CEFR-niveaus eruit halen. Deze methode werkt echter niet.
+Ik ga bezig met de grafiek die moet visualiseren of het hoogst behaalde niveau op school invloed heeft op het niveau Duits van mensen. Hiervoor gebruik ik momenteel een for-loop en een if-statement. Met deze methode wil ik van elk schoolniveau de behaalde CEFR-niveaus eruit halen. Deze methode werkt echter niet. De betreffende code is terug te vinden in github in de volgende commit: 'for-loop en if-statement toegevoegd'. Deze methode werkt niet, omdat je niet met een for-loop bij een dataset kan gebruiken.Ik gebruik nu de functie tapply() om per opleidingsniveau het gemiddelde niveau Duits te bepalen. De code is 
  

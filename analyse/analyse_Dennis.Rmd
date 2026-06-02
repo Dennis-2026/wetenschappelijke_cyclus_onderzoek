@@ -13,10 +13,8 @@ niveau_Duits <- data[, 18]
 data
 opleidingsniveaus
 niveau_Duits
+tapply(niveau_Duits, opleidingsniveaus, mean)
 
-for (niveau in opleidingsniveaus){
-  if (niveau <- 'hbo') print(niveau_Duits)
-}
 ```
 
 
