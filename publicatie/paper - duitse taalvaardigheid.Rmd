@@ -11,7 +11,7 @@ abstract: |
   De Duitse taalbeheersing onder Nederlanders staat onder druk. Waar in 2018 nog circa 68.000 eindexamens Duits werden afgenomen, waren dit er in 2025 nog circa 49.000, wat een afname van ongeveer 23% weergeeft. Deze trend weerspiegelt zich ook in het hoger onderwijs, waar universitaire Duitse studies kampen met dalende studentenaantallen. Onderzoek suggereert dat dit deels te verklaren is door een curriculum dat zich voornamelijk richt op technische vaardigheden zoals leesbegripstraining, ten koste van taal- en cultuurspecifieke inhouden die leerlingen kunnen enthousiasmeren voor talenstudie. Met dit in gedachten willen wij onderzoeken in welke mate Nederlanders de Duitse taal beheersen, en welke factoren hierop van invloed zijn. Specifiek richten wij ons op leeftijd, opleidingsniveau en woonlocatie (grensregio versus Randstad). De verwachting is dat oudere generaties gemiddeld een hogere taalbeheersing hebben dan jongere generaties, dat mensen in grensregio's meer blootstelling hebben gehad aan het Duits in dagelijks leven (via boodschappen, werk of sociale contacten) en daardoor beter scoren, en dat een hoger behaald opleidingsniveau samenhangt met een betere taalbeheersing. Om dit te onderzoeken voeren wij een kwantitatief onderzoek uit waarbij deelnemers een taaltoets afleggen op basis van de CEFR-niveaus, gecombineerd met een vragenlijst over relevante achtergrondkenmerken. De resultaten worden per groep vergeleken om verbanden tussen de genoemde factoren en het taalniveau in kaart te brengen.
 
 
-# bibliography: ppg_publicatie.bib
+bibliography: paper_refs.bib
 
 output:
   bookdown::pdf_document2:
@@ -48,8 +48,6 @@ Er is gebruik gemaakt van verschillende software voor verwerking en analyse:
 
 - R
 
-- ... placeholder...
-
 ## Methoden
 
 ### Doelgroepbepaling
@@ -72,10 +70,20 @@ Deelnemers die aan deze criteria voldeden, werden vervolgens geïnformeerd over 
 
 Nadat de respondent akkoord ging met deelname, werd de vragenlijst in drie onderdelen doorlopen:
 
-- De achtergrondvragen bracht demografische variabelen in kaart.
+- De achtergrondvragen brachten demografische variabelen in kaart.
 
 - De Duitse leestoets bracht een objectieve meting per individu, opgedeeld in secties per taalniveau van het CEFR.
 
 - De evaluatievragen met betrekking tot de beheersingsgraad van de Duitse taal bracht een subjectieve ervaring en zelf ingeschatte beheersingsgraad van de deelnemers in kaart.
 
 Om de motivatie voor de deelnemers te houden en vroegtijdige uitval te voorkomen, was de vragenlijst kort en bondig van opzet. Daarnaast werd vooraf benadrukt dat deelname aan het onderzoek anoniem was en dat "weinig/geen kennis van de Duitse taal" nog steeds een waardevol resultaat oplevert voor het onderzoek. Dit diende om eventuele prestatiedruk bij de respondenten weg te nemen en deelname laagdrempelig te maken.
+
+Na afronding van de dataverzameling is de data opgeschoond in Excel en werden alle antwoorden van de respondenten gefit aan een Item Response Theory model[@Harvey1999], hieruit werd de ervaren moeilijkheidsgraad van de vragen duidelijk. Op basis van de moeilijkheidsgraad zijn dynamisch drempels voor de CEFR niveaus aangelegd, voor het behalen van een CEFR niveau is vastgesteld dat de persoon minimaal 60% van de vragen op dat niveau moet halen. De scores en drempels zijn geschaald aan de ervaren moeilijkheidsgraad van de vragen dankzij het IRT model. De drempels die hieruit zijn gegenereerd zijn als volgt: A1 \< -0.5890936 (A2) \< -0.2340141 (B1) \< 0.4347344 (B2) \< 0.8854923 (C1/2). Deze drempels bepaalden in de verdere analyse het niveau voor een individu op basis van hun theta-score. E.g. theta = 0.44 -\> CEFR = B2 (zie Figuur 4).
+
+Verdere details over de methodologie van dit onderzoek zijn te vinden in de volgende git repository:
+
+*https://github.com/Dennis-2026/wetenschappelijke-cyclus-onderzoek*
+
+# Resultaten
+
+
