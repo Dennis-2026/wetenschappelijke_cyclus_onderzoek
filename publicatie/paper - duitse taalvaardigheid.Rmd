@@ -218,7 +218,8 @@ De hypothese wordt ondersteund: oudere respondenten beheersen het Duits signific
 
 # Wordcount
 
-```{r wordcount, message=FALSE}
+```{r wordcount, message=FALSE, eval=F}
+# ZET EVAL NAAR TRUE VOOR FINAL, WERKT NU NIET BIJ MIJ WEL OP SERVER SCHOOL..
 #install.packages(devtools)
 #devtools::install_github("benmarwick/wordcountaddin", type = "source", dependencies = TRUE)
 wordcountaddin:::text_stats()

@@ -369,5 +369,9 @@ De hypothese wordt ondersteund: oudere respondenten beheersen het Duits signific
 Oke, ik ben terug en ik moet leren lezen. In de template staat ook gewoon code dus ik ga wat dingen aanpassen...
 
 - Ik heb alle figuren nu in code in de paper gezet, alles heeft zijn chunk naam en caption.
+
 - De referenties in de tekst wijzen naar de figuren met \\.@.ref(x)
+
+- Geprobeerd wordcount te laten werken, lukte niet lukt wel op server bionf.
+
 
