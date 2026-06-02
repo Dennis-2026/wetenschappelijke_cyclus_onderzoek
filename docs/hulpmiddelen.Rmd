@@ -1,0 +1,43 @@
+---
+title: "Hulpmiddelen onderzoek/analyse"
+author: "Jesse Postma"
+date: "`r Sys.Date()`"
+output: html_document
+bibliography: references_hulp.bib
+---
+
+Dit document bevat hulpmiddelen en hun bronnen gebruikt in het onderzoek.
+
+## Shapiro-Wilk information:
+
+Via: [@Shapiro-Wilk] When to Use the Shapiro-Wilk Normality Test
+
+- You want to test whether your data follow a normal distribution.
+- Your sample size is relatively small (commonly used for n \< 50, but valid up to around 2,000 observations).
+- You’re planning to use statistical methods that assume normality, such as t-tests or ANOVA.
+
+To perform a Shapiro-Wilk normality test, use my free online Normality Test Calculator! Interpreting the Results
+
+The null hypothesis of the Shapiro-Wilk normality test is that the data are a random sample that was drawn population that follows a normal distribution.
+
+- High p-value (p \> 0.05): Fail to reject the null hypothesis. The data do not significantly deviate from normality.
+- Low p-value (p ≤ 0.05): Reject the null hypothesis. The data significantly deviate from normality.
+
+## Cohens_d
+
+Via: [Cohens_d] Using this formula, here is how we interpret Cohen’s d:
+
+- A d of 0.5 indicates that the two group means differ by 0.5 standard deviations.
+- A d of 1 indicates that the group means differ by 1 standard deviation.
+- A d of 2 indicates that the group means differ by 2 standard deviations.
+
+Cohen’s d Percentage of Group 2 who would be below average person in Group 1
+
+| Cohens d | Percentage of Group 2 who would be below average person in Group 1 |
+|----|----|
+| 0.0 | 50% |
+| 0.2 | 58% |
+| 0.4 | 66% |
+| 0.6 | 73% |
+| 0.8 | 79% |
+| 1.0 | 84% |
