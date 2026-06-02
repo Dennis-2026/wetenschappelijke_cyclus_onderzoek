@@ -8,13 +8,17 @@ date: "2026-06-01"
 data <- read.csv('cleaned_scores.csv')
 data$opleiding <- factor(data$opleiding)
 opleidingsniveaus <- data$opleiding
-niveau_Duits <- data[, 18]
+niveau_Duits <- data$score
+niveau_Duits_per_opleidingsniveau <- tapply(niveau_Duits,opleidingsniveaus,mean)
+barplot_opleiding <- barplot(opleidingsniveaus, factor(niveau_Duits))
+
 
 data
 opleidingsniveaus
 niveau_Duits
-tapply(niveau_Duits, opleidingsniveaus, mean)
 
+niveau_Duits_per_opleidingsniveau
+barplot_opleiding
 ```
 
 
