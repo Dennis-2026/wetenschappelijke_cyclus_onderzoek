@@ -22,15 +22,35 @@ output:
         in_header: include_tex_header.tex #will include rules for linespacing and figure floating
 ---
 
+```{r setup, message=FALSE, warning=FALSE, include=FALSE}
+knitr::opts_chunk$set(fig.width = 6,
+  fig.height = 4,
+  out.width = "350px", dpi = 300) # configuratie voor figuur grootte en resolutie
+knitr::opts_chunk$set(echo = FALSE) # Deze regel zorgt ervoor GEEN ENKELE chunk getoond wordt! 
+# Laad alle gebruikte bibliotheken hier
+library(ggplot2)
+library(tidyr)
+library(tidyverse)
+library(dplyr)
+library(effectsize)
+library(gt)
+
+data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
+```
+
 # Introductie
 
 De kennis van de Duitse taal gaat in Nederland al jaren achteruit. Veel scholieren hebben zelfs na hun eindexamen een laag niveau Duits. Ook is de interesse in de Duitse taal niet hoog onder jonge mensen in Nederland. Het aantal studenten van Duitse Taal aan universiteiten is al jaren aan het dalen. Wij vermoeden daarom dat het niveau Duits onder jongeren lager is dan dat van oudere mensen. Het niveau van Duits (en Europese talen in het algemeen) wordt gemeten aan de hand van de CEFR-niveaus. Dit staat voor 'Common European Framework of Reference'. Deze niveaus zijn: A1, A2, B1, B2, C1, C2. Het absolute beginnersniveau is A1 en vanaf daar loopt het op tot het hoogste niveau: C2. Dit laatste niveau wordt ook wel 'near native' genoemd. Wij gaan onderzoeken of het niveau Duits van jonge mensen en oudere mensen van elkaar verschillen.
 
 # Methodologie
 
+Alle gebruikte data, code en protocollen voor dit onderzoek zijn te vinden in de volgende git repository:
+
+[*https://github.com/Dennis-2026/wetenschappelijke-cyclus-onderzoek*](https://github.com/Dennis-2026/wetenschappelijke-cyclus-onderzoek){.uri}
+
 ## Materialen
 
-Voor dit onderzoek is gebruikgemaakt van een digitale vragenlijst opgesteld in Microsoft Forms. De vragenlijst bestond uit drie onderdelen: een achtergrondvragenlijst, een Duitse leestoets en evaluatievragen met betrekking tot de beheersingsgraad van de Duitse taal. De digitale omgeving maakte het mogelijk om de gegevens automatisch en gestructureerd op te slaan.
+Voor dit onderzoek is gebruikgemaakt van een digitale vragenlijst opgesteld in Microsoft Forms. De vragenlijst bestond uit drie onderdelen: een achtergrondvragenlijst, een Duitse leestoets en evaluatievragen met betrekking tot de beheersingsgraad van de Duitse taal. De digitale omgeving maakte het mogelijk om de gegevens automatisch en gestructureerd op te slaan. Deze vragenlijst is in zijn geheel te vinden in de repository onder protocollen.
 
 Ten behoeve van de dataverzameling zijn A5-posters met een QR-code ontwikkeld, waarmee deelnemers direct toegang kregen tot de vragenlijst. Daarnaast zijn smartphones van deelnemers gebruikt voor het invullen van de vragenlijst. Indien nodig was er een tablet of dergelijk smart-apparaat beschikbaar om de vragenlijst in te vullen.
 
@@ -50,15 +70,14 @@ Er is gebruik gemaakt van verschillende software voor verwerking en analyse:
 
 Bij de analyse met R zijn de volgende libraries gebruikt:
 
-| Library    | Versie | Gebruiksdoel                            |
-|------------|--------|-----------------------------------------|
-| tidyverse  | 2.0.0  | Filteren en sorteren van de data        |
-| ggplot2    | 4.0.3  | Produceren van grafieken                |
-| tidyr      | 1.3.2  | Creëren van tidy data                   |
-| dplyr      | 1.2.1  | Muteren van dataframes                  |
-| effectsize | 1.0.2  | Verkrijgen van effect size voor analyse |
-| flextable  | 0.9.11 | Exporteren dataframes naar PNG          |
-| mirt       | 1.46.1 | Implementatie Item Response Theory      |
+| Library    | Versie | Gebruiksdoel                            | Referentie |
+|------------|--------|-----------------------------------------|------------|
+| tidyverse  | 2.0.0  | Filteren en sorteren van de data        |[@TidyV]    |
+| ggplot2    | 4.0.3  | Produceren van grafieken                |[@ggplot]   |
+| tidyr      | 1.3.2  | Creëren van tidy data                   |[@tidyr]    |
+| dplyr      | 1.2.1  | Muteren van dataframes                  |[@dplyr]    |
+| effectsize | 1.0.2  | Verkrijgen van effect size voor analyse |[@effect]   |
+| mirt       | 1.46.1 | Implementatie Item Response Theory      |[@mirt]     |
 
 ## Methoden
 
@@ -92,32 +111,102 @@ Om de motivatie voor de deelnemers te houden en vroegtijdige uitval te voorkomen
 
 Na afronding van de dataverzameling is de data opgeschoond in Excel en werden alle antwoorden van de respondenten gefit aan een Item Response Theory model[@Harvey1999], hieruit werd de ervaren moeilijkheidsgraad van de vragen duidelijk. Op basis van de moeilijkheidsgraad zijn dynamisch drempels voor de CEFR niveaus aangelegd, voor het behalen van een CEFR niveau is vastgesteld dat de persoon minimaal 60% van de vragen op dat niveau moet halen. De scores en drempels zijn geschaald aan de ervaren moeilijkheidsgraad van de vragen dankzij het IRT model. De drempels die hieruit zijn gegenereerd zijn als volgt: A1 \< -0.5890936 (A2) \< -0.2340141 (B1) \< 0.4347344 (B2) \< 0.8854923 (C1/2). Deze drempels bepaalden in de verdere analyse het niveau voor een individu op basis van hun theta-score. E.g. theta = 0.44 -\> CEFR = B2 (zie Figuur 4).
 
-Verdere details over de methodologie van dit onderzoek zijn te vinden in de volgende git repository:
+Gedetailleerde uitwerkingen van protocollen zijn te vinden in de repository.
 
-[*https://github.com/Dennis-2026/wetenschappelijke-cyclus-onderzoek*](https://github.com/Dennis-2026/wetenschappelijke-cyclus-onderzoek){.uri}
 
 # Resultaten
 
 ## Beschrijvende statistiek
 
-In de resultatensectie worden beschrijvende statistieken en afgeleide resultaten gepresenteerd op basis van de dataset van de onderzochte respondenten. De steekproef bedroeg 154 respondenten. De respondenten zijn opgesplitst in 2 leeftijdsgroepen (18-40, 40+) waarvan $\approx$ 44% (N = 68) jonger dan 40 (18-40) tegen $\approx$ 56% (N=86) ouder dan 40 (40+). De meerderheid van de respondenten had een HBO of WO diploma ($\approx$ 31%, $\approx$ 29% respectievelijk). Basisonderwijs was de kleinste groep met $\approx$ 1.3% (N=2) van alle respondenten. Verder bedroeg de gemiddelde woonafstand tot de Duitse grens $\approx$ 65.2km en was de standaard deviatie daarop $\approx$ 51.8km (zie Figuur 1). De initiële verdeling van taalniveau is weergegeven in Figuren 2 en 3. De theta-scores benaderen een normaalverdeling (M = 0.0003, SD = 0.81; zie Figuur 3), wat verder wordt getoetst in [Hypothesetoetsing](#hypothesetoetsing).
+In de resultatensectie worden beschrijvende statistieken en afgeleide resultaten gepresenteerd op basis van de dataset van de onderzochte respondenten. De steekproef bedroeg 154 respondenten. De respondenten zijn opgesplitst in 2 leeftijdsgroepen (18-40, 40+) waarvan $\approx$ 44% (N = 68) jonger dan 40 (18-40) tegen $\approx$ 56% (N=86) ouder dan 40 (40+). De meerderheid van de respondenten had een HBO of WO diploma ($\approx$ 31%, $\approx$ 29% respectievelijk). Basisonderwijs was de kleinste groep met $\approx$ 1.3% (N=2) van alle respondenten. Verder bedroeg de gemiddelde woonafstand tot de Duitse grens $\approx$ 65.2km en was de standaard deviatie daarop $\approx$ 51.8km (zie Figuur \@ref(fig:afstand-grens)). De initiële verdeling van taalniveau is weergegeven in Figuren \@ref(fig:cefr-glossover) en \@ref(fig:theta-density). De theta-scores benaderen een normaalverdeling (M = 0.0003, SD = 0.81; zie Figuur \@ref(fig:theta-density)), wat verder wordt getoetst in sectie \@ref(hypothese).
 
-![Verhouding afstand van Duitse grens tussen respondenten.](figures/Figuur1.png){width="400"}
+```{r afstand-grens, warning=FALSE, fig.cap='Verhouding afstand van Duitse grens tussen respondenten'}
+# figuur 1
+ggplot(data, aes(x = d_grens)) +
+    geom_histogram(bins = 20, fill = "#7ac2fc", colour = "black") +
+    labs(x = "Afstand tot Duitse grens (km)", y = "N respondenten") +
+    theme_minimal()
+    #title = "Verhouding afstand grens respondenten."
+```
 
-![CEFR niveau verhouding tussen respondenten.](figures/Figuur2.png){width="400"}
+```{r cefr-glossover, warning=F, fig.cap='CEFR niveau verhouding tussen respondenten.'}
+# plot voor cefr verdeling (figuur 2)
+ggplot(data, aes(x = CEFR)) +
+    geom_bar(fill = "#6D8325FF") +
+    labs(x = "CEFR niveau", y = "N respondenten") +
+    theme_minimal()
+# title = "CEFR niveau verhouding tussen respondenten"
+```
+```{r theta-density, warning=F, fig.cap='Theta-score dichtheid met dichtheidscurve (blauw) en normaalcurve (rood)'}
+#Figuur 3
 
-![Theta-score dichtheid met dichtheidscurve (blauw) en normaalcurve (rood)](figures/Figuur3.png){width="400px"}
+# theta score
+mu <- mean(data$score)
+sigma <- sd(data$score)
 
-## Hypothesetoetsing
+ggplot(data, aes(x = score)) +
+    geom_histogram(
+        aes(y = after_stat(density)),
+        bins = 20
+        ) +
+    stat_function(fun = dnorm,
+                  args = list(mean = mu, sd = sigma),
+                  color = "red4",
+                  linewidth = 1
+                  ) +
+    geom_density(linewidth = 1, colour = "blue") +
+    labs(x = "IRT theta score", y = "Kansdichtheid") +
+    theme_minimal()
+```
+
+## Hypothesetoetsing {#hypothese}
 
 De nulhypothese (H0) stelt dat er geen verschil is in het gemiddelde niveau van Duitse taalvaardigheid tussen personen van 40 jaar en ouder en personen jonger dan 40 jaar.
 De alternatieve hypothese (H1) stelt dat personen van 40 jaar en ouder hoger scoren op Duitse taalvaardigheid dan personen jonger dan 40 jaar.
 
-![Snippet wat het aantal personen, de gemiddelde theta-score, de standaard deviatie en het gemiddelde CEFR niveau van de leeftijdsgroepen weergeeft.](figures/Figuur4.png){width="400"}
+```{r snippet-head, results='asis'}
 
-Om de hypothese te toetsen dat oudere respondenten het Duits beter beheersen dan jongere, werd een onafhankelijke t-toets uitgevoerd op de IRT theta-scores van beide leeftijdsgroepen. Figuur 5 toont de gemiddelde theta-scores per groep. De 40+ groep scoorde gemiddeld hoger (M = $\approx$ 0.32, SD = $\approx$ 0.70, CEFR = B1) dan de 18-40 groep (M = $\approx$ -0.40, SD = $\approx$ 0.77, CEFR = A2; zie ook Figuur 4).
+tr_A2 <- -0.5890936
+tr_B1 <- -0.2340141
+tr_B2 <- 0.4347344
+tr_c12 <- 0.8854923
 
-![IRT score per leeftijdsgroep.](figures/Figuur5.png){width="500"}
+get_level <- function(score) {
+  thresholds <- c(tr_A2, tr_B1, tr_B2, tr_c12)
+  levels <- c("A1", "A2", "B1", "B2", "C1_2")
+  levels[findInterval(score, thresholds) + 1]
+}
+
+data_summary <- data %>%
+  group_by(leeftijd) %>%
+  summarise(
+    n = n(),
+    mean_score = mean(score, na.rm = TRUE),
+    sd_score = sd(score, na.rm = TRUE),
+    lvl = get_level(mean_score),
+    .groups = "drop"
+  )
+
+data_summary %>%
+  gt::gt() %>%
+  gt::tab_caption(
+    caption = "Snippet wat het aantal personen, de gemiddelde theta-score, de standaard deviatie en het gemiddelde CEFR niveau van de leeftijdsgroepen weergeeft."
+  )%>%
+    gt::as_latex()%>%
+    cat()
+```
+
+Om de hypothese te toetsen dat oudere respondenten het Duits beter beheersen dan jongere, werd een onafhankelijke t-toets uitgevoerd op de IRT theta-scores van beide leeftijdsgroepen. Figuur \@ref(fig:irt-per-group) toont de gemiddelde theta-scores per groep. De 40+ groep scoorde gemiddeld hoger (M = $\approx$ 0.32, SD = $\approx$ 0.70, CEFR = B1) dan de 18-40 groep (M = $\approx$ -0.40, SD = $\approx$ 0.77, CEFR = A2; zie ook tabel \@ref(tab:snippet-head)).
+
+```{r irt-per-group, warning=F, fig.cap='IRT score per leeftijdsgroep.'}
+# figuur 4
+ggplot(data = data, aes(x = score, y = leeftijd)) +
+    geom_boxplot(colour = "grey5") +
+    scale_x_continuous(n.breaks = 20) +
+    coord_flip() +
+    labs(x = "IRT theta-score", y = "Leeftijdsgroep")+
+    theme_minimal()
+```
 
 Shapiro-Wilk toonde een significante afwijking van de normaliteit in de 18-40 groep (W = 0.95872, P = 0.02421; p < 0.05 wat een significante afwijking toont), de 40+ groep vertoonde geen significante afwijking van normaliteit (W = 0.98715, P = 0.5574). Gezien de relatief grote steekproefgroottes (N = 68 en N = 86) en de robuustheid van de t-toets bij lichte afwijkingen van de normaliteit, is de analyse met de onafhankelijke t-toets alsnog uitgevoerd.
 
@@ -125,3 +214,14 @@ De uitgevoerde t-toets toonde een significant verschil tussen beide groepen (t =
 
 De hypothese wordt ondersteund: oudere respondenten beheersen het Duits significant beter dan jongere respondenten.
 
+# Discussie en Conclusies
+
+# Wordcount
+
+```{r wordcount, message=FALSE}
+#install.packages(devtools)
+#devtools::install_github("benmarwick/wordcountaddin", type = "source", dependencies = TRUE)
+wordcountaddin:::text_stats()
+```
+
+# Referenties

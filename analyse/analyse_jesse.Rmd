@@ -92,7 +92,7 @@ summary(data$d_grens)
 # figuur 1
 ggplot(data, aes(x = d_grens)) +
     geom_histogram(bins = 20, fill = "#7ac2fc", colour = "black") +
-    labs(x = "Afstand tot Duitse grens (km)", y = "N respondenten")
+    labs(x = "Afstand tot Duitse grens (km)", y = "N respondenten") +
     theme_minimal()
     #title = "Verhouding afstand grens respondenten."
 ```
@@ -150,7 +150,7 @@ save_as_image(ft, "images/summary_lvls.png")
 
 ```
 ```{r}
-# figuur 5
+# figuur 4
 ggplot(data = data, aes(x = score, y = leeftijd)) +
     geom_boxplot(colour = "grey5") +
     scale_x_continuous(n.breaks = 20) +

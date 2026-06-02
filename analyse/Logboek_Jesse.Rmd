@@ -365,3 +365,9 @@ De hypothese wordt ondersteund: oudere respondenten beheersen het Duits signific
 - Ik moest \~ vervangen met LaTex $\approx$ dus dat gedaan.
 
 - Ik ga nu alles commiten en ik kijk misschien vanavond nog even naar de regressie en het updaten van de readme en misschien uitschrijven van protocol in /protocols.
+
+Oke, ik ben terug en ik moet leren lezen. In de template staat ook gewoon code dus ik ga wat dingen aanpassen...
+
+- Ik heb alle figuren nu in code in de paper gezet, alles heeft zijn chunk naam en caption.
+- De referenties in de tekst wijzen naar de figuren met \\.@.ref(x)
+
