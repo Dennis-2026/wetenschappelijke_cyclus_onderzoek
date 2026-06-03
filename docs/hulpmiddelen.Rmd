@@ -52,7 +52,7 @@ The null hypothesis of the Shapiro-Wilk normality test is that the data are a ra
 
 ## Cohens_d
 
-Via: [Cohens_d] Using this formula, here is how we interpret Cohen’s d:
+Via: [@Cohens_d] Using this formula, here is how we interpret Cohen’s d:
 
 - A d of 0.5 indicates that the two group means differ by 0.5 standard deviations.
 - A d of 1 indicates that the group means differ by 1 standard deviation.
@@ -72,42 +72,15 @@ Cohen’s d Percentage of Group 2 who would be below average person in Group 1
 
 ---
 
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    <tr class="gt_heading">
-      <td colspan="3" class="gt_heading gt_title gt_font_normal" style>Gebruikte libraries</td>
-    </tr>
-    <tr class="gt_heading">
-      <td colspan="3" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style>Versie, en gebruiksdoel</td>
-    </tr>
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Library">Library</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_right" rowspan="1" colspan="1" scope="col" id="Versie">Versie</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Gebruiksdoel">Gebruiksdoel</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="Library" class="gt_row gt_left">tidyverse</td>
-<td headers="Versie" class="gt_row gt_right">2.0.0</td>
-<td headers="Gebruiksdoel" class="gt_row gt_left">Filteren &amp; sorteren van de data.</td></tr>
-    <tr><td headers="Library" class="gt_row gt_left">ggplot2</td>
-<td headers="Versie" class="gt_row gt_right">4.0.3</td>
-<td headers="Gebruiksdoel" class="gt_row gt_left">Produceren van grafieken.</td></tr>
-    <tr><td headers="Library" class="gt_row gt_left">tidyr</td>
-<td headers="Versie" class="gt_row gt_right">1.3.2</td>
-<td headers="Gebruiksdoel" class="gt_row gt_left">Creëren van tidy data.</td></tr>
-    <tr><td headers="Library" class="gt_row gt_left">dplyr</td>
-<td headers="Versie" class="gt_row gt_right">1.2.1</td>
-<td headers="Gebruiksdoel" class="gt_row gt_left">Muteren van dataframes.</td></tr>
-    <tr><td headers="Library" class="gt_row gt_left">effectsize</td>
-<td headers="Versie" class="gt_row gt_right">1.0.2</td>
-<td headers="Gebruiksdoel" class="gt_row gt_left">Verkrijgen van effectsize voor analyse.</td></tr>
-    <tr><td headers="Library" class="gt_row gt_left">flextable</td>
-<td headers="Versie" class="gt_row gt_right">0.9.11</td>
-<td headers="Gebruiksdoel" class="gt_row gt_left">Exporteren dataframes naar png.</td></tr>
-    <tr><td headers="Library" class="gt_row gt_left">mirt</td>
-<td headers="Versie" class="gt_row gt_right">1.46.1</td>
-<td headers="Gebruiksdoel" class="gt_row gt_left">Implementatie Item Response Theory.</td></tr>
-  </tbody>
-  
-</table>
+## VIF
+
+Via [@VIF]
+Variance Inflation Factors (VIFs) measure the correlation among independent variables in least squares regression models. Statisticians refer to this type of correlation as multicollinearity. Excessive multicollinearity can cause problems for regression models.
+
+How High is Too High?
+
+A moderate amount of multicollinearity is okay. However, as multicollinearity increases, its effects also increase. What VIF values represent too much correlation?
+
+I’ve seen different thresholds. I consider VIFs of five and higher to represent problematic amounts of multicollinearity. However, I’ve seen recommendations range from 2.5 to 10! I wish I could give you a concrete answer. However, I’ve long used five as a threshold, and that seems to work well.
+
+Another consideration is that each coefficient estimate has its own standard error with its corresponding VIF. Consequently, you should evaluate each independent variable separately for multicollinearity. Even when some IVs in your model have high VIFs, other variables might have low VIFs and be absolutely fine. When extreme multicollinearity is present in some variables, it does not affect IVs with low VIFs.
