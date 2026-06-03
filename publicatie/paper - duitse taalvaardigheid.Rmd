@@ -216,7 +216,57 @@ De uitgevoerde t-toets toonde een significant verschil tussen beide groepen (t =
 
 De hypothese wordt ondersteund: oudere respondenten beheersen het Duits significant beter dan jongere respondenten.
 
-# Discussie en Conclusies
+## Locatie
+
+## Onderwijs
+
+## Blootstelling van de Duits taal
+
+## Situaties
+
+## Belang van de Duitse taal
+```{r belang-leeftijd, warning=F, fig.cap='Percentage belang van Duits per leeftijdscategorie.'}
+
+# figuur X
+ggplot(belang_tabel, aes(x = leeftijd, y = percentage, fill = duits_belang)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Belang van Duise taal per leeftijdsgroep",
+       x = "Leeftijdsgroep", y = "Percentage (%)", fill = "Duits belangrijk?") +
+  theme_minimal()
+```
+
+Uit figuur X blijkt dat een groter percentage van de 40+ groep de Duitse taal belangrijk vindt vergeleken met de 18-40 groep. Van alle respondenten vond over 70% van de leeftijdsgroep 40+ de Duitse taal belangrijker, tegenover de leeftijdsgroep van 18-40.
+
+## Schating vs score
+```{r data_schatting, warning=F, fig.cap='Schatting vs werkelijke score.'}
+
+# figuur X
+ggplot(data_schatting, aes(x = schatting, y = score)) +
+  geom_jitter(aes(color = richting), width = 0.1, alpha = 0.7) +
+  geom_smooth(method = "lm", se = TRUE, color = "grey5") +
+  annotate("text", x = 1.5, y = 2, label = sprintf("r = %.2f", r_waarde), size = 5) +
+  labs(title = "Schatting vs werkelijke theta-score",
+       x = "Eigen schatting (1 = laag, 5 = hoog)",
+       y = "Theta-score (WSS)",
+       color = "") +
+  theme_minimal()
+```
+Uit figuur X blijkt dat de correlatie tussen de eigen schatting van behaalde niveau en de werkelijke theta-score bedroeg r = 0.62 dat wijst op een matig tot sterk verband. Dit betekent dat respondenten hun behaalde niveaus redelijk goed hebben ingeschat, al was het niet helemaal perfect. 
+
+Uit de scatterplot blijkt dat de meeste afwijkingen in de richting van onderschatting lagen, maar dat het gemiddelde dichter bij kleine onderschatting lag.
+
+## Regressie
+
+
+# Discussie en conclusie
+
+## Hoofdbevinding
+
+## Interpretatie
+
+## Beperkingen
+
+## Aanbevelingen
 
 # Wordcount
 
