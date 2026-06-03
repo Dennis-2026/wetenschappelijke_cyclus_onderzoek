@@ -5,17 +5,20 @@ date: "2026-06-01"
 ---
 
 ```{r}
-data <- read.csv('cleaned_scores.csv')
+library(ggplot2)
+
+data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
 data$opleiding <- factor(data$opleiding)
 opleidingsniveaus <- data$opleiding
-niveau_Duits <- data$score
+niveaus_Duits <- data$score
 niveau_Duits_per_opleidingsniveau <- tapply(niveau_Duits,opleidingsniveaus,mean)
-barplot_opleiding <- barplot(opleidingsniveaus, factor(niveau_Duits))
+ggplot(data, aes(x=opleidingsniveaus, y=niveaus_Duits)) +
+  geom_bar()
 
 
 data
 opleidingsniveaus
-niveau_Duits
+niveaus_Duits
 
 niveau_Duits_per_opleidingsniveau
 barplot_opleiding
