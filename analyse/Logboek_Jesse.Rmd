@@ -374,4 +374,32 @@ Oke, ik ben terug en ik moet leren lezen. In de template staat ook gewoon code d
 
 - Geprobeerd wordcount te laten werken, lukte niet lukt wel op server bionf.
 
+### 03/06/26
+
+#### Wat ga ik vandaag doen:
+
+- Regressie uitvoeren om te zien welke variabele het meest invloed heeft op het niveau.
+
+- Tekst schrijven bij de regressie.
+
+#### Wat heb ik gedaan vandaag:
+
+Regressie is gelukt, ik heb met de standaard R lm() functie een model gemaakt van de score tegenover factoren die ik belangrijk vond. Verder heb ik nog een qq plot gemaakt omdat de mean rechtsleunend was [@LOGM] en de betrouwbaarheid met VIFs gemeten [@VIF].
+
+Daarna heb ik nog een qq plot gemaakt om weer te geven dat het model niet compleet lineair correct is, en daar nog wat uitleg bij.
+
+- Heel veel geschreven over het model, quantile theoretisch vs werkelijk(geobserveerd), uitleg welke vars hoogste impact hebben.
+
+- Aantal hulpmiddelen die ik heb gebruikt in hulmiddelen.Rmd gezet.
+
+- Mijn regressie stuk in de paper gezet.
+
+- Libraries toegevoegd (car, stringr en broom; laatste hoeft eig niet meer maar goed)
+
+- Wat fixes gedaan voor Vani's figuren; misten definities van variabelen in de paper, console output werd gerendered -> gefixed met summary(n = n(), .group (last = "drop")) ofzo en gefixed met geom_smooth een formula = x ~ y mee te geven. 
+
+- Vergeten model code in de paper te zetten dus kreeg een error voor het qq figuur.
+
+Het is nu 15:00, ik ga nu eerst stoppen aangezien ik in principe klaar ben met de taken die we verdeeld hadden. Misschien kijk ik later nog eens naar de introductie/abstract of ga ik kijken welke bronnen we weerleggen/confirmen (lastig want is vrij origineel onderzoek helaas). Ohja de readme moet ook nog uitgebreider.. We zien wel :)
+
 

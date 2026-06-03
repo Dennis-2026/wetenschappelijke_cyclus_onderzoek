@@ -11,7 +11,7 @@
 
 <meta name="author" content="Jesse Postma" />
 
-<meta name="date" content="2026-06-02" />
+<meta name="date" content="2026-06-03" />
 
 <title>Logboek Jesse</title>
 
@@ -375,7 +375,7 @@ display: none;
 <h1 class="title toc-ignore">Logboek Jesse</h1>
 <h3 class="subtitle">Wetenschappelijke Cyclus | Duitse Taal</h3>
 <h4 class="author">Jesse Postma</h4>
-<h4 class="date">2026-06-02</h4>
+<h4 class="date">2026-06-03</h4>
 
 </div>
 
@@ -984,14 +984,66 @@ van protocol in /protocols.</p></li>
 <p>Oke, ik ben terug en ik moet leren lezen. In de template staat ook
 gewoon code dus ik ga wat dingen aanpassen…</p>
 <ul>
-<li>Ik heb alle figuren nu in code in de paper gezet, alles heeft zijn
-chunk naam en caption.</li>
-<li>De referenties in de tekst wijzen naar de figuren met
-\.@.ref(x)</li>
+<li><p>Ik heb alle figuren nu in code in de paper gezet, alles heeft
+zijn chunk naam en caption.</p></li>
+<li><p>De referenties in de tekst wijzen naar de figuren met
+\.@.ref(x)</p></li>
+<li><p>Geprobeerd wordcount te laten werken, lukte niet lukt wel op
+server bionf.</p></li>
 </ul>
+</div>
+</div>
+<div id="section-10" class="section level3">
+<h3>03/06/26</h3>
+<div id="wat-ga-ik-vandaag-doen-5" class="section level4">
+<h4>Wat ga ik vandaag doen:</h4>
+<ul>
+<li><p>Regressie uitvoeren om te zien welke variabele het meest invloed
+heeft op het niveau.</p></li>
+<li><p>Tekst schrijven bij de regressie.</p></li>
+</ul>
+</div>
+<div id="wat-heb-ik-gedaan-vandaag-1" class="section level4">
+<h4>Wat heb ik gedaan vandaag:</h4>
+<p>Regressie is gelukt, ik heb met de standaard R lm() functie een model
+gemaakt van de score tegenover factoren die ik belangrijk vond. Verder
+heb ik nog een qq plot gemaakt omdat de mean rechtsleunend was <span class="citation">(<a href="#ref-LOGM"><em>Understanding Linear
+Regression Output in r | Towards Data Science</em>, n.d.</a>)</span> en
+de betrouwbaarheid met VIFs gemeten <span class="citation">(<a href="#ref-VIF"><em>Variance Inflation Factors (VIFs) - Statistics by
+Jim</em>, n.d.</a>)</span>.</p>
+<p>Daarna heb ik nog een qq plot gemaakt om weer te geven dat het model
+niet compleet lineair correct is, en daar nog wat uitleg bij.</p>
+<ul>
+<li><p>Heel veel geschreven over het model, quantile theoretisch vs
+werkelijk(geobserveerd), uitleg welke vars hoogste impact
+hebben.</p></li>
+<li><p>Aantal hulpmiddelen die ik heb gebruikt in hulmiddelen.Rmd
+gezet.</p></li>
+<li><p>Mijn regressie stuk in de paper gezet.</p></li>
+<li><p>Libraries toegevoegd (car, stringr en broom; laatste hoeft eig
+niet meer maar goed)</p></li>
+<li><p>Wat fixes gedaan voor Vani’s figuren; misten definities van
+variabelen in de paper, console output werd gerendered -&gt; gefixed met
+summary(n = n(), .group (last = “drop”)) ofzo en gefixed met geom_smooth
+een formula = x ~ y mee te geven.</p></li>
+<li><p>Vergeten model code in de paper te zetten dus kreeg een error
+voor het qq figuur.</p></li>
+</ul>
+<p>Het is nu 15:00, ik ga nu eerst stoppen aangezien ik in principe
+klaar ben met de taken die we verdeeld hadden. Misschien kijk ik later
+nog eens naar de introductie/abstract of ga ik kijken welke bronnen we
+weerleggen/confirmen (lastig want is vrij origineel onderzoek helaas).
+Ohja de readme moet ook nog uitgebreider.. We zien wel :)</p>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-IRT" class="csl-entry">
 <em>Item Response Theory - Wikipedia</em>. n.d. <a href="https://en.wikipedia.org/wiki/Item_response_theory">https://en.wikipedia.org/wiki/Item_response_theory</a>.
+</div>
+<div id="ref-LOGM" class="csl-entry">
+<em>Understanding Linear Regression Output in r | Towards Data
+Science</em>. n.d. <a href="https://towardsdatascience.com/understanding-linear-regression-output-in-r-7a9cbda948b3/">https://towardsdatascience.com/understanding-linear-regression-output-in-r-7a9cbda948b3/</a>.
+</div>
+<div id="ref-VIF" class="csl-entry">
+<em>Variance Inflation Factors (VIFs) - Statistics by Jim</em>. n.d. <a href="https://statisticsbyjim.com/regression/variance-inflation-factors/">https://statisticsbyjim.com/regression/variance-inflation-factors/</a>.
 </div>
 </div>
 </div>
