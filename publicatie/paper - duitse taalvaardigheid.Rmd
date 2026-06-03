@@ -72,12 +72,14 @@ Bij de analyse met R zijn de volgende libraries gebruikt:
 
 | Library    | Versie | Gebruiksdoel                            | Referentie |
 |------------|--------|-----------------------------------------|------------|
-| tidyverse  | 2.0.0  | Filteren en sorteren van de data        |[@TidyV]    |
-| ggplot2    | 4.0.3  | Produceren van grafieken                |[@ggplot]   |
-| tidyr      | 1.3.2  | Creëren van tidy data                   |[@tidyr]    |
-| dplyr      | 1.2.1  | Muteren van dataframes                  |[@dplyr]    |
-| effectsize | 1.0.2  | Verkrijgen van effect size voor analyse |[@effect]   |
-| mirt       | 1.46.1 | Implementatie Item Response Theory      |[@mirt]     |
+| tidyverse  | 2.0.0  | Filteren en sorteren van de data.       |[@TidyV]    |
+| ggplot2    | 4.0.3  | Produceren van grafieken.               |[@ggplot]   |
+| tidyr      | 1.3.2  | Creëren van tidy data.                  |[@tidyr]    |
+| dplyr      | 1.2.1  | Muteren van dataframes.                 |[@dplyr]    |
+| effectsize | 1.0.2  | Verkrijgen van effect size voor analyse.|[@effect]   |
+| mirt       | 1.46.1 | Implementatie Item Response Theory.     |[@mirt]     |
+| broom      | 1.0.12 | Nette output regressiemodel.            |[@broom]    |
+| stringr    | 1.6.0  | Nettere string manipulatie in R.        |[@stringr]  |
 
 ## Methoden
 
