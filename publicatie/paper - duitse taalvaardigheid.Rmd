@@ -238,7 +238,7 @@ ggplot(belang_tabel, aes(x = leeftijd, y = percentage, fill = duits_belang)) +
 
 Uit figuur X blijkt dat een groter percentage van de 40+ groep de Duitse taal belangrijk vindt vergeleken met de 18-40 groep. Van alle respondenten vond over 70% van de leeftijdsgroep 40+ de Duitse taal belangrijker, tegenover de leeftijdsgroep van 18-40.
 
-## Schating vs score
+## Schatting vs score
 ```{r data_schatting, warning=F, fig.cap='Schatting vs werkelijke score.'}
 
 # figuur X
@@ -258,6 +258,17 @@ Uit de scatterplot blijkt dat de meeste afwijkingen in de richting van onderscha
 
 ## Regressie
 
+Om te onderzoeken welke factoren samenhangen met Duitse taalvaardigheid werd een multipele lineaire regressie uitgevoerd. Dit model onderzocht de effecten van de factoren leeftijdsgroep, opleiding, afstand van de grens, gewoond/gewerkt in Duitsland, Duitse familie/kennis, regelmaat van gebruik, situaties en taalinteresse (Duits/algemeen) op de theta-score. Het model was significant (F-stat $\approx$ 7.55, p < .0001), en verklaarde $\approx$ 46.1% van de variantie in taalvaardigheid (Adjusted R-Squared $\approx$ .46). De mediaan van de residuen bedroeg -0.02944, wat aantoonde dat het model niet zo accuraat voorspelde in hogere scorebereiken. Om de verdeling van de residuen te beoordelen is een QQ-plot gegenereerd, zie Figuur \@ref(fig:quantiles). In dit figuur is te zien dat het QQ-plot  een S-vormig patroon vertoont, wat duidt op een systematische niet-lineaire afwijking in het model. Dit betekent dat de residuen niet willekeurig rond de nul-lijn verdeeld zijn, maar een gestructureerd patroon laten zien waarbij het model in bepaalde delen van het voorspellingsbereik te laag en in andere delen te hoog voorspelt. Dit suggereert dat de relatie tussen de voorspellers en Duitse taalvaardigheid niet volledig lineair is en mogelijk een lichte kromming bevat. Desondanks biedt het model bruikbare en interpreteerbare resultaten.
+
+```{r quantiles, warning=F, fig.cap='QQ-plot van residuen regressiemodel'}
+#figuur 67 (hij zegt zelf welk figuur btw so all good)
+ggplot(data = data.frame(resid = resid(model)), aes(sample = resid)) +
+    stat_qq(color = "steelblue", size = 1) +
+    stat_qq_line(color = "red", linewidth = 1) +
+    labs(x = "Theoretische kwantielen", y = "Werkelijke kwantielen") +
+    theme_minimal()
+```
+Leeftijd bleek een sterke voorspeller van de Duitse taalvaardigheid. Respondenten van 40 jaar en ouder scoorden gemiddeld 0.62 theta (p < .001) hoger dan respondenten in de leeftijdsgroep 18-40. Daarnaast hing regelmatig gebruik van de Duitse taal positief samen met taalvaardigheid: gemiddeld 0.81 theta (p < .001) hoger gescoord dan respondenten die aangaven de Duitse taal nooit te gebruiken. Ook gebruik van Duits in (social) media was een significante voorspeller ($\beta\approx$ 0.434, p $\approx$ 0.010). Verder werd een klein maar significant effect gevonden in de relatie tussen de score en de afstand tot de Duitse grens ($\beta\approx$ 0.002, p $\approx$ 0.042). Er werd een positieve trend gevonden voor hoger onderwijs (e.g. VWO/WO), maar deze effecten waren niet statistisch significant in het complete model.
 
 # Discussie en conclusie
 
