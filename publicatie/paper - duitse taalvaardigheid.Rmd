@@ -226,31 +226,56 @@ De hypothese wordt ondersteund: oudere respondenten beheersen het Duits signific
 ## Situaties
 
 ## Belang van de Duitse taal
+
 ```{r belang-leeftijd, warning=F, fig.cap='Percentage belang van Duits per leeftijdscategorie.'}
+
+belang_tabel <- data %>% 
+  group_by(leeftijd, duits_belang) %>% 
+  summarise(n = n(), .groups = "drop_last") %>% 
+  group_by(leeftijd) %>% 
+  mutate(percentage = n / sum(n) * 100)
 
 # figuur X
 ggplot(belang_tabel, aes(x = leeftijd, y = percentage, fill = duits_belang)) +
   geom_bar(stat = "identity", position = "dodge") +
-  labs(title = "Belang van Duise taal per leeftijdsgroep",
+  labs(
        x = "Leeftijdsgroep", y = "Percentage (%)", fill = "Duits belangrijk?") +
   theme_minimal()
+#title = "Belang van Duise taal per leeftijdsgroep",
 ```
 
 Uit figuur X blijkt dat een groter percentage van de 40+ groep de Duitse taal belangrijk vindt vergeleken met de 18-40 groep. Van alle respondenten vond over 70% van de leeftijdsgroep 40+ de Duitse taal belangrijker, tegenover de leeftijdsgroep van 18-40.
 
 ## Schatting vs score
-```{r data_schatting, warning=F, fig.cap='Schatting vs werkelijke score.'}
+
+```{r data-schatting, warning=F, fig.cap='Schatting vs werkelijke theta-score'}
+# Schatting omzetten naar z-score zodat het vergelijkbaar is met theta
+data_schatting <- data %>%
+  mutate(
+    z_score = scale(schatting)[,1],
+    verschil    = z_score - score,
+    richting    = case_when(
+      verschil > 0.5 ~ "Grote overschatting",
+      verschil > 0 ~ "Kleine overschatting",
+      verschil < 0 ~ "Onderschatting",
+      TRUE ~ "Geen verschil"
+    )
+    )
+
+# r-waarde
+r_waarde <- cor(data$schatting, data$score)
 
 # figuur X
 ggplot(data_schatting, aes(x = schatting, y = score)) +
   geom_jitter(aes(color = richting), width = 0.1, alpha = 0.7) +
-  geom_smooth(method = "lm", se = TRUE, color = "grey5") +
+  geom_smooth(method = "lm", formula = y ~ x, se = TRUE, color = "grey5") +
   annotate("text", x = 1.5, y = 2, label = sprintf("r = %.2f", r_waarde), size = 5) +
-  labs(title = "Schatting vs werkelijke theta-score",
+  labs(
        x = "Eigen schatting (1 = laag, 5 = hoog)",
        y = "Theta-score (WSS)",
        color = "") +
   theme_minimal()
+#title = "Schatting vs werkelijke theta-score",
 ```
 Uit figuur X blijkt dat de correlatie tussen de eigen schatting van behaalde niveau en de werkelijke theta-score bedroeg r = 0.62 dat wijst op een matig tot sterk verband. Dit betekent dat respondenten hun behaalde niveaus redelijk goed hebben ingeschat, al was het niet helemaal perfect. 
 
@@ -258,10 +283,40 @@ Uit de scatterplot blijkt dat de meeste afwijkingen in de richting van onderscha
 
 ## Regressie
 
-Om te onderzoeken welke factoren samenhangen met Duitse taalvaardigheid werd een multipele lineaire regressie uitgevoerd. Dit model onderzocht de effecten van de factoren leeftijdsgroep, opleiding, afstand van de grens, gewoond/gewerkt in Duitsland, Duitse familie/kennis, regelmaat van gebruik, situaties en taalinteresse (Duits/algemeen) op de theta-score. Het model was significant (F-stat $\approx$ 7.55, p < .0001), en verklaarde $\approx$ 46.1% van de variantie in taalvaardigheid (Adjusted R-Squared $\approx$ .46). De mediaan van de residuen bedroeg -0.02944, wat aantoonde dat het model niet zo accuraat voorspelde in hogere scorebereiken. Om de verdeling van de residuen te beoordelen is een QQ-plot gegenereerd, zie Figuur \@ref(fig:quantiles). In dit figuur is te zien dat het QQ-plot  een S-vormig patroon vertoont, wat duidt op een systematische niet-lineaire afwijking in het model. Dit betekent dat de residuen niet willekeurig rond de nul-lijn verdeeld zijn, maar een gestructureerd patroon laten zien waarbij het model in bepaalde delen van het voorspellingsbereik te laag en in andere delen te hoog voorspelt. Dit suggereert dat de relatie tussen de voorspellers en Duitse taalvaardigheid niet volledig lineair is en mogelijk een lichte kromming bevat. Desondanks biedt het model bruikbare en interpreteerbare resultaten.
+Om te onderzoeken welke factoren samenhangen met Duitse taalvaardigheid werd een multipele lineaire regressie uitgevoerd. Dit model onderzocht de effecten van de factoren leeftijdsgroep, opleiding, afstand van de grens, gewoond/gewerkt in Duitsland, Duitse familie/kennis, regelmaat van gebruik, situaties en taalinteresse (Duits/algemeen) op de theta-score. Het model was significant (F-stat $\approx$ 7.55, p < .0001), en verklaarde $\approx$ 46.1% van de variantie in taalvaardigheid (Adjusted R-Squared $\approx$ .46). Om multicollineariteit te controleren werden de Variance Inflation Factors (VIF) berekend. Alle VIF-waarden lagen onder de 5, wat aangeeft dat multicollineariteit geen substantieel probleem vormt in dit model. De mediaan van de residuen bedroeg -0.02944, wat aantoonde dat het model niet zo accuraat voorspelde in hogere scorebereiken. Om de verdeling van de residuen te beoordelen is een QQ-plot gegenereerd, zie Figuur \@ref(fig:quantiles). In dit figuur is te zien dat het QQ-plot  een S-vormig patroon vertoont, wat duidt op een systematische niet-lineaire afwijking in het model. Dit betekent dat de residuen niet willekeurig rond de nul-lijn verdeeld zijn, maar een gestructureerd patroon laten zien waarbij het model in bepaalde delen van het voorspellingsbereik te laag en in andere delen te hoog voorspelt. Dit suggereert dat de relatie tussen de voorspellers en Duitse taalvaardigheid niet volledig lineair is en mogelijk een lichte kromming bevat. Desondanks biedt het model bruikbare en interpreteerbare resultaten.
 
 ```{r quantiles, warning=F, fig.cap='QQ-plot van residuen regressiemodel'}
 #figuur 67 (hij zegt zelf welk figuur btw so all good)
+
+# willen bepalen welke var meest invloed heeft.
+#cat(colnames(data))
+
+# situaties splitten
+data$id_row <- 1:nrow(data)
+
+situaties_long <- data %>%
+  select(id_row, situaties) %>%
+  separate_rows(situaties, sep = ";")
+
+situaties_long <- situaties_long %>%
+  filter(situaties != "")
+
+situaties_wide <- situaties_long %>%
+  mutate(value = 1) %>%
+  pivot_wider(
+    names_from = situaties,
+    values_from = value,
+    values_fill = 0
+  )
+
+data2 <- data %>%
+  left_join(situaties_wide, by = "id_row")
+
+model = lm(score ~ leeftijd + opleiding + d_grens +
+               woonwerk_duits + fam_kennis + gebruik_hoevaak +
+               vakantie + werk + boodschappen + `(social) media` + overig + interesse_taal + interesse_duits,
+           data = data2)
+
 ggplot(data = data.frame(resid = resid(model)), aes(sample = resid)) +
     stat_qq(color = "steelblue", size = 1) +
     stat_qq_line(color = "red", linewidth = 1) +
