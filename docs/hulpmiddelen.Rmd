@@ -84,3 +84,7 @@ A moderate amount of multicollinearity is okay. However, as multicollinearity in
 I’ve seen different thresholds. I consider VIFs of five and higher to represent problematic amounts of multicollinearity. However, I’ve seen recommendations range from 2.5 to 10! I wish I could give you a concrete answer. However, I’ve long used five as a threshold, and that seems to work well.
 
 Another consideration is that each coefficient estimate has its own standard error with its corresponding VIF. Consequently, you should evaluate each independent variable separately for multicollinearity. Even when some IVs in your model have high VIFs, other variables might have low VIFs and be absolutely fine. When extreme multicollinearity is present in some variables, it does not affect IVs with low VIFs.
+
+## Logistic model interpretation
+
+Via [@Logm]
