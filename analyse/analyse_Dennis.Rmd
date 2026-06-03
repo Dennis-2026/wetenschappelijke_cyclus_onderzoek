@@ -24,10 +24,12 @@ niveau_Duits_per_opleidingsniveau$opleidingsniveaus <- factor(niveau_Duits_per_o
 schoolniveaus <- niveau_Duits_per_opleidingsniveau$opleidingsniveaus
 gemiddelde_Duits_niveaus <- niveau_Duits_per_opleidingsniveau$niveaus_Duits
 
-
 # plotten
 barplot_opleiding <- ggplot(data=niveau_Duits_per_opleidingsniveau, aes(x=schoolniveaus, y=gemiddelde_Duits_niveaus)) +
-  geom_col()
+  geom_col(colour = 'blue', fill='blue') +
+  xlab('hoogst behaalde opleiding') +
+  ylab('gemiddelde niveau Duits') +
+  labs(title = 'invloed hoogst behaalde opleiding op niveau Duits')
 
 barplot_opleiding
 ```
