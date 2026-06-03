@@ -80,6 +80,7 @@ Bij de analyse met R zijn de volgende libraries gebruikt:
 | mirt       | 1.46.1 | Implementatie Item Response Theory.     |[@mirt]     |
 | broom      | 1.0.12 | Nette output regressiemodel.            |[@broom]    |
 | stringr    | 1.6.0  | Nettere string manipulatie in R.        |[@stringr]  |
+| car        | 3.1.5  | Berekenen VIF waardes multicollinearity.|[@carpack]  |
 
 ## Methoden
 
