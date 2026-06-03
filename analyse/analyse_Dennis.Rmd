@@ -7,34 +7,29 @@ date: "2026-06-01"
 ```{r}
 library(ggplot2)
 
+# data inlezen
 data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
-data$opleiding <- factor(data$opleiding)
+
+# variabelen aanmaken voor de hoogstbehaalde opleidingen en niveaus Duits van deelnemers
 opleidingsniveaus <- data$opleiding
 niveaus_Duits <- data$score
-niveau_Duits_per_opleidingsniveau <- tapply(niveau_Duits,opleidingsniveaus,mean)
-schoolniveaus <- c('basisonderwijs', 'vmbo', 'havo', 'vwo', 'mbo', 'hbo', 'wo')
-gemiddelde_Duits_niveaus <- c(-0.18955113, -0.51485529, 0.02417521, -0.16167855, 0.39847021, 0.09044643, 0.29217447)
 
-barplot_opleiding <- ggplot(data=df, aes(x=schoolniveaus, y=gemiddelde_Duits_niveaus)) +
+# gemiddelde niveau per opleidingsniveau berekenen en in een variabele zetten
+niveau_Duits_per_opleidingsniveau <- aggregate(niveaus_Duits ~ opleidingsniveaus, data, FUN = mean)
+
+# de opleidingen op volgorde van laag naar hoog zetten
+niveau_Duits_per_opleidingsniveau$opleidingsniveaus <- factor(niveau_Duits_per_opleidingsniveau$opleidingsniveaus, levels=c('basisonderwijs', 'vmbo', 'havo', 'vwo', 'mbo', 'hbo', 'wo'))
+
+# aparte variabelen maken van de opleidingen in de juiste volgorde en de bijbehorende niveaus van Duits
+schoolniveaus <- niveau_Duits_per_opleidingsniveau$opleidingsniveaus
+gemiddelde_Duits_niveaus <- niveau_Duits_per_opleidingsniveau$niveaus_Duits
+
+
+# plotten
+barplot_opleiding <- ggplot(data=niveau_Duits_per_opleidingsniveau, aes(x=schoolniveaus, y=gemiddelde_Duits_niveaus)) +
   geom_col()
 
-df <- data.frame(schoolniveaus, gemiddelde_Duits_niveaus)
-
-data
-opleidingsniveaus
-niveaus_Duits
-df
-
-niveau_Duits_per_opleidingsniveau
 barplot_opleiding
-iets
-
-str(mpg)
-
-ggplot(data, aes(x = schoolniveaus, y = niveaus_Duits)) +
-  geom_col(stat = 'identity')
-
-help(geom_bar)
 ```
 
 
