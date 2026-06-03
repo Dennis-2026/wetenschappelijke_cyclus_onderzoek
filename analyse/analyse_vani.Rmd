@@ -14,8 +14,8 @@ library(dplyr)
 # Data inlezen
 
 data <- read.csv("cleaned_scores.csv", header = T, sep = ',')
-str(data_bestand)
-head(data_bestand)
+str(data)
+head(data)
 ```
 ```{r}
 # 8. Belang van Duits per leeftijdsgroep
@@ -30,9 +30,7 @@ belang_tabel <- data %>%
 # Plotten
 ggplot(belang_tabel, aes(x = leeftijd, y = percentage, fill = duits_belang)) +
   geom_bar(stat = "identity", position = "dodge") +
-  geom_text(aes(label = sprintf("%.0f%%", percentage)),
-            position = position_dodge(width = 0.9), vjust = -0.5) +
-  labs(title = "Vindt u Duits belangrijk? Per leeftijdsgroep",
+  labs(title = "Belang van Duise taal per leeftijdsgroep",
        x = "Leeftijdsgroep", y = "Percentage (%)", fill = "Duits belangrijk?") +
   theme_minimal()
 ```
@@ -40,10 +38,10 @@ ggplot(belang_tabel, aes(x = leeftijd, y = percentage, fill = duits_belang)) +
 # Vraag 9 — Schatting vs werkelijke score
 
 # Schatting omzetten naar z-score zodat het vergelijkbaar is met theta
-z <- data %>%
+data_schatting <- data %>%
   mutate(
-    schatting_z = scale(schatting)[,1],
-    verschil    = schatting_z - score,
+    z_score = scale(schatting)[,1],
+    verschil    = z_score - score,
     richting    = case_when(
       verschil > 0.5 ~ "Grote overschatting",
       verschil > 0 ~ "Kleine overschatting",
@@ -52,11 +50,14 @@ z <- data %>%
     )
     )
 
+# r-waarde
+r_waarde <- cor(data$schatting, data$score)
+
 # Plotten
-ggplot(z, aes(x = schatting, y = score)) +
+ggplot(data_schatting, aes(x = schatting, y = score)) +
   geom_jitter(aes(color = richting), width = 0.1, alpha = 0.7) +
-  geom_smooth(method = "lm", se = TRUE, color = "black") +
-  annotate("text", x = 1.5, y = 2, label = "r = 0.62", size = 5) +
+  geom_smooth(method = "lm", se = TRUE, color = "grey5") +
+  annotate("text", x = 1.5, y = 2, label = sprintf("r = %.2f", r_waarde), size = 5) +
   labs(title = "Schatting vs werkelijke theta-score",
        x = "Eigen schatting (1 = laag, 5 = hoog)",
        y = "Theta-score (WSS)",
@@ -64,3 +65,4 @@ ggplot(z, aes(x = schatting, y = score)) +
   theme_minimal()
 ```
 r = 0.62 betekent dat mensen hun niveau redelijk goed inschatten, maar niet perfect
+
