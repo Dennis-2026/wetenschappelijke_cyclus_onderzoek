@@ -108,7 +108,7 @@ barplot_gebruik_hoevaak <- ggplot(data=niveau_Duits_gebruik_hoevaak, aes(x=gebru
 barplot_gebruik_hoevaak
 ```
 
-
+In het onderstaande codeblok staan twee grafieken die de relatie tot het niveau Duits en de afstand van de Duitse grens weergeven. Elke deelnemer heeft hier een getal ingevuld dat aangeeft hoeveel km hij/zij van de Duitse grens woont. De ene grafiek is een puntendiagram en de andere een staafdiagram. Bij de staafdiagram valt op dat het gemiddelde niveau hoger lijkt te worden naarmate de deelnemers verder van de Duitse grens woont. Dit komt, omdat er maar twee deelnemers zijn die meer dan 200 km van de grens wonen. De ene persoon woont 250 km van de grens en de andere wel 400 km. Dit is ook te zien in de puntendiagram, want deze grafiek geeft de individuele niveaus weer. De twee hoogste afstanden van de grens in de staafdiagram geven dus geen gemiddeld niveau weer, maar de niveaus van twee individuen.
 ```{r}
 library(ggplot2)
 
@@ -119,7 +119,7 @@ data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
 point_plot_afstand <- ggplot(data = data, mapping = aes(x = d_grens, y = score)) + 
   geom_point(colour = 'blue', fill='blue') +
   xlab('afstand tot de Duitse grens in km') +
-  ylab('gemiddelde niveau Duits') +
+  ylab('individuele niveau Duits') +
   labs(title = 'invloed van de afstand tot de Duitse grens op het niveau Duits')
 
 point_plot_afstand
