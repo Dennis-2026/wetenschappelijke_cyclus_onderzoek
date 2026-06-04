@@ -323,14 +323,14 @@ ggplot(data = data.frame(resid = resid(model)), aes(sample = resid)) +
     labs(x = "Theoretische kwantielen", y = "Werkelijke kwantielen") +
     theme_minimal()
 ```
-Leeftijd bleek een sterke voorspeller van de Duitse taalvaardigheid. Respondenten van 40 jaar en ouder scoorden gemiddeld 0.62 theta (p < .001) hoger dan respondenten in de leeftijdsgroep 18-40. Daarnaast hing regelmatig gebruik van de Duitse taal positief samen met taalvaardigheid: gemiddeld 0.81 theta (p < .001) hoger gescoord dan respondenten die aangaven de Duitse taal nooit te gebruiken. Ook gebruik van Duits in (social) media was een significante voorspeller ($\beta\approx$ 0.434, p $\approx$ 0.010). Verder werd een klein maar significant effect gevonden in de relatie tussen de score en de afstand tot de Duitse grens ($\beta\approx$ 0.002, p $\approx$ 0.042). Er werd een positieve trend gevonden voor hoger onderwijs (e.g. VWO/WO), maar deze effecten waren niet statistisch significant in het complete model.
+Leeftijd bleek een sterke voorspeller van de Duitse taalvaardigheid. Respondenten van 40 jaar en ouder scoorden gemiddeld 0.62 theta (p < .001) hoger dan respondenten in de leeftijdsgroep 18-40. Daarnaast hing regelmatig gebruik van de Duitse taal positief samen met taalvaardigheid: gemiddeld 0.81 theta (p < .001) hoger gescoord dan respondenten die aangaven de Duitse taal nooit te gebruiken. Ook gebruik van Duits in (social) media was een significante voorspeller ($\beta\approx$ 0.434, p $\approx$ 0.010). Verder werd een klein maar significant effect gevonden in de relatie tussen de score en de afstand tot de Duitse grens ($\beta\approx$ 0.002, p $\approx$ 0.042). Echter was dit verband positief gerelateerd aan de afstand van de grens, wat inhoudt dat een grotere afstand tot de grens samenhing met een hogere taalvaardigheid. Dit resultaat komt niet overeen met de vooraf opgestelde hypothese. Er werd een positieve trend gevonden voor hoger onderwijs (e.g. VWO/WO), maar deze effecten waren niet statistisch significant in het complete model.
 
 # Discussie en conclusie
 
 ## Conclusie
-Uit dit onderzoek blijkt dat respondenten van de leeftijdsgroep 40+ gemiddeld een hogere niveau van Duitse taalvaardigheid behaalden (M = $\approx$ 0.32, SD = $\approx$ 0.70, CEFR = B1) vergeleken met de leeftijdsgroep 18-40 (M = $\approx$ -0.40, SD = $\approx$ 0.77, CEFR = A2). Dit verschil was statisctisch significant (t = -5.97, df = 136.72, p < .001, d = 0.98) zoals aangetoond in de sectie @ref(hypothese), wat wijst op een groot effect.
+Uit dit onderzoek blijkt dat respondenten van de leeftijdsgroep 40+ gemiddeld een hogere niveau van Duitse taalvaardigheid behaalden (M = $\approx$ 0.32, SD = $\approx$ 0.70, CEFR = B1) vergeleken met de leeftijdsgroep 18-40 (M = $\approx$ -0.40, SD = $\approx$ 0.77, CEFR = A2). Dit verschil was statisctisch significant (t = -5.97, df = 136.72, p < .001, d = 0.98) zoals aangetoond in de sectie \@ref(hypothese), wat wijst op een groot effect.
 
-```{r hoofdvraag1, results='asis'}
+```{r hoofdvraag1, results='asis', warning=F}
 
 tr_A2 <- -0.5890936
 tr_B1 <- -0.2340141
@@ -361,10 +361,10 @@ data_summary %>%
     gt::as_latex()%>%
     cat()
 ```
-Om meer beeld te geven van de taalvaardigheid, toont tabel @ref(tab:hoofdvraag2) de verdeling van CEFR-niveaus per leeftijdsgroep. 
+Om meer beeld te geven van de taalvaardigheid, toont tabel \@ref(tab:hoofdvraag2) de verdeling van CEFR-niveaus per leeftijdsgroep. 
 Hieruit blijkt dat de 18-40 groep voornamelijk op de lagere CEFR-niveaus scoorden: bijna 40% van deze groep behaalde een A1-niveau, en samen met A2 zat ruim de helft (58.8%) op de twee laagste niveaus. De 40+ groep laat een duidelijk andere verdeling zien: slechts 22.1% behaalde deze groep het niveau A1 of A2, terwijl 44.1% een B2-niveau of hoger behaalde.
 
-```{r hoofdvraag2, results='asis'}
+```{r hoofdvraag2, results='asis', warning=F}
 
 cefr_tabel <- data %>%
   group_by(leeftijd, CEFR) %>%
@@ -389,6 +389,7 @@ De 40+ groep scoort hoger doordat deze groep ...
 
 ## Beperkingen
 ...
+duitse grens vreemd..
 
 ## Aanbevelingen
 Voor vervolgonderzoek wordt aanbevolen ...
