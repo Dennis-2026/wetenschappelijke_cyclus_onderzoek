@@ -107,30 +107,35 @@ barplot_gebruik_hoevaak <- ggplot(data=niveau_Duits_gebruik_hoevaak, aes(x=gebru
 
 barplot_gebruik_hoevaak
 ```
+
+
 ```{r}
 library(ggplot2)
 
 # data inlezen
 data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
-min(data$d_grens)
 
 # puntendiagram maken
-ggplot(data = data, mapping = aes(x = data$d_grens, y = data$score)) + 
+point_plot_afstand <- ggplot(data = data, mapping = aes(x = d_grens, y = score)) + 
+  geom_point(colour = 'blue', fill='blue') +
+  xlab('afstand tot de Duitse grens in km') +
+  ylab('gemiddelde niveau Duits') +
+  labs(title = 'invloed van de afstand tot de Duitse grens op het niveau Duits')
 
-geom_point()
+point_plot_afstand
 
-categories <- numeric()
-categories[data$d_grens < 101] <- '100 km'
-categories[data$d_grens > 100 & data$d_grens < 201] <- '200 km'
-categories[data$d_grens > 200 & data$d_grens < 301] <- '300 km'
-categories[data$d_grens > 300 & data$d_grens < 401] <- '400 km'
-categories
-iets <- data$score
+verdeling_100_km <- cut(data$d_grens, breaks = c(-1, 100, 200, 300, 400), labels = c('tot 100 km', '100 tot 200 km', '200 tot 300 km', '300 t/m 400 km'), ordered_results = TRUE)
 
-
-data
 # gemiddelde niveau bij hoevaak de deelnemer Duits gebruikt in het dagelijks leven berekenen en in een variabele zetten
-niveau_Duits_gebruik_hoevaak <- aggregate(categories ~ iets, FUN = mean)
+niveaus <- data$score
 
-niveau_Duits_gebruik_hoevaak
+niveau_Duits_afstand <- aggregate(niveaus ~ verdeling_100_km, FUN = mean)
+
+barplot_afstand_grens <- ggplot(data=niveau_Duits_afstand, aes(x=verdeling_100_km, y=niveaus)) +
+  geom_col(colour = 'blue', fill='blue') +
+  xlab('afstand tot de Duitse grens in km') +
+  ylab('gemiddelde niveau Duits') +
+  labs(title = 'invloed van de afstand tot de Duitse grens op het niveau Duits')
+
+barplot_afstand_grens
 ```
