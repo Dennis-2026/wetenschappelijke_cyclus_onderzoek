@@ -141,14 +141,9 @@ barplot_afstand_grens
 ```
 ```{r}
 library(ggplot2)
-install.packages("questionr")
-library(questionr)
+
 # data inlezen
 data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
-
-# variabelen aanmaken voor hoevaak de deelnemer Duits gebruikt in het dagelijks leven en de niveaus Duits van de deelnemers
-situaties <- data$situaties
-niveaus_Duits <- data$score
 
 # situaties splitten
 data$id_row <- 1:nrow(data)
@@ -160,15 +155,39 @@ situaties_long <- data %>%
 situaties_long <- situaties_long %>%
   filter(situaties != "")
 
-situaties_wide <- situaties_long %>%
-  mutate(value = 1) %>%
-  pivot_wider(
-    names_from = situaties,
-    values_from = value,
-    values_fill = 0
+situaties_scores <- situaties_long %>%
+  left_join(data %>% select(id_row, score), by = 'id_row') %>%
+  group_by(situaties) %>%
+  summarise(
+    mean_score = mean(score, na.rm = TRUE),
+    se = sd(score, na.rm = TRUE) / sqrt(n()),
+    n = n()
   )
-situaties_wide
 
+situaties_scores$situaties[3] = 'geen situatie'
 
-niveau_Duits_situaties <- aggregate(niveaus ~ situaties_long, FUN = mean)
+# variabelen aanmaken voor hoevaak de deelnemer Duits gebruikt in het dagelijks leven en de niveaus Duits van de deelnemers
+situaties <- situaties_scores$situaties
+niveaus <- situaties_scores$mean_score
+
+# theta-scores omzetten naar CEFR-niveaus
+tr_A2 <- -0.5890936
+tr_B1 <- -0.2340141
+tr_B2 <- 0.4347344
+tr_c12 <- 0.8854923
+
+get_level <- function(score) {
+  thresholds <- c(tr_A2, tr_B1, tr_B2, tr_c12)
+  levels <- c("A1", "A2", "B1", "B2", "C1_2")
+  levels[findInterval(score, thresholds) + 1]
+}
+
+# plotten
+barplot_situaties <- ggplot(data=situaties_scores, aes(x=situaties, y=niveaus)) +
+  geom_col(colour = 'blue', fill='blue') +
+  xlab('situaties waarin Duits wordt gebruikt') +
+  ylab('gemiddelde niveau Duits') +
+  labs(title = 'invloed hoe vaak mensen Duits gebruiken op hun niveau')
+
+barplot_situaties
 ```
