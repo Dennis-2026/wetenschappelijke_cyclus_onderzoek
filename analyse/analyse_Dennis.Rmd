@@ -124,7 +124,7 @@ point_plot_afstand <- ggplot(data = data, mapping = aes(x = d_grens, y = score))
 
 point_plot_afstand
 
-verdeling_100_km <- cut(data$d_grens, breaks = c(-1, 100, 200, 300, 400), labels = c('tot 100 km', '100 tot 200 km', '200 tot 300 km', '300 t/m 400 km'), ordered_results = TRUE)
+verdeling_100_km <- cut(data$d_grens, breaks = c(-1, 100, 200, 300, 400), labels = c('t/m 100 km', 't/m 200 km', 't/m 300 km', 't/m 400 km'), ordered_results = TRUE)
 
 # gemiddelde niveau bij hoevaak de deelnemer Duits gebruikt in het dagelijks leven berekenen en in een variabele zetten
 niveaus <- data$score
