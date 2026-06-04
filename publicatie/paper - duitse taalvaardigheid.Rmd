@@ -327,11 +327,65 @@ Leeftijd bleek een sterke voorspeller van de Duitse taalvaardigheid. Respondente
 
 # Discussie en conclusie
 
-## Hoofdbevinding
-Respondenten van de leeftijdsgroep 40+ behaalden gemiddeld een B1-niveau, terwijl respondenten van andere leeftijdsgroep (18-40 jaar) gemiddeld op A2-niveau bleven. 
+## Conclusie
+Uit dit onderzoek blijkt dat respondenten van de leeftijdsgroep 40+ gemiddeld een hogere niveau van Duitse taalvaardigheid behaalden (M = $\approx$ 0.32, SD = $\approx$ 0.70, CEFR = B1) vergeleken met de leeftijdsgroep 18-40 (M = $\approx$ -0.40, SD = $\approx$ 0.77, CEFR = A2). Dit verschil was statisctisch significant (t = -5.97, df = 136.72, p < .001, d = 0.98) zoals aangetoond in de sectie @ref(hypothese), wat wijst op een groot effect.
+
+```{r hoofdvraag1, results='asis'}
+
+tr_A2 <- -0.5890936
+tr_B1 <- -0.2340141
+tr_B2 <- 0.4347344
+tr_c12 <- 0.8854923
+
+get_level <- function(score) {
+  thresholds <- c(tr_A2, tr_B1, tr_B2, tr_c12)
+  levels <- c("A1", "A2", "B1", "B2", "C1_2")
+  levels[findInterval(score, thresholds) + 1]
+}
+
+data_summary <- data %>%
+  group_by(leeftijd) %>%
+  summarise(
+    n = n(),
+    mean_score = mean(score, na.rm = TRUE),
+    sd_score = sd(score, na.rm = TRUE),
+    lvl = get_level(mean_score),
+    .groups = "drop"
+  )
+
+data_summary %>%
+  gt::gt() %>%
+  gt::tab_caption(
+    caption = "Snippet wat het aantal personen, de gemiddelde theta-score, de standaard deviatie en het gemiddelde CEFR niveau van de leeftijdsgroepen weergeeft."
+  )%>%
+    gt::as_latex()%>%
+    cat()
+```
+Om meer beeld te geven van de taalvaardigheid, toont tabel @ref(tab:hoofdvraag2) de verdeling van CEFR-niveaus per leeftijdsgroep. 
+Hieruit blijkt dat de 18-40 groep voornamelijk op de lagere CEFR-niveaus scoorden: bijna 40% van deze groep behaalde een A1-niveau, en samen met A2 zat ruim de helft (58.8%) op de twee laagste niveaus. De 40+ groep laat een duidelijk andere verdeling zien: slechts 22.1% behaalde deze groep het niveau A1 of A2, terwijl 44.1% een B2-niveau of hoger behaalde.
+
+```{r hoofdvraag2, results='asis'}
+
+cefr_tabel <- data %>%
+  group_by(leeftijd, CEFR) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  group_by(leeftijd) %>%
+  mutate(percentage = round(n / sum(n) * 100, 1)) %>%
+  select(-n) %>%
+  pivot_wider(names_from = CEFR, 
+              values_from = percentage, 
+              values_fill = 0)
+
+cefr_tabel %>%
+  gt::gt() %>%
+  gt::tab_caption("Percentage respondenten per CEFR-niveau per leeftijdsgroep.") %>%
+  gt::as_latex() %>%
+  cat()
+```
+Samenvattend kan worden gesteld dat de Duitse taalvaardigheid significant verschilt tussen de twee leefdtijdsgroepen, waarbij de 40+ groep duidelijk beter presenteert dan de 18-40 groep.
 
 ## Interpretatie
-De leeftijdsgroep van 40+ scoort hoger doordat zij ...
+De 40+ groep scoort hoger doordat deze groep ...
 
 ## Beperkingen
 ...
