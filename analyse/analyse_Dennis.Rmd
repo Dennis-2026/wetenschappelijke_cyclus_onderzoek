@@ -139,3 +139,36 @@ barplot_afstand_grens <- ggplot(data=niveau_Duits_afstand, aes(x=verdeling_100_k
 
 barplot_afstand_grens
 ```
+```{r}
+library(ggplot2)
+install.packages("questionr")
+library(questionr)
+# data inlezen
+data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
+
+# variabelen aanmaken voor hoevaak de deelnemer Duits gebruikt in het dagelijks leven en de niveaus Duits van de deelnemers
+situaties <- data$situaties
+niveaus_Duits <- data$score
+
+# situaties splitten
+data$id_row <- 1:nrow(data)
+
+situaties_long <- data %>%
+  select(id_row, situaties) %>%
+  separate_rows(situaties, sep = ";")
+
+situaties_long <- situaties_long %>%
+  filter(situaties != "")
+
+situaties_wide <- situaties_long %>%
+  mutate(value = 1) %>%
+  pivot_wider(
+    names_from = situaties,
+    values_from = value,
+    values_fill = 0
+  )
+situaties_wide
+
+
+niveau_Duits_situaties <- aggregate(niveaus ~ situaties_long, FUN = mean)
+```
