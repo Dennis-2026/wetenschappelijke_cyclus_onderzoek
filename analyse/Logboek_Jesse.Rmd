@@ -404,7 +404,7 @@ Het is nu 15:00, ik ga nu eerst stoppen aangezien ik in principe klaar ben met d
 
 ### 05/06/26
 
-Vrijdag, moest maar even samenzitten met het groepje. Was mij opgevallen dat Den langzaam werkte en dat dat Vani hinderde met haar progressie. Mijn ochtend heeft vanochtend dus ook vooral bestaan uit hulp bieden.. Ik heb code van Den gefixed, moraal support, vrijwel functies opnieuw uitgelegd, syntax, labeling ggplot, aangezet tot werken, referenties in bibtex gekopieerd, refereren uitgelegd, bronkeuzes afgekeurd/aangemoedigd met vani.. Niet erg amusant.
+Vrijdag, moest maar even samenzitten met het groepje. Was mij opgevallen dat Den langzaam werkte en dat dat Vani hinderde met haar progressie. Mijn ochtend heeft vanochtend dus ook vooral bestaan uit hulp bieden.. Ik heb met dennis naar zijn figuren gekeken en de code, heb wat geholpen met het converteren naar CEFR niveaus (met mijn bestaande functie). Labels op 45 graden oplossing met `theme(axis.text.x = e..._text(angle = 45, hjust = 1)), kan de hele functie niet ophalen zo uit mijn hoofd maar iets met e.._text.. Verder nog wat restructureren (e.g. globale functies bovenaan), libraries importeren om mijn stukjes code te laten werken (dplyr en stringr).
 
 #### Wat ga ik doen:
 
@@ -415,6 +415,4 @@ Vrijdag, moest maar even samenzitten met het groepje. Was mij opgevallen dat Den
 
 - bijles gegeven
 - protocol gedetailleerd in de github gezet (veel werk :( )
-- Vani en ik hebben afgesproken dat Den de abstract en Intro fixed
-- Vani heeft de deelvragen nu af omdat Den de figuren eindelijk klaar heeft.
-- Ik heb de README nog aangepast en compleet gemaakt.
+- Ik heb de README nog aangepast en compleet gemaakt met de inhoud van de github nu.
