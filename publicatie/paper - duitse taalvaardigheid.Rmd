@@ -40,7 +40,7 @@ data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
 
 # Introductie
 
-De kennis van de Duitse taal gaat in Nederland al jaren achteruit. Veel scholieren hebben zelfs na hun eindexamen een laag niveau Duits. Ook is de interesse in de Duitse taal niet hoog onder jonge mensen in Nederland. Het aantal studenten van Duitse Taal aan universiteiten is al jaren aan het dalen. Wij vermoeden daarom dat het niveau Duits onder jongeren lager is dan dat van oudere mensen. Het niveau van Duits (en Europese talen in het algemeen) wordt gemeten aan de hand van de CEFR-niveaus. Dit staat voor 'Common European Framework of Reference'. Deze niveaus zijn: A1, A2, B1, B2, C1, C2. Het absolute beginnersniveau is A1 en vanaf daar loopt het op tot het hoogste niveau: C2. Dit laatste niveau wordt ook wel 'near native' genoemd. Wij gaan onderzoeken of het niveau Duits van jonge mensen en oudere mensen van elkaar verschillen.
+De interesse in de Duitse taal is niet hoog onder jonge mensen in Nederland. Het aantal studenten van Duitse Taal aan universiteiten is al jaren aan het dalen. 'Het   aantal   eindexamenleerlingen   dat   voor   een   studie   Duits   kiest,   daalt   al   geruime   tijd.' {@DorisAbitzsch2024}. Verder is het aantal Nederlandse leerlingen dat eindexamen doet in Duits al enkele jaren aan het dalen. 'Sinds 2019 is er een daling, nadat daarvoor - vanaf 2010 - het percentage eindexamenkandidaten Duits lange tijd op een hoog niveau stabiel is geweest.'(https://duitslandinstituut.nl/naslagwerk/1223/feiten-en-cijfers). Het niveau van Duits (en Europese talen in het algemeen) wordt gemeten aan de hand van de CEFR-niveaus. Dit staat voor 'Common European Framework of Reference'. Deze niveaus zijn: A1, A2, B1, B2, C1, C2. Het absolute beginnersniveau is A1 en vanaf daar loopt het op tot het hoogste niveau: C2. Dit laatste niveau wordt ook wel 'near native' genoemd(https://www.ru.nl/radboud-into-languages/services/cefr-taalniveaus). Wij gaan onderzoeken of het niveau Duits van jonge mensen en oudere mensen van elkaar verschillen.
 
 # Methodologie
 
@@ -219,9 +219,16 @@ De hypothese wordt ondersteund: oudere respondenten beheersen het Duits signific
 
 ## Locatie
 
-Om te onderzoeken of de locatie samenhangt met de beheersing van de Duitse taalniveau, is de relatie tussen de afstand tot de Duise gren en het niveau Duits weergegeven. Elke deelnemer heeft aangegeven hoeveel kilometer hij of zij van de Duitse grens woont. Figuur \@ref(fig:point-plot-afstand) toont de individuele scores per afstand, terwijl figuur \@ref(fig:barplot-afstand-grens) het gemiddelde niveau per afstandsgroep weergeeft.
+Om te onderzoeken of de locatie samenhangt met de beheersing van de Duitse taalniveau, is de relatie tussen de afstand tot de Duise gren en het niveau Duits weergegeven. Elke deelnemer heeft aangegeven hoeveel kilometer hij of zij van de Duitse grens woont. Figuur \@ref(fig:point-plot-afstand) toont de individuele scores per afstand, terwijl figuur \@ref(fig:barplot-afstand-grens) het gemiddelde niveau per afstandsgroep weergeeft. In het onderstaande codeblok staan twee grafieken die de relatie tot het niveau Duits en de afstand van de Duitse grens weergeven. Elke deelnemer heeft hier een getal ingevuld dat aangeeft hoeveel km hij/zij van de Duitse grens woont. De ene grafiek is een puntendiagram en de andere een staafdiagram. Bij de staafdiagram valt op dat het gemiddelde niveau hoger lijkt te worden naarmate de deelnemers verder van de Duitse grens woont. Dit komt, omdat er maar twee deelnemers zijn die meer dan 200 km van de grens wonen. De ene persoon woont 250 km van de grens en de andere wel 400 km. Dit is ook te zien in de puntendiagram, want deze grafiek geeft de individuele niveaus weer. De twee hoogste afstanden van de grens in de staafdiagram geven dus geen gemiddeld niveau weer, maar de niveaus van twee individuen.
 
-```{r point-plot-afstand, warning=F, fig.cap='Invloed van de afstand tot de Duitse grens op het niveau Duits.'}
+```{r}
+library(ggplot2)
+
+# data inlezen
+data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
+
+cefr <- get_level(data$score)
+
 # puntendiagram maken
 ggplot(data = data, mapping = aes(x = d_grens, y = score)) + 
   geom_point(colour = '#7ac2fc') +
@@ -244,6 +251,8 @@ niveaus_Duits <- data$score
 # gemiddelde niveau per opleidingsniveau berekenen en in een variabele zetten
 niveau_Duits_per_opleidingsniveau <- aggregate(niveaus_Duits ~ opleidingsniveaus, data, FUN = mean)
 
+
+
 # de opleidingen op volgorde van laag naar hoog zetten
 niveau_Duits_per_opleidingsniveau$opleidingsniveaus <- factor(niveau_Duits_per_opleidingsniveau$opleidingsniveaus, levels=c('basisonderwijs', 'vmbo', 'havo', 'vwo', 'mbo', 'hbo', 'wo'))
 
@@ -251,7 +260,7 @@ niveau_Duits_per_opleidingsniveau$opleidingsniveaus <- factor(niveau_Duits_per_o
 schoolniveaus <- niveau_Duits_per_opleidingsniveau$opleidingsniveaus
 gemiddelde_Duits_niveaus <- niveau_Duits_per_opleidingsniveau$niveaus_Duits
 
-niveau_Duits_per_opleidingsniveau$cefr <- get_level(niveau_Duits_per_opleidingsniveau$niveaus_Duits)
+cefr <- get_level(gemiddelde_Duits_niveaus)
 
 # plotten
 ggplot(data=niveau_Duits_per_opleidingsniveau, aes(x=schoolniveaus, y=gemiddelde_Duits_niveaus, fill = cefr)) +
@@ -341,7 +350,6 @@ situaties_scores <- situaties_long %>%
     n = n()
   )
 
-situaties_scores$situaties[3] = 'geen situatie'
 
 
 situaties_scores$cefr <- get_level(situaties_scores$mean_score)
