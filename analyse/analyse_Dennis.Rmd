@@ -30,8 +30,6 @@ niveaus_Duits <- data$score
 # gemiddelde niveau per opleidingsniveau berekenen en in een variabele zetten
 niveau_Duits_per_opleidingsniveau <- aggregate(niveaus_Duits ~ opleidingsniveaus, data, FUN = mean)
 
-
-
 # de opleidingen op volgorde van laag naar hoog zetten
 niveau_Duits_per_opleidingsniveau$opleidingsniveaus <- factor(niveau_Duits_per_opleidingsniveau$opleidingsniveaus, levels=c('basisonderwijs', 'vmbo', 'havo', 'vwo', 'mbo', 'hbo', 'wo'))
 

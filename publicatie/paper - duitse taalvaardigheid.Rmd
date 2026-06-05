@@ -39,8 +39,7 @@ data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
 ```
 
 # Introductie
-
-De kennis van de Duitse taal gaat in Nederland al jaren achteruit. Veel scholieren hebben zelfs na hun eindexamen een laag niveau Duits. Ook is de interesse in de Duitse taal niet hoog onder jonge mensen in Nederland. Het aantal studenten van Duitse Taal aan universiteiten is al jaren aan het dalen. Wij vermoeden daarom dat het niveau Duits onder jongeren lager is dan dat van oudere mensen. Het niveau van Duits (en Europese talen in het algemeen) wordt gemeten aan de hand van de CEFR-niveaus. Dit staat voor 'Common European Framework of Reference'. Deze niveaus zijn: A1, A2, B1, B2, C1, C2. Het absolute beginnersniveau is A1 en vanaf daar loopt het op tot het hoogste niveau: C2. Dit laatste niveau wordt ook wel 'near native' genoemd. Wij gaan onderzoeken of het niveau Duits van jonge mensen en oudere mensen van elkaar verschillen.
+De interesse in de Duitse taal is niet hoog onder jonge mensen in Nederland. Het aantal studenten van Duitse Taal aan universiteiten is al jaren aan het dalen. 'Het   aantal   eindexamenleerlingen   dat   voor   een   studie   Duits   kiest,   daalt   al   geruime   tijd.' {@DorisAbitzsch2024}. Verder is het aantal Nederlandse leerlingen dat eindexamen doet in Duits al enkele jaren aan het dalen. 'Sinds 2019 is er een daling, nadat daarvoor - vanaf 2010 - het percentage eindexamenkandidaten Duits lange tijd op een hoog niveau stabiel is geweest.'(https://duitslandinstituut.nl/naslagwerk/1223/feiten-en-cijfers). Het niveau van Duits (en Europese talen in het algemeen) wordt gemeten aan de hand van de CEFR-niveaus. Dit staat voor 'Common European Framework of Reference'. Deze niveaus zijn: A1, A2, B1, B2, C1, C2. Het absolute beginnersniveau is A1 en vanaf daar loopt het op tot het hoogste niveau: C2. Dit laatste niveau wordt ook wel 'near native' genoemd(https://www.ru.nl/radboud-into-languages/services/cefr-taalniveaus). Wij gaan onderzoeken of het niveau Duits van jonge mensen en oudere mensen van elkaar verschillen.
 
 # Methodologie
 
@@ -218,21 +217,26 @@ De uitgevoerde t-toets toonde een significant verschil tussen beide groepen (t =
 De hypothese wordt ondersteund: oudere respondenten beheersen het Duits significant beter dan jongere respondenten.
 
 ## Locatie
+In het onderstaande codeblok staan twee grafieken die de relatie tot het niveau Duits en de afstand van de Duitse grens weergeven. Elke deelnemer heeft hier een getal ingevuld dat aangeeft hoeveel km hij/zij van de Duitse grens woont. De ene grafiek is een puntendiagram en de andere een staafdiagram. Bij de staafdiagram valt op dat het gemiddelde niveau hoger lijkt te worden naarmate de deelnemers verder van de Duitse grens woont. Dit komt, omdat er maar twee deelnemers zijn die meer dan 200 km van de grens wonen. De ene persoon woont 250 km van de grens en de andere wel 400 km. Dit is ook te zien in de puntendiagram, want deze grafiek geeft de individuele niveaus weer. De twee hoogste afstanden van de grens in de staafdiagram geven dus geen gemiddeld niveau weer, maar de niveaus van twee individuen.
+```{r}
+library(ggplot2)
 
-Om te onderzoeken of de locatie samenhangt met de beheersing van de Duitse taalniveau, is de relatie tussen de afstand tot de Duise gren en het niveau Duits weergegeven. Elke deelnemer heeft aangegeven hoeveel kilometer hij of zij van de Duitse grens woont. Figuur \@ref(fig:point-plot-afstand) toont de individuele scores per afstand, terwijl figuur \@ref(fig:barplot-afstand-grens) het gemiddelde niveau per afstandsgroep weergeeft.
+# data inlezen
+data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
 
-```{r point-plot-afstand, warning=F, fig.cap='Invloed van de afstand tot de Duitse grens op het niveau Duits.'}
+cefr <- get_level(data$score)
+
 # puntendiagram maken
-point_plot_afstand <- ggplot(data = data, mapping = aes(x = d_grens, y = score)) + 
-  geom_point(colour = 'blue', fill='blue') +
+point_plot_afstand <- ggplot(data = data, mapping = aes(x = d_grens, y = cefr, fill=cefr)) + 
+  geom_point(colour='blue') +
   xlab('afstand tot de Duitse grens in km') +
-  ylab('individuele niveau Duits')
+  ylab('individuele niveau Duits') +
+  labs(title = 'invloed van de afstand tot de Duitse grens op het niveau Duits') +
+  theme_minimal() +
+  theme(legend.position="none")
 
 point_plot_afstand
-```
-Uit figuur \@ref(fig:point-plot-afstand) blijt geen duidelijk verband tussen de afstand tot de Duitse grens en het niveau Duits. De punten zijn ...
 
-```{r barplot-afstand-grens, warning=F, fig.cap='Invloed van de afstand tot de Duitse grens op het niveau Duits.'}
 verdeling_100_km <- cut(data$d_grens, breaks = c(-1, 100, 200, 300, 400), labels = c('t/m 100 km', 't/m 200 km', 't/m 300 km', 't/m 400 km'), ordered_results = TRUE)
 
 # gemiddelde niveau bij hoevaak de deelnemer Duits gebruikt in het dagelijks leven berekenen en in een variabele zetten
@@ -240,20 +244,38 @@ niveaus <- data$score
 
 niveau_Duits_afstand <- aggregate(niveaus ~ verdeling_100_km, FUN = mean)
 
-barplot_afstand_grens <- ggplot(data=niveau_Duits_afstand, aes(x=verdeling_100_km, y=niveaus)) +
-  geom_col(colour = 'blue', fill='blue') +
+cefr_barplot <- get_level(niveau_Duits_afstand$niveaus)
+
+barplot_afstand_grens <- ggplot(data=niveau_Duits_afstand, aes(x=verdeling_100_km, y=niveaus, fill=cefr_barplot)) +
+  geom_col() +
   xlab('afstand tot de Duitse grens in km') +
-  ylab('gemiddelde niveau Duits')
+  ylab('gemiddelde niveau Duits') +
+  labs(title = 'invloed van de afstand tot de Duitse grens op het niveau Duits') +
+  theme_minimal()
 
 barplot_afstand_grens
 ```
-Uit figuur \@ref(fig:barplot-afstand-grens) blijkt het gemiddelde niveau hoger wordt naarmate de afstand tot de grens groter wordt. Dit beeld is echter misleidend: de groepen "t/m 300 km" en "t/m 400 km" bevatten slechts één respectievelijk twee respondenten, waardoor de balken geen betrouwbaar gemiddelde weergeven maar de scores van individuele personen. De meerdereheid van de respondenten woonde binnen 100 km van de grens, waardoor de overige groepen te klein zijn om betrouwbare conclusies uit te trekken.
 
 ## Onderwijs
+```{r}
+library(ggplot2)
 
-Om te onderzoeken of het hoogst behaalde opleidingsinveau samenhangt met de Duitse taalvaardigheid, is het gemiddelde niveau Duits per opleidingsgroep berekend. De opleidingen zijn gerangschikt van laag naar hoog, van basisonderwijs tot WO. Figuur \@ref(fig:barplot-opleiding) toont deze gemiddelde scores per opleidingsniveau.
+# theta-scores omzetten naar CEFR-niveaus
+tr_A2 <- -0.5890936
+tr_B1 <- -0.2340141
+tr_B2 <- 0.4347344
+tr_c12 <- 0.8854923
 
-```{r barplot-opleiding, warning=F, fig.cap='Invloed hoogst behaalde opleiding op niveau Duits.'}
+get_level <- function(score) {
+  thresholds <- c(tr_A2, tr_B1, tr_B2, tr_c12)
+  levels <- c("A1", "A2", "B1", "B2", "C1_2")
+  levels[findInterval(score, thresholds) + 1]
+}
+
+
+# data inlezen
+data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
+
 # variabelen aanmaken voor de hoogstbehaalde opleidingen en de niveaus Duits van de deelnemers
 opleidingsniveaus <- data$opleiding
 niveaus_Duits <- data$score
@@ -268,25 +290,28 @@ niveau_Duits_per_opleidingsniveau$opleidingsniveaus <- factor(niveau_Duits_per_o
 schoolniveaus <- niveau_Duits_per_opleidingsniveau$opleidingsniveaus
 gemiddelde_Duits_niveaus <- niveau_Duits_per_opleidingsniveau$niveaus_Duits
 
+cefr <- get_level(gemiddelde_Duits_niveaus)
+
 # plotten
-barplot_opleiding <- ggplot(data=niveau_Duits_per_opleidingsniveau, aes(x=schoolniveaus, y=gemiddelde_Duits_niveaus)) +
-  geom_col(colour = 'blue', fill='blue') +
+barplot_opleiding <- ggplot(data=niveau_Duits_per_opleidingsniveau, aes(x=schoolniveaus, y=gemiddelde_Duits_niveaus, fill = cefr)) +
+  geom_col() +
   xlab('hoogst behaalde opleiding') +
-  ylab('gemiddelde niveau Duits')
+  ylab('gemiddelde niveau Duits') +
+  labs(title = 'invloed hoogst behaalde opleiding op niveau Duits') +
+  theme_minimal()
 
 barplot_opleiding
 ```
-Uit figuur \@ref(fig:barplot-opleiding) is er geen duidelijk stijgend patroon zichtbaar van laag naar hoog opleidingsniveau. Opvallend is dat vmbo-respondenten gemiddeld hoger scoren dan havo- en vwo- respondenten. Dit resultaat moet echter voorzichtig worden geïnterpreteerd, omdat sommige groepen zoals basisonderwijs (n = 2) en vwo (n = 8) zeer klein zijn, waardoor het gemiddelde sterk beïnvloed kan worden door individuele scores. 
-
 ## Blootstelling van de Duits taal
 
-In deze sectie wordt onderzocht in hieverre blootstelling aan de Duitse taal samenhangt met de Duitse taalvaardigheid. Hierbij wordt gekeken naar drie factoren: of een respondent in Duitsland heeft gewoond of gewerkt, of een respondent een Duitse familielid of kennis heeft, en hoe vaak een respondent Duits gebruikt in het dagelijks leven.
+## gewoond of gewerkt in Duitsland
+```{r}
+library(ggplot2)
 
-### Gewoond of gewerkt in Duitsland
 
-Om te onderzoeken of het wonen of werken in Duitsland samenhangt met de Duitse taalvaardigheid, is het gemiddelde niveau Duits vergeleken tussen respondenten die wel en niet in Duitsland hebben gewoond of gewerkt.
+# data inlezen
+data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
 
-```{r barplot-woon-werk, warning=F, fig.cap='Invloed wonen of werken in Duitsland op niveau Duits.'}
 # variabelen aanmaken voor de antwoorden op de vraag of de deelnemer in Duitsland heeft gewoond of gewerkt en de niveaus Duits van de deelnemers
 woon_werk <- data$woonwerk
 niveaus_Duits <- data$score
@@ -294,21 +319,28 @@ niveaus_Duits <- data$score
 # gemiddelde niveau bij de antwoorden ja en nee berekenen en in een variabele zetten
 niveau_Duits_woon_werk <- aggregate(niveaus_Duits ~ woon_werk, data, FUN = mean)
 
+
+
+cefr <- get_level(niveau_Duits_woon_werk$niveaus_Duits)
+
 # plotten
-barplot_woon_werk <- ggplot(data=niveau_Duits_woon_werk, aes(x=woon_werk, y=niveaus_Duits)) +
-  geom_col(colour = 'blue', fill='blue') +
+barplot_woon_werk <- ggplot(data=niveau_Duits_woon_werk, aes(x=woon_werk, y=niveaus_Duits, fill=cefr)) +
+  geom_col() +
   xlab('antwoorden op de vraag of de deelnemer in Duitsland heeft gewerkt of gewoond') +
-  ylab('gemiddelde niveau Duits')
+  ylab('gemiddelde niveau Duits') +
+  labs(title = 'invloed wonen of werken in Duitsland op niveau Duits') +
+  theme_minimal()
 
 barplot_woon_werk
 ```
-Uit figuur \@ref(fig:barplot-woon-werk) blijkt dat respondenten die in Duitsland hebben gewoond of gewerkt gemiddeld aanzienlijk hoger scoren (M = 0.68, CEFR $\approx$ B2) dan respondenten die dit niet hebben gedaan (M = -0.08, CEFR $\approx$ B1). Dit suggereert dat directe blootstelling aan de Duitse taal in een werkomgeving of woonsituatie een positief effect heeft op de taalvaardigheid.
 
 ## Duitse kennis of familielid
+```{r}
+library(ggplot2)
 
-Daarnaast is onderzocht of het hebben van een Duits familielid of kennis samenhangt met de Duitse taalvaardigheid. Figuur \@ref(fig:barplot-fam-kennis) toont het gemiddeldenievau Duits voor respondenten die wel en niet een Duits familielid of kennis heeft.
+# data inlezen
+data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
 
-```{r barplot-fam-kennis, warning=F, fig.cap='Invloed van het hebben van een Duitse kennis of familielid op niveau Duits.'}
 # variabelen aanmaken voor de antwoorden op de vraag of de deelnemer een Duitse kennis of familielid heeft en de niveaus Duits van de deelnemers
 fam_kennis <- data$fam_kennis
 niveaus_Duits <- data$score
@@ -316,21 +348,26 @@ niveaus_Duits <- data$score
 # gemiddelde niveau bij antwoorden ja en nee op de vraag of de deelnemer een Duitse kennis of familielid heeft berekenen en in een variabele zetten
 niveau_Duits_fam_kennis <- aggregate(niveaus_Duits ~ fam_kennis, data, FUN = mean)
 
+cefr <- get_level(niveau_Duits_fam_kennis$niveaus_Duits)
+
 # plotten
-barplot_fam_kennis <- ggplot(data=niveau_Duits_fam_kennis, aes(x=fam_kennis, y=niveaus_Duits)) +
-  geom_col(colour = 'blue', fill='blue') +
+barplot_fam_kennis <- ggplot(data=niveau_Duits_fam_kennis, aes(x=fam_kennis, y=niveaus_Duits, fill=cefr)) +
+  geom_col() +
   xlab('antwoorden op de vraag of de deelnemer een Duitse kennis of familielid heeft') +
-  ylab('gemiddelde niveau Duits')
+  ylab('gemiddelde niveau Duits') +
+  labs(title = 'invloed van het hebben van een Duitse kennis of familielid op niveau Duits') +
+  theme_minimal()
 
 barplot_fam_kennis
 ```
-Uit figuur \@ref(fig:barplot-fam-kennis) blijkt dat respondenren met een Duits familielid of kennis gemiddeld hoger scoren (M = 0.27, CEFR $\approx$ B1) dan de respondenten zonder (M = -0.11, CEFR $\approx$ A2). Het verschil is kleiner dan bij wonen of werken in Duitsland, wat suggereert dat indirect contact met de Duise taal via een familielid of kennis minder sterk samenhangt met taalvaardigheid dan directe blootstelling.
 
-## Hoevaak wordt Duits gebruikt
+## hoevaak wordt Duits gebruikt
+```{r}
+library(ggplot2)
 
-Ten slotte is onderzicht of de frequentie van Duits gebruikt in het dagelijks leven samenhangt met de Duitse taalvaardigheid. Figuur \@ref(fig:barplot-gebruik-hoevaak) toont het gemiddelde niveau Duits per gebruiksfrequentie, gerangschikt van nooit tot vaak.
+# data inlezen
+data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
 
-```{r barplot-gebruik-hoevaak, warning=F, fig.cap='Invloed van Duits gebruiken in het dagelijks leven op het niveau.'}
 # variabelen aanmaken voor hoevaak de deelnemer Duits gebruikt in het dagelijks leven en de niveaus Duits van de deelnemers
 gebruik_hoevaak <- data$gebruik_hoevaak
 niveaus_Duits <- data$score
@@ -341,21 +378,29 @@ niveau_Duits_gebruik_hoevaak <- aggregate(niveaus_Duits ~ gebruik_hoevaak, data,
 # hoeveel de deelnemers Duits gebruiken in het dagelijks leven op volgorde zetten van nooit naar vaak
 niveau_Duits_gebruik_hoevaak$gebruik_hoevaak <- factor(niveau_Duits_gebruik_hoevaak$gebruik_hoevaak, levels=c('nooit', 'soms', 'regelmatig', 'vaak'))
 
+cefr <- get_level(niveau_Duits_gebruik_hoevaak$niveaus_Duits)
+
 # plotten
-barplot_gebruik_hoevaak <- ggplot(data=niveau_Duits_gebruik_hoevaak, aes(x=gebruik_hoevaak, y=niveaus_Duits)) +
-  geom_col(colour = 'blue', fill='blue') +
+barplot_gebruik_hoevaak <- ggplot(data=niveau_Duits_gebruik_hoevaak, aes(x=gebruik_hoevaak, y=niveaus_Duits, fill=cefr)) +
+  geom_col() +
   xlab('hoevaak gebruikt de deelnemer Duits in het dagelijks leven') +
-  ylab('gemiddelde niveau Duits')
+  ylab('gemiddelde niveau Duits') +
+  labs(title = 'invloed van Duits gebruiken in het dagelijks leven op het niveau') +
+  theme_minimal()
 
 barplot_gebruik_hoevaak
 ```
-Uit figuur \@ref(fig:barplot-gebruik-hoevaak) blijkt een duidelijk stijgend patroon: hoe vaker een respondent Duits gebruikt in het dagelijks leven, hoe hoger het gemiddelde niveau. Respondenten die de taal nooit gebruiken scoren gemiddeld op A2-niveau (M = -0.38), terwijl respondenten die de taal vaak gebruiken gemiddeld op C1/C2-niveau scoren (M = 0.93). Dit suggereert dat regelmatig gebruik van de Duitse taal sterk samenhangt met een hogere taalvaardigheid.
 
 ## Situaties
+```{r}
+library(ggplot2)
+library(dplyr)
+library(stringr)
+library(tidyr)
 
-Om te onderzoeken in welke situaties respondeten Duits gebruiken en hoe dit samenhangt met hun taalvaardigheid, zijn de situaties per respondent uitgesplitst. Figuur \@ref(fig:barplot-situaties) toont het gemiddelde niveau Duits per situatie, waarbij de kleur het bijhorende CEFR-niveau aangeeft.
+# data inlezen
+data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
 
-```{r barplot-situaties, warning=F, fig.cap='Invloed hoe vaak mensen Duits gebruiken op hun niveau.'}
 # situaties splitten
 data$id_row <- 1:nrow(data)
 
@@ -375,36 +420,27 @@ situaties_scores <- situaties_long %>%
     n = n()
   )
 
-situaties_scores$situaties[3] = 'geen situatie'
 
 # variabelen aanmaken voor hoevaak de deelnemer Duits gebruikt in het dagelijks leven en de niveaus Duits van de deelnemers
 situaties <- situaties_scores$situaties
 niveaus <- situaties_scores$mean_score
 
 # theta-scores omzetten naar CEFR-niveaus
-tr_A2 <- -0.5890936
-tr_B1 <- -0.2340141
-tr_B2 <- 0.4347344
-tr_c12 <- 0.8854923
-
-get_level <- function(score) {
-  thresholds <- c(tr_A2, tr_B1, tr_B2, tr_c12)
-  levels <- c("A1", "A2", "B1", "B2", "C1_2")
-  levels[findInterval(score, thresholds) + 1]
-}
 
 situaties_scores$cefr <- get_level(situaties_scores$mean_score)
 
 # plotten
-barplot_situaties <- ggplot(data=situaties_scores, aes(x=situaties, y=situaties_scores$mean_score, fill = situaties_scores$cefr)) +
+barplot_situaties <- ggplot(data=situaties_scores, aes(x=situaties, y=mean_score, fill = cefr)) +
   geom_col() +
   xlab('situaties waarin Duits wordt gebruikt') +
-  ylab('gemiddelde niveau Duits')
+  ylab('gemiddelde niveau Duits') +
+  labs(title = 'invloed van situaties op het gemiddelde niveau Duits') + 
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  
 
 barplot_situaties
 ```
-Uit figuur \@ref(fig:barplot-situaties) blijkt dat respondenten die Duits gebruiken via (social) media gemiddeld het hoogst scoren (CEFR $\approx$ B2), gevolgd door overige situaties en boodschapen. Respondenten die Duits gebruiken voor werk of vakantie scoren gemiddeld op B1-niveau Respondenten die aangaven Duits in geen enkele situatie te gebruiken scoren het laagst (CEFR $\approx$ A2), wat bevestigt dat actief gebruik van de taal samenhangt met een hogere taalvaardigheid.
-
 ## Belang van de Duitse taal
 
 Om te onderzoeken of de twee leeftijdsgroepen verschillen in hoe belangrijk zij de Duitse taal vinden om te leren, is per leeftijdsgroep het percentage respondenten berekend dat de Duitse taal belangrijk vindt. Figuur @ref(fig:belang-leeftijd) toont deze verdeling per leeftijdsgroep, waarbij onderscheid wordt gemaakt tussen repondenten die de Duitse taal wel of niet belangrijk vinden om te leren.
