@@ -402,4 +402,18 @@ Daarna heb ik nog een qq plot gemaakt om weer te geven dat het model niet comple
 
 Het is nu 15:00, ik ga nu eerst stoppen aangezien ik in principe klaar ben met de taken die we verdeeld hadden. Misschien kijk ik later nog eens naar de introductie/abstract of ga ik kijken welke bronnen we weerleggen/confirmen (lastig want is vrij origineel onderzoek helaas). Ohja de readme moet ook nog uitgebreider.. We zien wel :)
 
+### 05/06/26
 
+Vrijdag, moest maar even samenzitten met het groepje. Was mij opgevallen dat Den langzaam werkte en dat dat Vani hinderde met haar progressie. Mijn ochtend heeft vanochtend dus ook vooral bestaan uit hulp bieden.. Ik heb code van Den gefixed, moraal support, vrijwel functies opnieuw uitgelegd, syntax, labeling ggplot, aangezet tot werken, referenties in bibtex gekopieerd, refereren uitgelegd, bronkeuzes afgekeurd/aangemoedigd met vani.. Niet erg amusant.
+
+#### Wat ga ik doen:
+
+- Praten met groepje
+- Intro, abstract, etc verdelen
+
+#### Wat heb ik gedaan:
+
+- bijles gegeven
+- protocol gedetailleerd in de github gezet.
+- Vani en ik hebben afgesproken dat Den de abstract en Intro fixed
+- Vani heeft de deelvragen nu af omdat Den de figuren eindelijk klaar heeft.
