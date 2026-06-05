@@ -141,6 +141,9 @@ barplot_afstand_grens
 ```
 ```{r}
 library(ggplot2)
+library(dplyr)
+library(stringr)
+library(tidyr)
 
 # data inlezen
 data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
@@ -182,9 +185,11 @@ get_level <- function(score) {
   levels[findInterval(score, thresholds) + 1]
 }
 
+situaties_scores$cefr <- get_level(situaties_scores$mean_score)
+
 # plotten
-barplot_situaties <- ggplot(data=situaties_scores, aes(x=situaties, y=niveaus)) +
-  geom_col(colour = 'blue', fill='blue') +
+barplot_situaties <- ggplot(data=situaties_scores, aes(x=situaties, y=situaties_scores$mean_score, fill = situaties_scores$cefr)) +
+  geom_col() +
   xlab('situaties waarin Duits wordt gebruikt') +
   ylab('gemiddelde niveau Duits') +
   labs(title = 'invloed hoe vaak mensen Duits gebruiken op hun niveau')

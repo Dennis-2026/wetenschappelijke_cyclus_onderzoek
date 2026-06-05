@@ -218,12 +218,203 @@ De uitgevoerde t-toets toonde een significant verschil tussen beide groepen (t =
 De hypothese wordt ondersteund: oudere respondenten beheersen het Duits significant beter dan jongere respondenten.
 
 ## Locatie
+In het onderstaande codeblok staan twee grafieken die de relatie tot het niveau Duits en de afstand van de Duitse grens weergeven. Elke deelnemer heeft hier een getal ingevuld dat aangeeft hoeveel km hij/zij van de Duitse grens woont. De ene grafiek is een puntendiagram en de andere een staafdiagram. Bij de staafdiagram valt op dat het gemiddelde niveau hoger lijkt te worden naarmate de deelnemers verder van de Duitse grens woont. Dit komt, omdat er maar twee deelnemers zijn die meer dan 200 km van de grens wonen. De ene persoon woont 250 km van de grens en de andere wel 400 km. Dit is ook te zien in de puntendiagram, want deze grafiek geeft de individuele niveaus weer. De twee hoogste afstanden van de grens in de staafdiagram geven dus geen gemiddeld niveau weer, maar de niveaus van twee individuen.
+```{r}
+library(ggplot2)
+
+# data inlezen
+data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
+
+# puntendiagram maken
+point_plot_afstand <- ggplot(data = data, mapping = aes(x = d_grens, y = score)) + 
+  geom_point(colour = 'blue', fill='blue') +
+  xlab('afstand tot de Duitse grens in km') +
+  ylab('individuele niveau Duits') +
+  labs(title = 'invloed van de afstand tot de Duitse grens op het niveau Duits')
+
+point_plot_afstand
+
+verdeling_100_km <- cut(data$d_grens, breaks = c(-1, 100, 200, 300, 400), labels = c('t/m 100 km', 't/m 200 km', 't/m 300 km', 't/m 400 km'), ordered_results = TRUE)
+
+# gemiddelde niveau bij hoevaak de deelnemer Duits gebruikt in het dagelijks leven berekenen en in een variabele zetten
+niveaus <- data$score
+
+niveau_Duits_afstand <- aggregate(niveaus ~ verdeling_100_km, FUN = mean)
+
+barplot_afstand_grens <- ggplot(data=niveau_Duits_afstand, aes(x=verdeling_100_km, y=niveaus)) +
+  geom_col(colour = 'blue', fill='blue') +
+  xlab('afstand tot de Duitse grens in km') +
+  ylab('gemiddelde niveau Duits') +
+  labs(title = 'invloed van de afstand tot de Duitse grens op het niveau Duits')
+
+barplot_afstand_grens
+```
 
 ## Onderwijs
+```{r}
+library(ggplot2)
 
+# data inlezen
+data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
+
+# variabelen aanmaken voor de hoogstbehaalde opleidingen en de niveaus Duits van de deelnemers
+opleidingsniveaus <- data$opleiding
+niveaus_Duits <- data$score
+
+# gemiddelde niveau per opleidingsniveau berekenen en in een variabele zetten
+niveau_Duits_per_opleidingsniveau <- aggregate(niveaus_Duits ~ opleidingsniveaus, data, FUN = mean)
+
+# de opleidingen op volgorde van laag naar hoog zetten
+niveau_Duits_per_opleidingsniveau$opleidingsniveaus <- factor(niveau_Duits_per_opleidingsniveau$opleidingsniveaus, levels=c('basisonderwijs', 'vmbo', 'havo', 'vwo', 'mbo', 'hbo', 'wo'))
+
+# aparte variabelen maken van de opleidingen in de juiste volgorde en de bijbehorende niveaus van Duits
+schoolniveaus <- niveau_Duits_per_opleidingsniveau$opleidingsniveaus
+gemiddelde_Duits_niveaus <- niveau_Duits_per_opleidingsniveau$niveaus_Duits
+
+# plotten
+barplot_opleiding <- ggplot(data=niveau_Duits_per_opleidingsniveau, aes(x=schoolniveaus, y=gemiddelde_Duits_niveaus)) +
+  geom_col(colour = 'blue', fill='blue') +
+  xlab('hoogst behaalde opleiding') +
+  ylab('gemiddelde niveau Duits') +
+  labs(title = 'invloed hoogst behaalde opleiding op niveau Duits')
+
+barplot_opleiding
+```
 ## Blootstelling van de Duits taal
 
+## gewoond of gewerkt in Duitsland
+```{r}
+library(ggplot2)
+
+# data inlezen
+data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
+
+# variabelen aanmaken voor de antwoorden op de vraag of de deelnemer in Duitsland heeft gewoond of gewerkt en de niveaus Duits van de deelnemers
+woon_werk <- data$woonwerk
+niveaus_Duits <- data$score
+
+# gemiddelde niveau bij de antwoorden ja en nee berekenen en in een variabele zetten
+niveau_Duits_woon_werk <- aggregate(niveaus_Duits ~ woon_werk, data, FUN = mean)
+
+# plotten
+barplot_woon_werk <- ggplot(data=niveau_Duits_woon_werk, aes(x=woon_werk, y=niveaus_Duits)) +
+  geom_col(colour = 'blue', fill='blue') +
+  xlab('antwoorden op de vraag of de deelnemer in Duitsland heeft gewerkt of gewoond') +
+  ylab('gemiddelde niveau Duits') +
+  labs(title = 'invloed wonen of werken in Duitsland op niveau Duits')
+
+barplot_woon_werk
+```
+
+## Duitse kennis of familielid
+```{r}
+library(ggplot2)
+
+# data inlezen
+data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
+
+# variabelen aanmaken voor de antwoorden op de vraag of de deelnemer een Duitse kennis of familielid heeft en de niveaus Duits van de deelnemers
+fam_kennis <- data$fam_kennis
+niveaus_Duits <- data$score
+
+# gemiddelde niveau bij antwoorden ja en nee op de vraag of de deelnemer een Duitse kennis of familielid heeft berekenen en in een variabele zetten
+niveau_Duits_fam_kennis <- aggregate(niveaus_Duits ~ fam_kennis, data, FUN = mean)
+
+# plotten
+barplot_fam_kennis <- ggplot(data=niveau_Duits_fam_kennis, aes(x=fam_kennis, y=niveaus_Duits)) +
+  geom_col(colour = 'blue', fill='blue') +
+  xlab('antwoorden op de vraag of de deelnemer een Duitse kennis of familielid heeft') +
+  ylab('gemiddelde niveau Duits') +
+  labs(title = 'invloed van het hebben van een Duitse kennis of familielid op niveau Duits')
+
+barplot_fam_kennis
+```
+
+## hoevaak wordt Duits gebruikt
+```{r}
+library(ggplot2)
+
+# data inlezen
+data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
+
+# variabelen aanmaken voor hoevaak de deelnemer Duits gebruikt in het dagelijks leven en de niveaus Duits van de deelnemers
+gebruik_hoevaak <- data$gebruik_hoevaak
+niveaus_Duits <- data$score
+
+# gemiddelde niveau bij hoevaak de deelnemer Duits gebruikt in het dagelijks leven berekenen en in een variabele zetten
+niveau_Duits_gebruik_hoevaak <- aggregate(niveaus_Duits ~ gebruik_hoevaak, data, FUN = mean)
+
+# hoeveel de deelnemers Duits gebruiken in het dagelijks leven op volgorde zetten van nooit naar vaak
+niveau_Duits_gebruik_hoevaak$gebruik_hoevaak <- factor(niveau_Duits_gebruik_hoevaak$gebruik_hoevaak, levels=c('nooit', 'soms', 'regelmatig', 'vaak'))
+
+# plotten
+barplot_gebruik_hoevaak <- ggplot(data=niveau_Duits_gebruik_hoevaak, aes(x=gebruik_hoevaak, y=niveaus_Duits)) +
+  geom_col(colour = 'blue', fill='blue') +
+  xlab('hoevaak gebruikt de deelnemer Duits in het dagelijks leven') +
+  ylab('gemiddelde niveau Duits') +
+  labs(title = 'invloed van Duits gebruiken in het dagelijks leven op het niveau')
+
+barplot_gebruik_hoevaak
+```
+
 ## Situaties
+```{r}
+library(ggplot2)
+library(dplyr)
+library(stringr)
+library(tidyr)
+
+# data inlezen
+data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
+
+# situaties splitten
+data$id_row <- 1:nrow(data)
+
+situaties_long <- data %>%
+  select(id_row, situaties) %>%
+  separate_rows(situaties, sep = ";")
+
+situaties_long <- situaties_long %>%
+  filter(situaties != "")
+
+situaties_scores <- situaties_long %>%
+  left_join(data %>% select(id_row, score), by = 'id_row') %>%
+  group_by(situaties) %>%
+  summarise(
+    mean_score = mean(score, na.rm = TRUE),
+    se = sd(score, na.rm = TRUE) / sqrt(n()),
+    n = n()
+  )
+
+situaties_scores$situaties[3] = 'geen situatie'
+
+# variabelen aanmaken voor hoevaak de deelnemer Duits gebruikt in het dagelijks leven en de niveaus Duits van de deelnemers
+situaties <- situaties_scores$situaties
+niveaus <- situaties_scores$mean_score
+
+# theta-scores omzetten naar CEFR-niveaus
+tr_A2 <- -0.5890936
+tr_B1 <- -0.2340141
+tr_B2 <- 0.4347344
+tr_c12 <- 0.8854923
+
+get_level <- function(score) {
+  thresholds <- c(tr_A2, tr_B1, tr_B2, tr_c12)
+  levels <- c("A1", "A2", "B1", "B2", "C1_2")
+  levels[findInterval(score, thresholds) + 1]
+}
+
+situaties_scores$cefr <- get_level(situaties_scores$mean_score)
+
+# plotten
+barplot_situaties <- ggplot(data=situaties_scores, aes(x=situaties, y=situaties_scores$mean_score, fill = situaties_scores$cefr)) +
+  geom_col() +
+  xlab('situaties waarin Duits wordt gebruikt') +
+  ylab('gemiddelde niveau Duits') +
+  labs(title = 'invloed hoe vaak mensen Duits gebruiken op hun niveau')
+
+barplot_situaties
+```
 
 ## Belang van de Duitse taal
 
