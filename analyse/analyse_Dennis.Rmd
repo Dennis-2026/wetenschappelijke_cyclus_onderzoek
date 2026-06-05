@@ -176,6 +176,7 @@ barplot_afstand_grens <- ggplot(data=niveau_Duits_afstand, aes(x=verdeling_100_k
 
 barplot_afstand_grens
 ```
+
 ```{r}
 library(ggplot2)
 library(dplyr)
@@ -209,8 +210,6 @@ situaties_scores <- situaties_long %>%
 situaties <- situaties_scores$situaties
 niveaus <- situaties_scores$mean_score
 
-# theta-scores omzetten naar CEFR-niveaus
-
 situaties_scores$cefr <- get_level(situaties_scores$mean_score)
 
 # plotten
@@ -222,6 +221,5 @@ barplot_situaties <- ggplot(data=situaties_scores, aes(x=situaties, y=mean_score
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
   
-
 barplot_situaties
 ```
