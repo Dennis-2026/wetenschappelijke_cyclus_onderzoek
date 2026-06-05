@@ -219,16 +219,9 @@ De hypothese wordt ondersteund: oudere respondenten beheersen het Duits signific
 
 ## Locatie
 
-Om te onderzoeken of de locatie samenhangt met de beheersing van de Duitse taalniveau, is de relatie tussen de afstand tot de Duise gren en het niveau Duits weergegeven. Elke deelnemer heeft aangegeven hoeveel kilometer hij of zij van de Duitse grens woont. Figuur \@ref(fig:point-plot-afstand) toont de individuele scores per afstand, terwijl figuur \@ref(fig:barplot-afstand-grens) het gemiddelde niveau per afstandsgroep weergeeft. In het onderstaande codeblok staan twee grafieken die de relatie tot het niveau Duits en de afstand van de Duitse grens weergeven. Elke deelnemer heeft hier een getal ingevuld dat aangeeft hoeveel km hij/zij van de Duitse grens woont. De ene grafiek is een puntendiagram en de andere een staafdiagram. Bij de staafdiagram valt op dat het gemiddelde niveau hoger lijkt te worden naarmate de deelnemers verder van de Duitse grens woont. Dit komt, omdat er maar twee deelnemers zijn die meer dan 200 km van de grens wonen. De ene persoon woont 250 km van de grens en de andere wel 400 km. Dit is ook te zien in de puntendiagram, want deze grafiek geeft de individuele niveaus weer. De twee hoogste afstanden van de grens in de staafdiagram geven dus geen gemiddeld niveau weer, maar de niveaus van twee individuen.
+Om te onderzoeken of de locatie samenhangt met de beheersing van de Duitse taalniveau, is de relatie tussen de afstand tot de Duise grens en het niveau Duits weergegeven. Elke deelnemer heeft aangegeven hoeveel kilometer hij of zij van de Duitse grens woont. Figuur \@ref(fig:point-plot-afstand) toont de individuele scores per afstand en een Loess-trendline die de onderliggende trend weergeeft.
 
-```{r}
-library(ggplot2)
-
-# data inlezen
-data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
-
-cefr <- get_level(data$score)
-
+```{r point-plot-afstand, warning=F, fig.cap='Invloed afstand tot de Duitse grens op theta-score.'}
 # puntendiagram maken
 ggplot(data = data, mapping = aes(x = d_grens, y = score)) + 
   geom_point(colour = '#7ac2fc') +
@@ -237,7 +230,7 @@ ggplot(data = data, mapping = aes(x = d_grens, y = score)) +
   ylab('Theta-score') +
     theme_minimal()
 ```
-Uit figuur \@ref(fig:point-plot-afstand) blijkt dat het gemiddelde niveau hoger wordt naarmate de afstand tot de grens groter wordt. Dit beeld is echter misleidend: de groep 300 km+ bevat slechts twee respondenten, waardoor de figuur geen betrouwbaar beeld geeft op het gemiddelde. De meerdereheid van de respondenten woonde binnen 100 km van de grens \@ref(fig:afstand-grens), waardoor de overige groepen te klein zijn om betrouwbare conclusies uit te trekken.
+Uit figuur \@ref(fig:point-plot-afstand) blijkt dat het gemiddelde niveau hoger wordt naarmate de afstand tot de grens groter wordt. Dit beeld is echter misleidend: de groep 300 km+ bevat slechts twee respondenten, waardoor de figuur geen betrouwbaar beeld geeft op het gemiddelde. De meerdereheid van de respondenten woonde binnen 100 km van de grens (zie \@ref(fig:afstand-grens)), waardoor de overige groepen te klein zijn om betrouwbare conclusies uit te trekken.
 
 ## Onderwijs
 
@@ -267,6 +260,7 @@ ggplot(data=niveau_Duits_per_opleidingsniveau, aes(x=schoolniveaus, y=gemiddelde
   geom_col() +
   xlab('hoogst behaald diploma') +
   ylab('Theta-score') +
+    guides(fill = guide_legend(title = "CEFR-niveau")) +
     theme_minimal()
 ```
 Uit figuur \@ref(fig:barplot-opleiding) is er geen duidelijk stijgend patroon zichtbaar van laag naar hoog opleidingsniveau. Opvallend is dat vmbo-respondenten gemiddeld hoger scoren dan havo- en vwo- respondenten. Dit resultaat moet echter voorzichtig worden geïnterpreteerd, omdat sommige groepen zoals basisonderwijs (n = 2) en vwo (n = 8) zeer klein zijn, waardoor het gemiddelde sterk beïnvloed kan worden door individuele scores. De resultaten uit deze plot worden verder bevestigd in sectie \@ref(regressie).
@@ -340,6 +334,13 @@ Om te onderzoeken in welke situaties respondeten Duits gebruiken en hoe dit same
 ```{r barplot-situaties, warning=F, fig.cap='Gemiddeld niveau per situatie waarin Duits word gebruikt.'}
 # situaties splitten
 data$id_row <- 1:nrow(data)
+
+situaties_long <- data %>%
+  select(id_row, situaties) %>%
+  separate_rows(situaties, sep = ";")
+
+situaties_long <- situaties_long %>%
+  filter(situaties != "")
 
 situaties_scores <- situaties_long %>%
   left_join(data %>% select(id_row, score), by = 'id_row') %>%
@@ -529,7 +530,7 @@ cefr_tabel %>%
 Samenvattend kan worden gesteld dat de Duitse taalvaardigheid significant verschilt tussen de twee leefdtijdsgroepen, waarbij de 40+ groep duidelijk beter presenteert dan de 18-40 groep.
 
 ## Interpretatie
-De 40+ groep scoort hoger doordat deze groep waarschijnlijk meer blootstelling heeft gehad aan de Duitse taal. Dit wordt ondersteund door de resultaten uit de \@ref(blootstelling): repondenten die in Duitsland hebben gewoond of gewerkt, een Duits familielid of kennis hebben, of Duits regelmatig gebruiken in het dagelijks leven scoren allemaal gemiddeld hoger.
+De 40+ groep scoort hoger doordat deze groep waarschijnlijk meer blootstelling heeft gehad aan de Duitse taal. Dit wordt ondersteund door de resultaten uit de \@ref(Blootstelling van de Duits taal): repondenten die in Duitsland hebben gewoond of gewerkt, een Duits familielid of kennis hebben, of Duits regelmatig gebruiken in het dagelijks leven scoren allemaal gemiddeld hoger.
 Daarnaast vindt een groter percentage van de 40+ groep de Duitse taal belangrijk, wat kan bijdragen aan een hogere motivatie om de taal teleren of te onderhouden.
 Ook de eigen inschatting van het niveau sluit hier op aan: de correlatie tussen schatting en werkelijke score (r = 0.62) toont dat respondenten hun niveau redelijk goed inschatten, al lagen de meeste afwijkingen in de richting van onderschatting.
 
