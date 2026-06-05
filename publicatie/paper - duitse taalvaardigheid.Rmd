@@ -78,7 +78,6 @@ Bij de analyse met R zijn de volgende libraries gebruikt:
 | dplyr      | 1.2.1  | Muteren van dataframes.                 |[@dplyr]    |
 | effectsize | 1.0.2  | Verkrijgen van effect size voor analyse.|[@effect]   |
 | mirt       | 1.46.1 | Implementatie Item Response Theory.     |[@mirt]     |
-| broom      | 1.0.12 | Nette output regressiemodel.            |[@broom]    |
 | stringr    | 1.6.0  | Nettere string manipulatie in R.        |[@stringr]  |
 | car        | 3.1.5  | Berekenen VIF waardes multicollinearity.|[@carpack]  |
 
@@ -112,7 +111,7 @@ Nadat de respondent akkoord ging met deelname, werd de vragenlijst in drie onder
 
 Om de motivatie voor de deelnemers te houden en vroegtijdige uitval te voorkomen, was de vragenlijst kort en bondig van opzet. Daarnaast werd vooraf benadrukt dat deelname aan het onderzoek anoniem was en dat "weinig/geen kennis van de Duitse taal" nog steeds een waardevol resultaat oplevert voor het onderzoek. Dit diende om eventuele prestatiedruk bij de respondenten weg te nemen en deelname laagdrempelig te maken.
 
-Na afronding van de dataverzameling is de data opgeschoond in Excel en werden alle antwoorden van de respondenten gefit aan een Item Response Theory model[@Harvey1999], hieruit werd de ervaren moeilijkheidsgraad van de vragen duidelijk. Op basis van de moeilijkheidsgraad zijn dynamisch drempels voor de CEFR niveaus aangelegd, voor het behalen van een CEFR niveau is vastgesteld dat de persoon minimaal 60% van de vragen op dat niveau moet halen. De scores en drempels zijn geschaald aan de ervaren moeilijkheidsgraad van de vragen dankzij het IRT model. De drempels die hieruit zijn gegenereerd zijn als volgt: A1 \< -0.5890936 (A2) \< -0.2340141 (B1) \< 0.4347344 (B2) \< 0.8854923 (C1/2). Deze drempels bepaalden in de verdere analyse het niveau voor een individu op basis van hun theta-score. E.g. theta = 0.44 -\> CEFR = B2 (zie Figuur 4).
+Na afronding van de dataverzameling is de data opgeschoond in Excel en werden alle antwoorden van de respondenten gefit aan een Item Response Theory model[@Harvey1999], hieruit werd de ervaren moeilijkheidsgraad van de vragen duidelijk. Op basis van de moeilijkheidsgraad zijn dynamisch drempels voor de CEFR niveaus aangelegd, voor het behalen van een CEFR niveau is vastgesteld dat de persoon minimaal 60% van de vragen op dat niveau moet halen. De scores en drempels zijn geschaald aan de ervaren moeilijkheidsgraad van de vragen dankzij het IRT model. De drempels die hieruit zijn gegenereerd zijn als volgt: A1 \< -0.5890936 (A2) \< -0.2340141 (B1) \< 0.4347344 (B2) \< 0.8854923 (C1/2). Deze drempels bepaalden in de verdere analyse het niveau voor een individu op basis van hun theta-score. E.g. theta = 0.44 -\> CEFR = B2 (zie Figuur \@ref(fig:irt-per-group)).
 
 Gedetailleerde uitwerkingen van protocollen zijn te vinden in de repository.
 
