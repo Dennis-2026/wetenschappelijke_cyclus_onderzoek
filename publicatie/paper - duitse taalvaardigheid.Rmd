@@ -1,5 +1,5 @@
 ---
-title: Duitse taalvaardigheid
+title: Duitse taalvaardigheid onder Nederlandse volwassenen
 
 author: |
   | Jesse Postma $^1$, Dennis Kuiper $^1$, Vani Rembet $^1$
