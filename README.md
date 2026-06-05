@@ -13,7 +13,7 @@ wetenschappelijke_cyclus_onderzoek/
 ├── ruwe_data/          Originele exportbestanden vanuit Microsoft Forms
 ├── publicatie/         Eindpaper (.Rmd + .pdf) en schone dataset
 ├── analyse/            Individuele analysebestanden en logboeken
-├── protocol/           Onderzoeksprotocol (.Rmd, .html, .pdf)
+├── protocol/           Onderzoeksprotocol (.Rmd, .html)
 └── docs/               Hulpmiddelen en referenties voor hulpmiddelen
 ```
 
@@ -26,7 +26,7 @@ Onbewerkte data-export vanuit Microsoft Forms, niet aan te passen.
 
 | Bestand | Beschrijving |
 |---|---|
-| `Duitse taalvaardigheid onderzoek(1-154).csv.xlsx` | Ruwe export (154 respondenten, 194 kolommen) |
+| `Duitse taalvaardigheid onderzoek(1-154).csv.xlsx` | Ruwe export (154 rows, 66 cols) |
 
 ---
 
@@ -72,7 +72,6 @@ Onderzoeksprotocol zoals opgesteld voor aanvang van de dataverzameling.
 |---|---|
 | `protocol.Rmd` | Bronbestand van het protocol |
 | `protocol.html` | Gerenderde HTML-versie |
-| `protocol.tex` / `protocol.log` | LaTeX-tussenbestanden (automatisch gegenereerd) |
 | `protocol_refs.bib` | Bibliografie behorend bij het protocol |
 
 ---
