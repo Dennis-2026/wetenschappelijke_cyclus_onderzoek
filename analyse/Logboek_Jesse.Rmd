@@ -414,6 +414,7 @@ Vrijdag, moest maar even samenzitten met het groepje. Was mij opgevallen dat Den
 #### Wat heb ik gedaan:
 
 - bijles gegeven
-- protocol gedetailleerd in de github gezet.
+- protocol gedetailleerd in de github gezet (veel werk :( )
 - Vani en ik hebben afgesproken dat Den de abstract en Intro fixed
 - Vani heeft de deelvragen nu af omdat Den de figuren eindelijk klaar heeft.
+- Ik heb de README nog aangepast en compleet gemaakt.
