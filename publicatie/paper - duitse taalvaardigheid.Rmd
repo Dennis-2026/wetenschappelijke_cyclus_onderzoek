@@ -569,14 +569,19 @@ cefr_tabel %>%
 Samenvattend kan worden gesteld dat de Duitse taalvaardigheid significant verschilt tussen de twee leefdtijdsgroepen, waarbij de 40+ groep duidelijk beter presenteert dan de 18-40 groep.
 
 ## Interpretatie
-De 40+ groep scoort hoger doordat deze groep ...
+De 40+ groep scoort hoger doordat deze groep waarschijnlijk meer blootstelling heeft gehad aan de Duitse taal. Dit wordt ondersteund door de resultaten uit de \@ref(blootstelling): repondenten die in Duitsland hebben gewoond of gewerkt, een Duits familielid of kennis hebben, of Duits regelmatig gebruiken in het dagelijks leven scoren allemaal gemiddeld hoger.
+Daarnaast vindt een groter percentage van de 40+ groep de Duitse taal belangrijk, wat kan bijdragen aan een hogere motivatie om de taal teleren of te onderhouden.
+Ook de eigen inschatting van het niveau sluit hier op aan: de correlatie tussen schatting en werkelijke score (r = 0.62) toont dat respondenten hun niveau redelijk goed inschatten, al lagen de meeste afwijkingen in de richting van onderschatting.
 
 ## Beperkingen
-...
-duitse grens vreemd..
+Dit onderzoek kent een aantal berperkingen. Ten eerste is de steekproef geografisch niet representatief voor heel Nederland. De meerderheid van de respondenten werd geworven in de regio Groningen. Omdat Groningen relatief dicht bij de Duitse grens ligt, is het mogelijk dat respondenten gemiddeld meer blootstelling aan de Duitse taal hebben gehad dan de gemiddelde Nederlander. Dit verklaart ook het onverwachte resultaat uit de \@ref(regressie), waarbij een grotere afstand tot de grens samenhing met een hogere taalvraadigheid. Dit is waarschijnlijk een gevolg van de schreve steekproef en niet een werkelijk verband.
+Ten tweede kon niet worden gecontroleerd of deelnemers hulpmiddelen hebben gebruikt tijdens de toets, wat de betrouwbaarheid van de scores mogelijk aantast.
+Ten derde waren sommige groepen zoals basisonderwijs en vwo zeer klein, waardoor uitspraken over deze groepen voorzichtig geïnterpreteerd moeten worden.
 
 ## Aanbevelingen
-Voor vervolgonderzoek wordt aanbevolen ...
+Voor vervolgonderzoek wordt aanbevolen om geografich gespreidere steekproef te gebruiken, waarbij respondenten evenredig worden geworven uit verschillende regio's van Nederland. Dit vergroot de representativiteit van de resultaten en voorkomt vertekening door regionale blootstelling aan de Duitse taal.
+Daarnaast wordt aanbevolen de toets af te nemen onder gecontroleerde omstandigheden, zodat het gebruik van hulpmiddel wordt voorkomen.
+Tot slot zou een grotere steekproef per opleidingsgroep meer betrouwbare uitspraken mogelijk maken over de relatie tussen opleidingsniveau en Duitse taalvaardigheid.
 
 # Wordcount
 
