@@ -223,3 +223,24 @@ barplot_situaties <- ggplot(data=situaties_scores, aes(x=situaties, y=mean_score
   
 barplot_situaties
 ```
+
+```{r}
+data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
+
+leeftijd <- data$leeftijd
+niveaus_Duits <- data$score
+
+niveau_Duits_leeftijd <- aggregate(niveaus_Duits ~ leeftijd, data, FUN = mean)
+
+cefr <- get_level(niveau_Duits_leeftijd$niveaus_Duits)
+
+# plotten
+barplot_fam_kennis <- ggplot(data=niveau_Duits_leeftijd, aes(x=leeftijd, y=niveaus_Duits, fill=cefr)) +
+  geom_col() +
+  xlab('leeftijd') +
+  ylab('gemiddelde niveau Duits') +
+  labs(title = 'gemiddelde niveau Duits onder jongeren en mensen van 40+') +
+  theme_minimal()
+
+barplot_fam_kennis
+```
