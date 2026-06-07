@@ -416,3 +416,14 @@ Vrijdag, moest maar even samenzitten met het groepje. Was mij opgevallen dat Den
 - bijles gegeven
 - protocol gedetailleerd in de github gezet (veel werk :( )
 - Ik heb de README nog aangepast en compleet gemaakt met de inhoud van de github nu.
+
+### 07/06/26
+
+Ik heb eerder vandaag kleine aanpassing van de README gedaan. Zojuist heb ik op een aantal plekken referenties toegevoegd over weerleggend/bevestigend onderzoek, waaronder:
+
+- AnneBeeker et al, Weergave van ERK-niveau schrijfvaard...
+- Li en Zhang, A meta-analysis of self-assessment and language perf..
+- van Onna en Jansen, How multilingual are the Dutch really? On prof..
+- Hovens, ..The position of German in Dutch secondary schools.
+
+Dit was ook wat ik van plan was voor vandaag, ik ga morgen waarschijnlijk nog eens kijken naar de abstract en introductie om die beide iets vloeiender te laten lopen en ook betere bronnen refereren. Ik heb ook hier en daar wat grammatica veranderd.
