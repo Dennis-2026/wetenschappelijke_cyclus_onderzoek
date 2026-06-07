@@ -20,6 +20,9 @@ output:
     fig_caption: true  # includes figure captions with numbering in output
     includes:  
         in_header: include_tex_header.tex #will include rules for linespacing and figure floating
+editor_options: 
+  markdown: 
+    wrap: sentence
 ---
 
 ```{r setup, message=FALSE, warning=FALSE, include=FALSE}
@@ -39,23 +42,55 @@ data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
 ```
 
 # Introductie
-De Duitse taal is erg belangrijk in Nederland. Duitsland is één van de grootste handelspartners van Nederland(https://www.rijksoverheid.nl/actueel/weblogs/bzers-wereldwijd/2024/waarom-kan-nederland-niet-zonder-internationale-handel). Volgens een artikel van de NOS is het een groot voordeel voor bedrijven die zaken doen met Duitsland als hun werknemers goed Duits spreken. Duits(https://nos.nl/artikel/2026034-hoge-prijs-voor-gebrekkig-duits). Daarom is het erg relevant om onderzoek te doen naar de beheersing van de het Duits in Nederland. Onder jongeren zijn er echter een aantal problemen met betrekking tot de Duitse taal. Hier zijn een aantal onderzoeken naar verricht. De interesse in het Duits is niet hoog onder jonge mensen in Nederland. Het aantal studenten van Duitse Taal aan universiteiten is al jaren aan het dalen. 'Het   aantal   eindexamenleerlingen   dat   voor   een   studie   Duits   kiest, daalt   al   geruime   tijd.' {@DorisAbitzsch2024}. Verder is het aantal Nederlandse leerlingen dat eindexamen doet in Duits al enkele jaren aan het dalen. 'Sinds 2019 is er een daling, nadat daarvoor - vanaf 2010 - het percentage eindexamenkandidaten Duits lange tijd op een hoog niveau stabiel is geweest.'(https://duitslandinstituut.nl/naslagwerk/1223/feiten-en-cijfers). Het niveau van Duits (en Europese talen in het algemeen) wordt gemeten aan de hand van de CEFR-niveaus. Dit staat voor 'Common European Framework of Reference'. Deze niveaus zijn: A1, A2, B1, B2, C1, C2. Het absolute beginnersniveau is A1 en vanaf daar loopt het op tot het hoogste niveau: C2. Dit laatste niveau wordt ook wel 'near native' genoemd(https://www.ru.nl/radboud-into-languages/services/cefr-taalniveaus). Wij hebben onderzoek gedaan naar de beheersing van de Duitse taal onder Nederlanders. Onze hoofdvraag is: In hoeverre verschilt de Duitse taalvaardigheid tussen Nederlandse volwassenen van 40+ en jongere volwassenen (18–39 jaar)? Onze deelvragen zijn: hoe beoordelen jongeren en 40+'ers het belang van de Duitse taal?, welke rol speelt de woonlocatie bij de actieve beheersing van de Duitse taal? en heeft het onderwijsniveau invloed op het beheersen van de Duitse taalvaardigheid? De verwachting is dat oudere generaties gemiddeld een hogere taalbeheersing hebben dan jongere generaties, dat mensen in grensregio's meer blootstelling hebben gehad aan het Duits in het dagelijks leven (via boodschappen, werk of sociale contacten) en daardoor beter scoren, en dat een hoger behaald opleidingsniveau samenhangt met een betere taalbeheersing. Om dit te onderzoeken voeren wij een kwantitatief onderzoek uit waarbij deelnemers een taaltoets afleggen op basis van de CEFR-niveaus, gecombineerd met een vragenlijst over relevante achtergrondkenmerken. De resultaten worden per groep vergeleken om verbanden tussen de genoemde factoren en het taalniveau in kaart te brengen. Met dit onderzoek willen wij inzicht krijgen in de mate waarin Nederlanders de Duitse taal beheersen en welke factoren (zoals leeftijd, opleiding en locatie) hierop van invloed zijn.
 
+De Duitse taal is erg belangrijk in Nederland.
+Duitsland is één van de grootste handelspartners van Nederland(<https://www.rijksoverheid.nl/actueel/weblogs/bzers-wereldwijd/2024/waarom-kan-nederland-niet-zonder-internationale-handel>).
+Volgens een artikel van de NOS is het een groot voordeel voor bedrijven die zaken doen met Duitsland als hun werknemers goed Duits spreken.
+Duits(<https://nos.nl/artikel/2026034-hoge-prijs-voor-gebrekkig-duits>).
+Daarom is het erg relevant om onderzoek te doen naar de beheersing van de het Duits in Nederland.
+Onder jongeren zijn er echter een aantal problemen met betrekking tot de Duitse taal.
+Hier zijn een aantal onderzoeken naar verricht.
+De interesse in het Duits is niet hoog onder jonge mensen in Nederland.
+Het aantal studenten van Duitse Taal aan universiteiten is al jaren aan het dalen.
+'Het aantal eindexamenleerlingen dat voor een studie Duits kiest, daalt al geruime tijd.' [@DorisAbitzsch2024].
+Verder is het aantal Nederlandse leerlingen dat eindexamen doet in Duits al enkele jaren aan het dalen.
+'Sinds 2019 is er een daling, nadat daarvoor - vanaf 2010 - het percentage eindexamenkandidaten Duits lange tijd op een hoog niveau stabiel is geweest.'(<https://duitslandinstituut.nl/naslagwerk/1223/feiten-en-cijfers>).
+Het niveau van Duits (en Europese talen in het algemeen) wordt gemeten aan de hand van de CEFR-niveaus.
+Dit staat voor 'Common European Framework of Reference'.
+Deze niveaus zijn: A1, A2, B1, B2, C1, C2.
+Het absolute beginnersniveau is A1 en vanaf daar loopt het op tot het hoogste niveau: C2.
+Dit laatste niveau wordt ook wel 'near native' genoemd(<https://www.ru.nl/radboud-into-languages/services/cefr-taalniveaus>).
+Wij hebben onderzoek gedaan naar de beheersing van de Duitse taal onder Nederlanders.
+Onze hoofdvraag is: In hoeverre verschilt de Duitse taalvaardigheid tussen Nederlandse volwassenen van 40+ en jongere volwassenen (18–39 jaar)?
+Onze deelvragen zijn: hoe beoordelen jongeren en 40+'ers het belang van de Duitse taal?,
+welke rol speelt de woonlocatie bij de actieve beheersing van de Duitse taal?
+en heeft het onderwijsniveau invloed op het beheersen van de Duitse taalvaardigheid?
+De verwachting is dat oudere generaties gemiddeld een hogere taalbeheersing hebben dan jongere generaties, dat mensen in grensregio's meer blootstelling hebben gehad aan het Duits in het dagelijks leven (via boodschappen, werk of sociale contacten) en daardoor beter scoren, en dat een hoger behaald opleidingsniveau samenhangt met een betere taalbeheersing.
+Om dit te onderzoeken voeren wij een kwantitatief onderzoek uit waarbij deelnemers een taaltoets afleggen op basis van de CEFR-niveaus, gecombineerd met een vragenlijst over relevante achtergrondkenmerken.
+De resultaten worden per groep vergeleken om verbanden tussen de genoemde factoren en het taalniveau in kaart te brengen.
+Met dit onderzoek willen wij inzicht krijgen in de mate waarin Nederlanders de Duitse taal beheersen en welke factoren (zoals leeftijd, opleiding en locatie) hierop van invloed zijn.
 
 # Methodologie
+
 Alle gebruikte data, code en protocollen voor dit onderzoek zijn te vinden in de volgende git repository:
 
 [*https://github.com/Dennis-2026/wetenschappelijke-cyclus-onderzoek*](https://github.com/Dennis-2026/wetenschappelijke-cyclus-onderzoek){.uri}
 
 ## Materialen
 
-Voor dit onderzoek is gebruikgemaakt van een digitale vragenlijst opgesteld in Microsoft Forms. De vragenlijst bestond uit drie onderdelen: een achtergrondvragenlijst, een Duitse leestoets en evaluatievragen met betrekking tot de beheersingsgraad van de Duitse taal. De digitale omgeving maakte het mogelijk om de gegevens automatisch en gestructureerd op te slaan. Deze vragenlijst is in zijn geheel te vinden in de repository onder protocollen.
+Voor dit onderzoek is gebruikgemaakt van een digitale vragenlijst opgesteld in Microsoft Forms.
+De vragenlijst bestond uit drie onderdelen: een achtergrondvragenlijst, een Duitse leestoets en evaluatievragen met betrekking tot de beheersingsgraad van de Duitse taal.
+De digitale omgeving maakte het mogelijk om de gegevens automatisch en gestructureerd op te slaan.
+Deze vragenlijst is in zijn geheel te vinden in de repository onder protocollen.
 
-Ten behoeve van de dataverzameling zijn A5-posters met een QR-code ontwikkeld, waarmee deelnemers direct toegang kregen tot de vragenlijst. Daarnaast zijn smartphones van deelnemers gebruikt voor het invullen van de vragenlijst. Indien nodig was er een tablet of dergelijk smart-apparaat beschikbaar om de vragenlijst in te vullen.
+Ten behoeve van de dataverzameling zijn A5-posters met een QR-code ontwikkeld, waarmee deelnemers direct toegang kregen tot de vragenlijst.
+Daarnaast zijn smartphones van deelnemers gebruikt voor het invullen van de vragenlijst.
+Indien nodig was er een tablet of dergelijk smart-apparaat beschikbaar om de vragenlijst in te vullen.
 
 ### Benodigde software
 
-Voor de verwerking en statistische analyse van de onderzoeksgegevens is gebruikgemaakt van de programmeertaal R. Hiermee zijn de verzamelde data georganiseerd, verwerkt en geanalyseerd, en gevisualiseerd.
+Voor de verwerking en statistische analyse van de onderzoeksgegevens is gebruikgemaakt van de programmeertaal R.
+Hiermee zijn de verzamelde data georganiseerd, verwerkt en geanalyseerd, en gevisualiseerd.
 
 Er is gebruik gemaakt van verschillende software voor verwerking en analyse:
 
@@ -69,22 +104,23 @@ Er is gebruik gemaakt van verschillende software voor verwerking en analyse:
 
 Bij de analyse met R zijn de volgende libraries gebruikt:
 
-| Library    | Versie | Gebruiksdoel                            | Referentie |
-|------------|--------|-----------------------------------------|------------|
-| tidyverse  | 2.0.0  | Filteren en sorteren van de data.       |[@TidyV]    |
-| ggplot2    | 4.0.3  | Produceren van grafieken.               |[@ggplot]   |
-| tidyr      | 1.3.2  | Creëren van tidy data.                  |[@tidyr]    |
-| dplyr      | 1.2.1  | Muteren van dataframes.                 |[@dplyr]    |
-| effectsize | 1.0.2  | Verkrijgen van effect size voor analyse.|[@effect]   |
-| mirt       | 1.46.1 | Implementatie Item Response Theory.     |[@mirt]     |
-| stringr    | 1.6.0  | Nettere string manipulatie in R.        |[@stringr]  |
-| car        | 3.1.5  | Berekenen VIF waardes multicollinearity.|[@carpack]  |
+| Library    | Versie | Gebruiksdoel                             | Referentie |
+|------------|--------|------------------------------------------|------------|
+| tidyverse  | 2.0.0  | Filteren en sorteren van de data.        | [@TidyV]   |
+| ggplot2    | 4.0.3  | Produceren van grafieken.                | [@ggplot]  |
+| tidyr      | 1.3.2  | Creëren van tidy data.                   | [@tidyr]   |
+| dplyr      | 1.2.1  | Muteren van dataframes.                  | [@dplyr]   |
+| effectsize | 1.0.2  | Verkrijgen van effect size voor analyse. | [@effect]  |
+| mirt       | 1.46.1 | Implementatie Item Response Theory.      | [@mirt]    |
+| stringr    | 1.6.0  | Nettere string manipulatie in R.         | [@stringr] |
+| car        | 3.1.5  | Berekenen VIF waardes multicollinearity. | [@carpack] |
 
 ## Methoden
 
 ### Doelgroepbepaling
 
-Om de betrouwbaarheid van de resultaten te waarborgen, is er voorafgaand aan het experiment een screening uitgevoerd onder de potentiële deelnemers. Hierbij werd bekeken of de deelnemers voldeden aan de volgende specifieke criteria:
+Om de betrouwbaarheid van de resultaten te waarborgen, is er voorafgaand aan het experiment een screening uitgevoerd onder de potentiële deelnemers.
+Hierbij werd bekeken of de deelnemers voldeden aan de volgende specifieke criteria:
 
 - Deelnemer is minstens ouder zijn dan 18 jaar en heeft een schoolopleiding afgerond.
 
@@ -96,7 +132,8 @@ Om de betrouwbaarheid van de resultaten te waarborgen, is er voorafgaand aan het
 
 - Deelnemer is minstens langer dan 10 jaar woonachtig in Nederland.
 
-Deelnemers die aan deze criteria voldeden, werden vervolgens geïnformeerd over het doel van het onderzoek en de opzet van het experiment. Daarna werd hen gevraagd of zij wilden deelnemen door de QR-code te scannen.
+Deelnemers die aan deze criteria voldeden, werden vervolgens geïnformeerd over het doel van het onderzoek en de opzet van het experiment.
+Daarna werd hen gevraagd of zij wilden deelnemen door de QR-code te scannen.
 
 ### Procedure
 
@@ -108,18 +145,31 @@ Nadat de respondent akkoord ging met deelname, werd de vragenlijst in drie onder
 
 - De evaluatievragen met betrekking tot de beheersingsgraad van de Duitse taal bracht een subjectieve ervaring en zelf ingeschatte beheersingsgraad van de deelnemers in kaart.
 
-Om de motivatie voor de deelnemers te houden en vroegtijdige uitval te voorkomen, was de vragenlijst kort en bondig van opzet. Daarnaast werd vooraf benadrukt dat deelname aan het onderzoek anoniem was en dat "weinig/geen kennis van de Duitse taal" nog steeds een waardevol resultaat oplevert voor het onderzoek. Dit diende om eventuele prestatiedruk bij de respondenten weg te nemen en deelname laagdrempelig te maken.
+Om de motivatie voor de deelnemers te houden en vroegtijdige uitval te voorkomen, was de vragenlijst kort en bondig van opzet.
+Daarnaast werd vooraf benadrukt dat deelname aan het onderzoek anoniem was en dat "weinig/geen kennis van de Duitse taal" nog steeds een waardevol resultaat oplevert voor het onderzoek.
+Dit diende om eventuele prestatiedruk bij de respondenten weg te nemen en deelname laagdrempelig te maken.
 
-Na afronding van de dataverzameling is de data opgeschoond in Excel en werden alle antwoorden van de respondenten gefit aan een Item Response Theory model[@Harvey1999], hieruit werd de ervaren moeilijkheidsgraad van de vragen duidelijk. Op basis van de moeilijkheidsgraad zijn dynamisch drempels voor de CEFR niveaus aangelegd, voor het behalen van een CEFR niveau is vastgesteld dat de persoon minimaal 60% van de vragen op dat niveau moet halen. De scores en drempels zijn geschaald aan de ervaren moeilijkheidsgraad van de vragen dankzij het IRT model. De drempels die hieruit zijn gegenereerd zijn als volgt: A1 \< -0.5890936 (A2) \< -0.2340141 (B1) \< 0.4347344 (B2) \< 0.8854923 (C1/2). Deze drempels bepaalden in de verdere analyse het niveau voor een individu op basis van hun theta-score. E.g. theta = 0.44 -\> CEFR = B2 (zie Figuur \@ref(fig:irt-per-group)).
+Na afronding van de dataverzameling is de data opgeschoond in Excel en werden alle antwoorden van de respondenten gefit aan een Item Response Theory model [@Harvey1999], hieruit werd de ervaren moeilijkheidsgraad van de vragen duidelijk.
+Op basis van de moeilijkheidsgraad zijn dynamisch drempels voor de CEFR niveaus aangelegd, voor het behalen van een CEFR niveau is vastgesteld dat de persoon minimaal 60% van de vragen op dat niveau moet halen.
+De scores en drempels zijn geschaald aan de ervaren moeilijkheidsgraad van de vragen dankzij het IRT model.
+De drempels die hieruit zijn gegenereerd zijn als volgt: A1 \< -0.5890936 (A2) \< -0.2340141 (B1) \< 0.4347344 (B2) \< 0.8854923 (C1/2).
+Deze drempels bepaalden in de verdere analyse het niveau voor een individu op basis van hun theta-score.
+E.g. theta = 0.44 -\> CEFR = B2 (zie Figuur \@ref(fig:irt-per-group)).
 
 Gedetailleerde uitwerkingen van protocollen zijn te vinden in de repository.
-
 
 # Resultaten
 
 ## Beschrijvende statistiek
 
-In de resultatensectie worden beschrijvende statistieken en afgeleide resultaten gepresenteerd op basis van de dataset van de onderzochte respondenten. De steekproef bedroeg 154 respondenten. De respondenten zijn opgesplitst in 2 leeftijdsgroepen (18-40, 40+) waarvan $\approx$ 44% (N = 68) jonger dan 40 (18-40) tegen $\approx$ 56% (N=86) ouder dan 40 (40+). De meerderheid van de respondenten had een HBO of WO diploma ($\approx$ 31%, $\approx$ 29% respectievelijk). Basisonderwijs was de kleinste groep met $\approx$ 1.3% (N=2) van alle respondenten. Verder bedroeg de gemiddelde woonafstand tot de Duitse grens $\approx$ 65.2km en was de standaard deviatie daarop $\approx$ 51.8km (zie Figuur \@ref(fig:afstand-grens)). De initiële verdeling van taalniveau is weergegeven in Figuren \@ref(fig:cefr-glossover) en \@ref(fig:theta-density). De theta-scores benaderen een normaalverdeling (M = 0.0003, SD = 0.81; zie Figuur \@ref(fig:theta-density)), wat verder wordt getoetst in sectie \@ref(hypothese).
+In de resultatensectie worden beschrijvende statistieken en afgeleide resultaten gepresenteerd op basis van de dataset van de onderzochte respondenten.
+De steekproef bedroeg 154 respondenten.
+De respondenten zijn opgesplitst in 2 leeftijdsgroepen (18-40, 40+) waarvan 44% (N = 68) jonger dan 40 (18-40) tegen 56% (N=86) ouder dan 40 (40+).
+De meerderheid van de respondenten had een HBO of WO diploma (31%, 29% respectievelijk).
+Basisonderwijs was de kleinste groep met 1.3% (N=2) van alle respondenten.
+Verder bedroeg de gemiddelde woonafstand tot de Duitse grens $\approx$ 65.2km en was de standaard deviatie daarop $\approx$ 51.8km (zie Figuur \@ref(fig:afstand-grens)).
+De initiële verdeling van taalniveau is weergegeven in Figuur \@ref(fig:cefr-glossover) en Figuur \@ref(fig:theta-density).
+De theta-scores benaderen een normaalverdeling (M = 0.0003, SD = 0.81; zie Figuur \@ref(fig:theta-density)), wat verder wordt getoetst in sectie \@ref(hypothese).
 
 ```{r afstand-grens, warning=FALSE, fig.cap='Verhouding afstand van Duitse grens tussen respondenten'}
 # figuur 1
@@ -138,6 +188,7 @@ ggplot(data, aes(x = CEFR)) +
     theme_minimal()
 # title = "CEFR niveau verhouding tussen respondenten"
 ```
+
 ```{r theta-density, warning=F, fig.cap='Theta-score dichtheid met dichtheidscurve (blauw) en normaalcurve (rood)'}
 #Figuur 3
 
@@ -197,7 +248,9 @@ data_summary %>%
     cat()
 ```
 
-Om de hypothese te toetsen dat oudere respondenten het Duits beter beheersen dan jongere, werd een onafhankelijke t-toets uitgevoerd op de IRT theta-scores van beide leeftijdsgroepen. Figuur \@ref(fig:irt-per-group) toont de gemiddelde theta-scores per groep. De 40+ groep scoorde gemiddeld hoger (M = $\approx$ 0.32, SD = $\approx$ 0.70, CEFR = B1) dan de 18-40 groep (M = $\approx$ -0.40, SD = $\approx$ 0.77, CEFR = A2; zie ook tabel \@ref(tab:snippet-head)).
+Om de hypothese te toetsen dat oudere respondenten het Duits beter beheersen dan jongere, werd een onafhankelijke t-toets uitgevoerd op de IRT theta-scores van beide leeftijdsgroepen.
+Figuur \@ref(fig:irt-per-group) toont de gemiddelde theta-scores per groep.
+De 40+ groep scoorde gemiddeld hoger (M = $\approx$ 0.32, SD = $\approx$ 0.70, CEFR = B1) dan de 18-40 groep (M = $\approx$ -0.40, SD = $\approx$ 0.77, CEFR = A2; zie ook tabel \@ref(tab:snippet-head)).
 
 ```{r irt-per-group, warning=F, fig.cap='IRT score per leeftijdsgroep.'}
 # figuur 4
@@ -209,15 +262,19 @@ ggplot(data = data, aes(x = score, y = leeftijd)) +
     theme_minimal()
 ```
 
-Shapiro-Wilk toonde een significante afwijking van de normaliteit in de 18-40 groep (W = 0.95872, P = 0.02421; p < 0.05 wat een significante afwijking toont), de 40+ groep vertoonde geen significante afwijking van normaliteit (W = 0.98715, P = 0.5574). Gezien de relatief grote steekproefgroottes (N = 68 en N = 86) en de robuustheid van de t-toets bij lichte afwijkingen van de normaliteit, is de analyse met de onafhankelijke t-toets alsnog uitgevoerd.
+Shapiro-Wilk toonde een significante afwijking van de normaliteit in de 18-40 groep (W = 0.95872, P = 0.02421; p \< 0.05 wat een significante afwijking toont), de 40+ groep vertoonde geen significante afwijking van normaliteit (W = 0.98715, P = 0.5574).
+Gezien de relatief grote steekproefgroottes (N = 68 en N = 86) en de robuustheid van de t-toets bij lichte afwijkingen van de normaliteit, is de analyse met de onafhankelijke t-toets alsnog uitgevoerd.
 
-De uitgevoerde t-toets toonde een significant verschil tussen beide groepen (t = -5.9697, df = 136.72, p-value = 1.938e-08), het geteste effect (Cohen's d) was bijna 1 Standaard deviatie (|d| = 0.98). Dit komt overeen met een common language effect size (CLES $\approx$ 0.84), wat betekent dat er een geschatte kans van 84% is dat een willekeurig geselecteerde deelnemer uit de 40+ groep hoger scoort dan een willekeurig geselecteerde deelnemer uit de 18–40 groep.
+De uitgevoerde t-toets toonde een significant verschil tussen beide groepen (t = -5.9697, df = 136.72, p-value = 1.938e-08), het geteste effect (Cohen's d) was bijna 1 Standaard deviatie (\|d\| = 0.98).
+Dit komt overeen met een common language effect size (CLES $\approx$ 0.84), wat betekent dat er een geschatte kans van 84% is dat een willekeurig geselecteerde deelnemer uit de 40+ groep hoger scoort dan een willekeurig geselecteerde deelnemer uit de 18–40 groep.
 
 De hypothese wordt ondersteund: oudere respondenten beheersen het Duits significant beter dan jongere respondenten.
 
 ## Locatie
 
-Om te onderzoeken of de woonlocatie samenhangt met de beheersing van de Duitse taalniveau, is de relatie tussen de afstand tot de Duitse grens en het niveau Duits geanalyseerd. Elke deelnemer heeft aangegeven hoeveel kilometer hij of zij van de Duitse grens woont. Figuur \@ref(fig:point-plot-afstand) toont de individuele scores per afstand en een Loess-trendline die de onderliggende trend weergeeft.
+Om te onderzoeken of de woonlocatie samenhangt met de beheersing van de Duitse taalniveau, is de relatie tussen de afstand tot de Duitse grens en het niveau Duits geanalyseerd.
+Elke deelnemer heeft aangegeven hoeveel kilometer hij of zij van de Duitse grens woont.
+Figuur \@ref(fig:point-plot-afstand) toont de individuele scores per afstand en een Loess-trendline die de onderliggende trend weergeeft.
 
 ```{r point-plot-afstand, warning=F, fig.cap='Invloed afstand tot de Duitse grens op theta-score.'}
 # puntendiagram maken
@@ -228,11 +285,18 @@ ggplot(data = data, mapping = aes(x = d_grens, y = score)) +
   ylab('Theta-score') +
     theme_minimal()
 ```
-Uit figuur \@ref(fig:point-plot-afstand) blijkt dat het gemiddelde niveau hoger wordt naarmate de afstand tot de grens groter wordt. Dit beeld is echter misleidend: de groep 300 km+ bevat slechts twee respondenten, waardoor het figuur geen betrouwbaar beeld geeft op het gemiddelde. De meerdereheid van de respondenten woonden binnen 100 km van de grens (zie Figuur \@ref(fig:afstand-grens)), waardoor de overige groepen te klein waren om betrouwbare conclusies uit te trekken.
+
+Uit figuur \@ref(fig:point-plot-afstand) blijkt dat het gemiddelde niveau hoger wordt naarmate de afstand tot de grens groter wordt.
+Dit beeld is echter misleidend: de groep 300+ km bevat slechts twee respondenten, waardoor het figuur geen betrouwbaar beeld geeft op het gemiddelde.
+De meerdereheid van de respondenten woonden binnen 100 km van de grens (zie Figuur \@ref(fig:afstand-grens)), waardoor de overige groepen te klein waren om betrouwbare conclusies uit te trekken.
+
+Afstand tot de Duitse grens lijkt in deze steekproef geen robuuste voorspeller van Duitse taalbeheersing, wat consistent is met bevindingen van Hovens [@Hovens+2024+171+188], die eveneens wijzen op beperkte voorspellende waarde van geografische nabijheid.
 
 ## Onderwijs
 
-Om te onderzoeken of het hoogst behaalde opleidingsinveau samenhangt met de Duitse taalvaardigheid, is het gemiddelde niveau Duits per opleidingsgroep berekend. De opleidingen zijn gerangschikt van laag naar hoog, van basisonderwijs tot WO. Figuur \@ref(fig:barplot-opleiding) toont deze gemiddelde scores per opleidingsniveau.
+Om te onderzoeken of het hoogst behaalde opleidingsinveau samenhangt met de Duitse taalvaardigheid, is het gemiddelde niveau Duits per opleidingsgroep berekend.
+De opleidingen zijn gerangschikt van laag naar hoog, van basisonderwijs tot WO.
+Figuur \@ref(fig:barplot-opleiding) toont deze gemiddelde scores per opleidingsniveau.
 
 ```{r barplot-opleiding, warning=F, fig.cap='Invloed hoogst behaalde opleiding op gemiddeld niveau Duits.'}
 # variabelen aanmaken voor de hoogstbehaalde opleidingen en de niveaus Duits van de deelnemers
@@ -261,11 +325,16 @@ ggplot(data=niveau_Duits_per_opleidingsniveau, aes(x=schoolniveaus, y=gemiddelde
     guides(fill = guide_legend(title = "CEFR-niveau")) +
     theme_minimal()
 ```
-Uit figuur \@ref(fig:barplot-opleiding) is er geen duidelijk stijgend patroon zichtbaar van laag naar hoog opleidingsniveau. Opvallend is dat vmbo-respondenten gemiddeld hoger scoren dan havo- en vwo- respondenten. Dit resultaat moet echter voorzichtig worden geïnterpreteerd, omdat sommige groepen zoals basisonderwijs (n = 2) en vwo (n = 8) zeer klein zijn, waardoor het gemiddelde sterk beïnvloed kan worden door individuele scores.
+
+Uit Figuur \@ref(fig:barplot-opleiding) is geen duidelijk stijgend patroon zichtbaar van laag naar hoog opleidingsniveau.
+Opvallend is dat vmbo-respondenten gemiddeld hoger scoren dan havo- en vwo- respondenten.
+Dit resultaat moet echter voorzichtig worden geïnterpreteerd, omdat sommige groepen zoals basisonderwijs (n = 2) en vwo (n = 8) zeer klein zijn, waardoor het gemiddelde sterk beïnvloed kan worden door individuele scores.
+Ondanks mogelijke scheve resultaten bevestigd deze figuur wel dat het gemiddelde niveau van Havo/VWO in lijn is met hun ERK-streefniveau [@AnneBeeker2015].
 
 ## Blootstelling aan de Duitse taal {#blootstelling}
 
-In deze sectie wordt onderzocht in hoeverre blootstelling aan de Duitse taal samenhangt met de Duitse taalvaardigheid. Hierbij wordt gekeken naar drie factoren: of een respondent in Duitsland heeft gewoond of gewerkt, of een respondent een Duits familielid of kennis heeft, en hoe vaak een respondent Duits gebruikt in het dagelijks leven.
+In deze sectie wordt onderzocht in hoeverre blootstelling aan de Duitse taal samenhangt met de Duitse taalvaardigheid.
+Hierbij wordt gekeken naar drie factoren: of een respondent in Duitsland heeft gewoond of gewerkt, of een respondent een Duits familielid of kennis heeft, en hoe vaak een respondent Duits gebruikt in het dagelijks leven.
 
 ### Gewoond of gewerkt in Duitsland
 
@@ -280,11 +349,14 @@ ggplot(data=data, aes(x=woonwerk_duits, y=score)) +
   ylab('Theta-score')+
     theme_minimal()
 ```
-Uit figuur \@ref(fig:boxplot-woon-werk) blijkt dat respondenten die in Duitsland hebben gewoond of gewerkt gemiddeld aanzienlijk hoger scoren (M = 0.68, CEFR $\approx$ B2) dan respondenten die dit niet hebben gedaan (M = -0.08, CEFR $\approx$ B1). Dit suggereert dat directe blootstelling aan de Duitse taal in een werkomgeving of woonsituatie een positief effect heeft op de taalvaardigheid.
+
+Uit figuur \@ref(fig:boxplot-woon-werk) blijkt dat respondenten die in Duitsland hebben gewoond of gewerkt gemiddeld aanzienlijk hoger scoren (M = 0.68, CEFR $\approx$ B2) dan respondenten die dit niet hebben gedaan (M = -0.08, CEFR $\approx$ B1).
+Dit suggereert dat directe blootstelling aan de Duitse taal in een werkomgeving of woonsituatie een positief effect heeft op de taalvaardigheid.
 
 ## Duitse kennis of familielid
 
-Daarnaast is onderzocht of het hebben van een Duits familielid of kennis samenhangt met de Duitse taalvaardigheid. Figuur \@ref(fig:boxplot-fam-kennis) toont het niveau (theta) van Duits voor respondenten die wel of niet een Duits familielid of kennis heeft.
+Daarnaast is onderzocht of het hebben van een Duits familielid of kennis samenhangt met de Duitse taalvaardigheid.
+Figuur \@ref(fig:boxplot-fam-kennis) toont het niveau (theta) van Duits voor respondenten die wel of niet een Duits familielid of kennis heeft.
 
 ```{r boxplot-fam-kennis, warning=F, fig.cap='Invloed van het hebben van een Duitse kennis of familielid op niveau Duits.'}
 # variabelen aanmaken voor de antwoorden op de vraag of de deelnemer een Duitse kennis of familielid heeft en de niveaus Duits van de deelnemers
@@ -296,11 +368,14 @@ ggplot(data=data, aes(x=fam_kennis, y=score)) +
   ylab('Theta-score')+
     theme_minimal()
 ```
-Uit figuur \@ref(fig:boxplot-fam-kennis) blijkt dat respondenten met een Duits familielid of kennis gemiddeld hoger scoren (M = 0.27, CEFR $\approx$ B1) dan de respondenten zonder (M = -0.11, CEFR $\approx$ A2). Het verschil is kleiner dan bij wonen of werken in Duitsland, wat suggereert dat indirect contact met de Duitse taal via een familielid of kennis minder sterk samenhangt met taalvaardigheid dan directe blootstelling.
+
+Uit figuur \@ref(fig:boxplot-fam-kennis) blijkt dat respondenten met een Duits familielid of kennis gemiddeld hoger scoren (M = 0.27, CEFR $\approx$ B1) dan de respondenten zonder (M = -0.11, CEFR $\approx$ A2).
+Het verschil is kleiner dan bij wonen of werken in Duitsland, wat suggereert dat indirect contact met de Duitse taal via een familielid of kennis minder sterk samenhangt met taalvaardigheid dan directe blootstelling.
 
 ## Hoevaak wordt Duits gebruikt
 
-Ten slotte is onderzocht of de frequentie van Duits gebruikt in het dagelijks leven samenhangt met de Duitse taalvaardigheid. Figuur \@ref(fig:barplot-gebruik-hoevaak) toont het gemiddelde niveau Duits per gebruiksfrequentie, gerangschikt van nooit tot vaak.
+Ten slotte is onderzocht of de frequentie van Duits gebruikt in het dagelijks leven samenhangt met de Duitse taalvaardigheid.
+Figuur \@ref(fig:barplot-gebruik-hoevaak) toont het gemiddelde niveau Duits per gebruiksfrequentie, gerangschikt van nooit tot vaak, waarbij de kleur het bijbehorende CEFR-niveau aangeeft.
 
 ```{r barplot-gebruik-hoevaak, warning=F, fig.cap='Invloed van mate van gebruik op het gemiddelde niveau.'}
 # variabelen aanmaken voor hoevaak de deelnemer Duits gebruikt in het dagelijks leven en de niveaus Duits van de deelnemers
@@ -323,11 +398,15 @@ ggplot(data=niveau_Duits_gebruik_hoevaak, aes(x=gebruik_hoevaak, y=niveaus_Duits
     guides(fill = guide_legend(title = "CEFR-niveau")) +
     theme_minimal()
 ```
-Uit figuur \@ref(fig:barplot-gebruik-hoevaak) blijkt een duidelijk stijgend patroon: hoe vaker een respondent Duits gebruikt in het dagelijks leven, hoe hoger het gemiddelde niveau. Respondenten die de taal nooit gebruiken scoren gemiddeld op A2-niveau (M = -0.38), terwijl respondenten die de taal vaak gebruiken gemiddeld op C1/C2-niveau scoren (M = 0.93). Dit suggereert dat regelmatig gebruik van de Duitse taal sterk samenhangt met een hogere taalvaardigheid. Waarbij de kleur het bijbehorende CEFR-niveau aangeeft.
+
+Uit figuur \@ref(fig:barplot-gebruik-hoevaak) blijkt een duidelijk stijgend patroon: hoe vaker een respondent Duits gebruikt in het dagelijks leven, hoe hoger het gemiddelde niveau.
+Respondenten die de taal nooit gebruiken scoren gemiddeld op A2-niveau (M = -0.38), terwijl respondenten die de taal vaak gebruiken gemiddeld op C1/C2-niveau scoren (M = 0.93).
+Dit suggereert dat regelmatig gebruik van de Duitse taal sterk samenhangt met een hogere taalvaardigheid.
 
 ## Situaties
 
-Om te onderzoeken in welke situaties respondenten Duits gebruiken en hoe dit samenhangt met hun taalvaardigheid, zijn de situaties per respondent uitgesplitst. Figuur \@ref(fig:barplot-situaties) toont het gemiddelde niveau Duits per situatie, waarbij de kleur het bijhorende CEFR-niveau aangeeft.
+Om te onderzoeken in welke situaties respondenten Duits gebruiken en hoe dit samenhangt met hun taalvaardigheid, zijn de situaties per respondent uitgesplitst.
+Figuur \@ref(fig:barplot-situaties) toont het gemiddelde niveau Duits per situatie, waarbij de kleur het bijhorende CEFR-niveau aangeeft.
 
 ```{r barplot-situaties, warning=F, fig.cap='Gemiddeld niveau per situatie waarin Duits word gebruikt.'}
 # situaties splitten
@@ -362,11 +441,15 @@ ggplot(data=situaties_scores, aes(x=situaties_scores$situaties, y=situaties_scor
     theme_minimal() +
     theme(axis.text.x = element_text(angle = 45, hjust=1))
 ```
-Uit figuur \@ref(fig:barplot-situaties) blijkt dat respondenten die Duits gebruiken via (social) media gemiddeld het hoogst scoren (CEFR $\approx$ B2), gevolgd door overige situaties en boodschappen. Respondenten die Duits gebruiken voor werk of vakantie scoren gemiddeld op B1-niveau. Respondenten die aangaven Duits in geen enkele situatie te gebruiken scoren het laagst (CEFR $\approx$ A2), wat bevestigt dat actief gebruik van de taal samenhangt met een hogere taalvaardigheid.
+
+Uit figuur \@ref(fig:barplot-situaties) blijkt dat respondenten die Duits gebruiken via (social) media gemiddeld het hoogst scoren (CEFR $\approx$ B2), gevolgd door overige situaties en boodschappen.
+Respondenten die Duits gebruiken voor werk of vakantie scoren gemiddeld op B1-niveau.
+Respondenten die aangaven Duits in geen enkele situatie te gebruiken scoren het laagst (CEFR $\approx$ A2), wat bevestigt dat actief gebruik van de taal samenhangt met een hogere taalvaardigheid.
 
 ## Belang van de Duitse taal
 
-Om te onderzoeken of de twee leeftijdsgroepen verschillen in hoe belangrijk zij de Duitse taal vinden om te leren, is per leeftijdsgroep het percentage respondenten berekend dat de Duitse taal belangrijk vindt. Figuur \@ref(fig:belang-leeftijd) toont deze verdeling per leeftijdsgroep, waarbij onderscheid wordt gemaakt tussen repondenten die de Duitse taal wel of niet belangrijk vinden om te leren.
+Om te onderzoeken of de twee leeftijdsgroepen verschillen in hoe belangrijk zij de Duitse taal vinden om te leren, is per leeftijdsgroep het percentage respondenten berekend dat de Duitse taal belangrijk vindt.
+Figuur \@ref(fig:belang-leeftijd) toont deze verdeling per leeftijdsgroep, waarbij onderscheid wordt gemaakt tussen repondenten die de Duitse taal wel of niet belangrijk vinden om te leren.
 
 ```{r belang-leeftijd, warning=F, fig.cap='Percentage belang van Duits per leeftijdscategorie.'}
 
@@ -385,11 +468,13 @@ ggplot(belang_tabel, aes(x = leeftijd, y = percentage, fill = duits_belang)) +
 #title = "Belang van Duise taal per leeftijdsgroep",
 ```
 
-Uit Figuur \@ref(fig:belang-leeftijd) blijkt dat een groter percentage van de 40+ groep de Duitse taal belangrijk vindt vergeleken met de 18-40 groep. Van alle respondenten vond meer dan 70% van de leeftijdsgroep 40+ de Duitse taal belangrijker, tegenover de leeftijdsgroep van 18-40.
+Uit Figuur \@ref(fig:belang-leeftijd) blijkt dat een groter percentage van de 40+ groep de Duitse taal belangrijk vindt vergeleken met de 18-40 groep.
+Van alle respondenten vond meer dan 70% van de leeftijdsgroep 40+ de Duitse taal belangrijker, tegenover de leeftijdsgroep van 18-40.
 
 ## Schatting vs score
 
-Om te onderzoeken of respondenten hun eigen niveau correct inschatten, is de eigen inschatting vergeleken met de werkelijke theta-score. Figuur \@ref(fig:data-schatting) toont deze relatie, waarbij de kleur aangeeft of een respondent zijn niveau heeft over- of onderschat.
+Om te onderzoeken of respondenten hun eigen niveau correct inschatten, is de eigen inschatting vergeleken met de werkelijke theta-score.
+Figuur \@ref(fig:data-schatting) toont deze relatie, waarbij de kleur aangeeft of een respondent zijn niveau heeft over- of onderschat.
 
 ```{r data-schatting, warning=F, fig.cap='Schatting vs werkelijke theta-score'}
 # Schatting omzetten naar z-score zodat het vergelijkbaar is met theta
@@ -420,12 +505,27 @@ ggplot(data_schatting, aes(x = schatting, y = score)) +
   theme_minimal()
 #title = "Schatting vs werkelijke theta-score",
 ```
-Uit Figuur \@ref(fig:data-schatting) blijkt dat de correlatie tussen de eigen schatting van behaalde niveau en de werkelijke theta-score r = 0.62 bedroeg, dat wijst op een matig tot sterk verband. Dit betekent dat respondenten hun behaalde niveaus redelijk goed hebben ingeschat, al was het niet helemaal perfect. 
 
+Uit Figuur \@ref(fig:data-schatting) blijkt dat de correlatie tussen de eigen schatting van behaalde niveau en de werkelijke theta-score r = 0.62 bedroeg, dat wijst op een matig tot sterk verband.
+Dit suggereerd dat respondenten hun behaalde niveaus redelijk goed hebben kunnen ingeschat.
+Dit resultaat bevestigt in grote lijnen eerdere bevindingen van Li en collega’s [@Li2021], die eveneens een positieve correlatie vonden tussen zelfinschatting en taalprestatie (r = .466, p \< .01).
+Samen suggereren deze resultaten dat zelfbeoordelingen een redelijke indicatie kunnen geven van daadwerkelijke prestaties, maar beperkt zijn in nauwkeurigheid.
+Onderzoek gedaan door van Onna en Jansen [@van2006multilingual] rapporteerde dat Nederlandse deelnemers hun taalniveau eerder overschatten.
+Dit patroon werd in de huidige steekproef niet teruggevonden.
 
 ## Regressie
 
-Om te onderzoeken welke factoren samenhangen met Duitse taalvaardigheid werd een multipele lineaire regressie uitgevoerd. Dit model onderzocht de effecten van de factoren leeftijdsgroep, opleiding, afstand van de grens, gewoond/gewerkt in Duitsland, Duitse familie/kennis, regelmaat van gebruik, situaties en taalinteresse (Duits/algemeen) op de theta-score. Het model was significant (F-stat $\approx$ 7.55, p < .0001), en verklaarde $\approx$ 46.1% van de variantie in taalvaardigheid (Adjusted R-Squared $\approx$ .46). Om multicollineariteit te controleren werden de Variance Inflation Factors (VIF) berekend. Alle VIF-waarden lagen onder de 5, wat aangeeft dat multicollineariteit geen substantieel probleem vormt in dit model. De mediaan van de residuen bedroeg -0.02944, wat aantoonde dat het model niet zo accuraat voorspelde in hogere scorebereiken. Om de verdeling van de residuen te beoordelen is een QQ-plot gegenereerd, zie Figuur \@ref(fig:quantiles). In dit figuur is te zien dat het QQ-plot  een S-vormig patroon vertoont, wat duidt op een systematische niet-lineaire afwijking in het model. Dit betekent dat de residuen niet willekeurig rond de nul-lijn verdeeld zijn, maar een gestructureerd patroon laten zien waarbij het model in bepaalde delen van het voorspellingsbereik te laag en in andere delen te hoog voorspelt. Dit suggereert dat de relatie tussen de voorspellers en Duitse taalvaardigheid niet volledig lineair is en mogelijk een lichte kromming bevat. Desondanks biedt het model bruikbare en interpreteerbare resultaten.
+Om te onderzoeken welke factoren samenhangen met Duitse taalvaardigheid werd een multipele lineaire regressie uitgevoerd.
+Dit model onderzocht de effecten van de factoren leeftijdsgroep, opleiding, afstand van de grens, gewoond/gewerkt in Duitsland, Duitse familie/kennis, regelmaat van gebruik, situaties en taalinteresse (Duits/algemeen) op de theta-score.
+Het model was significant (F-stat $\approx$ 7.55, p \< .0001), en verklaarde $\approx$ 46.1% van de variantie in taalvaardigheid (Adjusted R-Squared $\approx$ .46).
+Om multicollineariteit te controleren werden de Variance Inflation Factors (VIF) berekend.
+Alle VIF-waarden lagen onder de 5, wat aangeeft dat multicollineariteit geen substantieel probleem vormt in dit model.
+De mediaan van de residuen bedroeg -0.02944, wat aantoonde dat het model niet zo accuraat voorspelde in hogere scorebereiken.
+Om de verdeling van de residuen te beoordelen is een QQ-plot gegenereerd, zie Figuur \@ref(fig:quantiles).
+In dit figuur is te zien dat het QQ-plot een S-vormig patroon vertoont, wat duidt op een systematische niet-lineaire afwijking in het model.
+Dit betekent dat de residuen niet willekeurig rond de nul-lijn verdeeld zijn, maar een gestructureerd patroon laten zien waarbij het model in bepaalde delen van het voorspellingsbereik te laag en in andere delen te hoog voorspelt.
+Dit suggereert dat de relatie tussen de voorspellers en Duitse taalvaardigheid niet volledig lineair is en mogelijk een lichte kromming bevat.
+Desondanks biedt het model bruikbare en interpreteerbare resultaten.
 
 ```{r quantiles, warning=F, fig.cap='QQ-plot van residuen regressiemodel'}
 #figuur 67 (hij zegt zelf welk figuur btw so all good)
@@ -465,12 +565,22 @@ ggplot(data = data.frame(resid = resid(model)), aes(sample = resid)) +
     labs(x = "Theoretische kwantielen", y = "Werkelijke kwantielen") +
     theme_minimal()
 ```
-Leeftijd bleek een sterke voorspeller van de Duitse taalvaardigheid. Respondenten van 40 jaar en ouder scoorden gemiddeld 0.62 theta (p < .001) hoger dan respondenten in de leeftijdsgroep 18-40. Daarnaast hing regelmatig gebruik van de Duitse taal positief samen met taalvaardigheid: gemiddeld 0.81 theta (p < .001) hoger gescoord dan respondenten die aangaven de Duitse taal nooit te gebruiken. Ook gebruik van Duits in (social) media was een significante voorspeller ($\beta\approx$ 0.434, p $\approx$ 0.010). Verder werd een klein maar significant effect gevonden in de relatie tussen de score en de afstand tot de Duitse grens ($\beta\approx$ 0.002, p $\approx$ 0.042). Echter was dit verband positief gerelateerd aan de afstand van de grens, wat inhoudt dat een grotere afstand tot de grens samenhing met een hogere taalvaardigheid. Dit resultaat komt niet overeen met de vooraf opgestelde hypothese. Er werd een positieve trend gevonden voor hoger onderwijs (e.g. VWO/WO), maar deze effecten waren niet statistisch significant in het complete model.
+
+Leeftijd bleek een sterke voorspeller van de Duitse taalvaardigheid.
+Respondenten van 40 jaar en ouder scoorden gemiddeld 0.62 theta (p \< .001) hoger dan respondenten in de leeftijdsgroep 18-40.
+Daarnaast hing regelmatig gebruik van de Duitse taal positief samen met taalvaardigheid: gemiddeld 0.81 theta (p \< .001) hoger gescoord dan respondenten die aangaven de Duitse taal nooit te gebruiken.
+Ook gebruik van Duits in (social) media was een significante voorspeller ($\beta\approx$ 0.434, p $\approx$ 0.010).
+Verder werd een klein maar significant effect gevonden in de relatie tussen de score en de afstand tot de Duitse grens ($\beta\approx$ 0.002, p $\approx$ 0.042).
+Echter was dit verband positief gerelateerd aan de afstand van de grens, wat inhoudt dat een grotere afstand tot de grens samenhing met een hogere taalvaardigheid.
+Dit resultaat komt niet overeen met de vooraf opgestelde hypothese.
+Er werd een positieve trend gevonden voor hoger onderwijs (e.g. VWO/WO), maar deze effecten waren niet statistisch significant in het complete model.
 
 # Discussie en conclusie
 
 ## Conclusie
-Uit dit onderzoek blijkt dat respondenten van de leeftijdsgroep 40+ gemiddeld een hogere niveau van Duitse taalvaardigheid behaalden (M = $\approx$ 0.32, SD = $\approx$ 0.70, CEFR = B1) in vergelijking met de leeftijdsgroep 18-40 (M = $\approx$ -0.40, SD = $\approx$ 0.77, CEFR = A2). Dit verschil was statistisch significant (t = -5.97, df = 136.72, p < .001, d = 0.98) zoals aangetoond in de sectie \@ref(hypothese), wat wijst op een groot effect.
+
+Uit dit onderzoek blijkt dat respondenten van de leeftijdsgroep 40+ gemiddeld een hogere niveau van Duitse taalvaardigheid behaalden (M = $\approx$ 0.32, SD = $\approx$ 0.70, CEFR = B1) in vergelijking met de leeftijdsgroep 18-40 (M = $\approx$ -0.40, SD = $\approx$ 0.77, CEFR = A2).
+Dit verschil was statistisch significant (t = -5.97, df = 136.72, p \< .001, d = 0.98) zoals aangetoond in de sectie \@ref(hypothese), wat wijst op een groot effect.
 
 ```{r hoofdvraag1, results='asis', warning=F}
 
@@ -503,8 +613,10 @@ data_summary %>%
     gt::as_latex()%>%
     cat()
 ```
-Om meer beeld te geven van de taalvaardigheid, toont tabel \@ref(tab:hoofdvraag2) de verdeling van CEFR-niveaus per leeftijdsgroep. 
-Hieruit blijkt dat de 18-40 groep voornamelijk op de lagere CEFR-niveaus scoorden: bijna 40% van deze groep behaalde een A1-niveau, en samen met A2 zat ruim de helft (58.8%) op de twee laagste niveaus. De 40+ groep laat een duidelijk andere verdeling zien: slechts 22.1% behaalde deze groep het niveau A1 of A2, terwijl 44.1% een B2-niveau of hoger behaalde.
+
+Om meer beeld te geven van de taalvaardigheid, toont tabel \@ref(tab:hoofdvraag2) de verdeling van CEFR-niveaus per leeftijdsgroep.
+Hieruit blijkt dat de 18-40 groep voornamelijk op de lagere CEFR-niveaus scoorden: bijna 40% van deze groep behaalde een A1-niveau, en samen met A2 zat ruim de helft (58.8%) op de twee laagste niveaus.
+De 40+ groep laat een duidelijk andere verdeling zien: slechts 22.1% behaalde deze groep het niveau A1 of A2, terwijl 44.1% een B2-niveau of hoger behaalde.
 
 ```{r hoofdvraag2, results='asis', warning=F}
 
@@ -524,20 +636,31 @@ cefr_tabel %>%
   gt::as_latex() %>%
   cat()
 ```
+
 Samenvattend kan worden gesteld dat de Duitse taalvaardigheid significant verschilt tussen de twee leefdtijdsgroepen, waarbij de 40+ groep duidelijk beter presenteert dan de 18-40 groep.
 
 ## Interpretatie
-De 40+ groep scoort hoger doordat deze groep waarschijnlijk meer blootstelling heeft gehad aan de Duitse taal. Dit wordt ondersteund door de resultaten uit sectie \@ref(blootstelling): repondenten die in Duitsland hebben gewoond of gewerkt, een Duits familielid of kennis hebben, of Duits regelmatig in het dagelijks leven gebruiken scoren allemaal gemiddeld hoger.
+
+De 40+ groep scoort hoger doordat deze groep waarschijnlijk meer blootstelling heeft gehad aan de Duitse taal.
+Dit wordt ondersteund door de resultaten uit sectie \@ref(blootstelling): repondenten die in Duitsland hebben gewoond of gewerkt, een Duits familielid of kennis hebben, of Duits regelmatig in het dagelijks leven gebruiken scoren allemaal gemiddeld hoger.
 Daarnaast vindt een groter percentage van de 40+ groep de Duitse taal belangrijk, wat kan bijdragen aan een hogere motivatie om de taal te leren of onderhouden.
 Ook de eigen inschatting van het niveau sluit hierop aan: de correlatie tussen schatting en werkelijke score (r = 0.62) toont dat respondenten hun niveau redelijk goed hebben kunnen inschatten, waarbij de meeste afwijkingen in de richting van onderschatting lagen.
 
 ## Beperkingen
-Dit onderzoek kent een aantal beperkingen. Ten eerste is de steekproef geografisch niet representatief voor heel Nederland. De meerderheid van de respondenten werd geworven in de regio Groningen/Friesland. Omdat Groningen relatief dicht bij de Duitse grens ligt, is het mogelijk dat respondenten gemiddeld meer blootstelling aan de Duitse taal hebben gehad dan de gemiddelde Nederlander. Dit verklaart ook het onverwachte resultaat uit de sectie \@ref(regressie), waarbij een grotere afstand tot de grens samenhing met een hogere taalvaardigheid. Dit is waarschijnlijk een gevolg van de schreve steekproef en niet een werkelijk verband.
+
+Dit onderzoek kent een aantal beperkingen.
+Ten eerste is de steekproef geografisch niet representatief voor heel Nederland.
+De meerderheid van de respondenten werd geworven in de regio Groningen/Friesland.
+Omdat Groningen relatief dicht bij de Duitse grens ligt, is het mogelijk dat respondenten gemiddeld meer blootstelling aan de Duitse taal hebben gehad dan de gemiddelde Nederlander.
+Dit verklaart ook het onverwachte resultaat uit de sectie \@ref(regressie), waarbij een grotere afstand tot de grens samenhing met een hogere taalvaardigheid.
+Dit is waarschijnlijk een gevolg van de schreve steekproef en niet een werkelijk verband.
 Ten tweede kon niet worden gecontroleerd of deelnemers hulpmiddelen hebben gebruikt tijdens de toets, wat de betrouwbaarheid van de scores mogelijk aantast.
 Ten derde waren sommige groepen zoals basisonderwijs en vwo zeer klein, waardoor uitspraken over deze groepen voorzichtig geïnterpreteerd moeten worden.
 
 ## Aanbevelingen
-Voor vervolgonderzoek wordt aanbevolen om een geografisch weidere steekproef te doen, waarbij respondenten evenredig worden geworven uit verschillende regio's van Nederland. Dit vergroot de representativiteit van de resultaten en voorkomt vertekening door regionale blootstelling aan de Duitse taal.
+
+Voor vervolgonderzoek wordt aanbevolen om een geografisch weidere steekproef te doen, waarbij respondenten evenredig worden geworven uit verschillende regio's van Nederland.
+Dit vergroot de representativiteit van de resultaten en voorkomt vertekening door regionale blootstelling aan de Duitse taal.
 Daarnaast wordt aanbevolen de toets af te nemen onder gecontroleerde omstandigheden, zodat het gebruik van een eventueel hulpmiddel wordt voorkomen.
 Tot slot zou een grotere steekproef per opleidingsgroep meer betrouwbare analyse mogelijk maken over de relatie tussen opleidingsniveau en Duitse taalvaardigheid.
 
