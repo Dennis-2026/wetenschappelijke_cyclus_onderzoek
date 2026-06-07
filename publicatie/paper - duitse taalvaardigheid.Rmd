@@ -650,7 +650,7 @@ Ook de eigen inschatting van het niveau sluit hierop aan: de correlatie tussen s
 
 Dit onderzoek kent een aantal beperkingen.
 Ten eerste is de steekproef geografisch niet representatief voor heel Nederland.
-De meerderheid van de respondenten werd geworven in de regio Groningen/Friesland.
+De meerderheid van de respondenten werd geworven in de regio Groningen/Fryslân.
 Omdat Groningen relatief dicht bij de Duitse grens ligt, is het mogelijk dat respondenten gemiddeld meer blootstelling aan de Duitse taal hebben gehad dan de gemiddelde Nederlander.
 Dit verklaart ook het onverwachte resultaat uit de sectie \@ref(regressie), waarbij een grotere afstand tot de grens samenhing met een hogere taalvaardigheid.
 Dit is waarschijnlijk een gevolg van de schreve steekproef en niet een werkelijk verband.
