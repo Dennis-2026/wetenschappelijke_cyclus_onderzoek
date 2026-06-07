@@ -11,10 +11,10 @@ Kwantitatief surveyonderzoek naar de beheersing van het Duits onder Nederlandse 
 ```
 wetenschappelijke_cyclus_onderzoek/
 ├── ruwe_data/          Originele exportbestanden vanuit Microsoft Forms
-├── publicatie/         Eindpaper (.Rmd + .pdf) en schone dataset
+├── publicatie/         Eindpaper (.Rmd + .pdf) en bibtex entries
 ├── analyse/            Individuele analysebestanden en logboeken
 ├── protocol/           Onderzoeksprotocol (.Rmd, .html)
-└── docs/               Hulpmiddelen en referenties voor hulpmiddelen
+└── docs/               Hulpmiddelen en bibtex entries
 ```
 
 ---
@@ -27,6 +27,8 @@ Onbewerkte data-export vanuit Microsoft Forms, niet aan te passen.
 | Bestand | Beschrijving |
 |---|---|
 | `Duitse taalvaardigheid onderzoek(1-154).csv.xlsx` | Ruwe export (154 rows, 66 cols) |
+| `Duitse taalvaardigheid onderzoek(1-154).csv` | Ruwe export (csv) (154 rows, 66 cols) |
+| `cleaned_scores.csv` | Export uit R met kortere kolomnamen, 1/0 voor antwoorden, IRT scores (154 rows, 66 cols) |
 
 ---
 
@@ -43,7 +45,7 @@ Bevat het eindproduct van het onderzoek.
 ---
 
 ### `analyse/`
-Individuele werkbestanden per onderzoeker. Niet alle bestanden hieruit zijn opgenomen in de eindpaper.
+Individuele werkbestanden per onderzoeker of globaal. Niet alle bestanden hieruit zijn opgenomen in de eindpaper.
 
 | Bestand | Beschrijving |
 |---|---|
@@ -60,8 +62,6 @@ Individuele werkbestanden per onderzoeker. Niet alle bestanden hieruit zijn opge
 | `logboek_Vani.Rmd` | Proceslogboek Vani |
 | `references_jesse.bib` | Referenties gebruikt in Jesse's analyse/logboek |
 | `images/` | Gegenereerde figuren (IRT-plot, CEFR-verdeling, samenvatting) |
-| `data/` | Tussentijdse databestanden (placeholder) |
-| `scripts/` | Losse R-scripts (placeholder) |
 
 ---
 
@@ -89,7 +89,7 @@ Ondersteunende documenten en hulpmiddelen.
 
 ## Reproduceerbaarheid
 
-De eindpaper is te reproduceren door `protocol/protocol.Rmd` te volgen. Daarnaast zijn FAIR-principes gevolgd voor gemakkelijke hantering van protocollen. 
+De eindpaper is te reproduceren door `protocol/protocol.Rmd` te volgen in combinatie met code te vinden in de publicatie (`publicatie/paper - duitse taalvaardigheid.Rmd`). Daarnaast zijn FAIR-principes gevolgd voor gemakkelijke hantering van protocollen. 
 
 Benodigde R-packages staan vermeld in de YAML-header van het Rmd-bestand en ook beschreven in de methodologie. Aanbevolen R-versie: ≥ 4.3.
 
