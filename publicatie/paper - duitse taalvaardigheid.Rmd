@@ -335,7 +335,7 @@ ggplot(data=data, aes(x=woonwerk_duits, y=score)) +
 Uit figuur \@ref(fig:boxplot-woon-werk) blijkt dat respondenten die in Duitsland hebben gewoond of gewerkt gemiddeld aanzienlijk hoger scoren (M = 0.68, CEFR $\approx$ B2) dan respondenten die dit niet hebben gedaan (M = -0.08, CEFR $\approx$ B1).
 Dit suggereert dat directe blootstelling aan de Duitse taal in een werkomgeving of woonsituatie een positief effect heeft op de taalvaardigheid.
 
-## Duitse kennis of familielid
+### Duitse kennis of familielid
 
 Daarnaast is onderzocht of het hebben van een Duits familielid of kennis samenhangt met de Duitse taalvaardigheid.
 Figuur \@ref(fig:boxplot-fam-kennis) toont het niveau (theta) van Duits voor respondenten die wel of niet een Duits familielid of kennis heeft.
@@ -354,7 +354,7 @@ ggplot(data=data, aes(x=fam_kennis, y=score)) +
 Uit figuur \@ref(fig:boxplot-fam-kennis) blijkt dat respondenten met een Duits familielid of kennis gemiddeld hoger scoren (M = 0.27, CEFR $\approx$ B1) dan de respondenten zonder (M = -0.11, CEFR $\approx$ A2).
 Het verschil is kleiner dan bij wonen of werken in Duitsland, wat suggereert dat indirect contact met de Duitse taal via een familielid of kennis minder sterk samenhangt met taalvaardigheid dan directe blootstelling.
 
-## Hoevaak wordt Duits gebruikt
+### Hoevaak wordt Duits gebruikt
 
 Ten slotte is onderzocht of de frequentie van Duits gebruikt in het dagelijks leven samenhangt met de Duitse taalvaardigheid.
 Figuur \@ref(fig:barplot-gebruik-hoevaak) toont het gemiddelde niveau Duits per gebruiksfrequentie, gerangschikt van nooit tot vaak, waarbij de kleur het bijbehorende CEFR-niveau aangeeft.
