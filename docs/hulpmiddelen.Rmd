@@ -87,4 +87,23 @@ Another consideration is that each coefficient estimate has its own standard err
 
 ## Logistic model interpretation
 
-Via [@Logm]
+Via [@LOGM]
+
+The call section shows us the formula that R used to fit the regression model. Salary is our dependent variable and we are using points as a predictor (independent variable) from the NBA dataset.
+
+So how do we interpret this? Well, thinking critically about this, we’d definitely want our median value to be centered around zero as this would tell us our residuals were somewhat symmetrical and that our model was predicting evenly at both the high and low ends of our dataset. Looking at the output above, it looks like our distribution is not quite symmetrical and is slightly right-skewed. This tells us that our model is not predicting as well at the higher salary ranges as it does for the low ranges. We can visualize this with a quantile-quantile plot. Looking at the chart below, you can see there are outliers on both ends of the chart, but those on the upper end look more severe than those on the bottom. Overall the residuals look to have a fairly normal distribution.
+
+The p-value is calculated using the t-statistic from the T distribution. The p-value, in association with the t-statistic, help us to understand how significant our coefficient is to the model. In practice, any p-value below 0.05 is usually deemed as significant. What do we mean when we say significant? It means we are confident that the coefficient is not zero, meaning the coefficient does in fact add value to the model by helping to explain the variance within our dependent variable.
+
+
+The Multiple R-squared value is most often used for simple linear regression (one predictor). It tells us what percentage of the variation within our dependent variable that the independent variable is explaining. In other words, it’s another method to determine how well our model is fitting the data. In the example above, points explains ~37.37% of the variation within salary, our dependent variable. This means that points helps to explains some of the variation within salary, but not as much as we would like. Ultimately, our model isn’t fitting the data very well (we saw this when looking at the residual standard error).
+
+The Adjusted R-squared value is used when running multiple linear regression and can conceptually be thought of in the same way we described Multiple R-squared.
+
+It’s important to note that the R² value (Multiple or Adjusted) is not fool-proof and shouldn’t necessarily be used alone just by virtue of how the value is calculated.
+
+The F-statistic and overall p-value help us determine the result of this test. Looking at the F-statistic alone can be a little misleading depending on how many variables are in your test. If you have a lot of independent variables, it’s common for an F-statistic to be close to one and to still produce a p-value where we would reject the null hypothesis. However, for smaller models, a larger F-statistic generally indicates that the null hypothesis should be rejected. A better approach is to utilize the p-value that is associated with the F-statistic.
+
+We can see from our model, the F-statistic is very large and our p-value is so small it is basically zero. This would lead us to reject the null hypothesis and conclude that there is strong evidence that a relationship does exist between salary and points.
+
+## References

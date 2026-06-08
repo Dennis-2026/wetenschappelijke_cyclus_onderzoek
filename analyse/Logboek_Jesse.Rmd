@@ -439,3 +439,7 @@ Dit was ook wat ik van plan was voor vandaag, ik ga morgen waarschijnlijk nog ee
 - file `individual_scoring_jesse.Rmd` gerenamed naar `item_response_theory.Rmd` voor beter referentie naar de file.
 - protocol edits uitgewerkt (e.g. verkeerde namen, statistische methodes niet gebruikt, beschrijving implementatie Item Response Theory).
 - Extra referentie in protocol waar die mistte.
+- README gemaakt voor de databestanden in `ruwe_data` beetje gekopieerd tabellen van protocol wat ik al geschreven had.
+- Nieuwe `/supplementary_analyse` folder in `/analyse` gedaan voor supplementary files die we eigenlijk niet gebruiken in de final paper (`analyse_voor_vani.Rmd`, `logistic_regression_test_Vani.Rmd`, `methodes_testen.Rmd`, `verband_tussen_2_resultaten.Rmd`.
+- Alle .Rmd files die ik heb geschreven gerendered.
+- Vergeten info over logistic regression interpretation in de `hulpmiddelen.Rmd` file te zetten; nu wel gedaan.
