@@ -11,7 +11,7 @@
 
 <meta name="author" content="Jesse Postma" />
 
-<meta name="date" content="2026-06-05" />
+<meta name="date" content="2026-06-08" />
 
 <title>Protocol | Duitse Taalvaardigheid</title>
 
@@ -374,7 +374,7 @@ display: none;
 
 <h1 class="title toc-ignore">Protocol | Duitse Taalvaardigheid</h1>
 <h4 class="author">Jesse Postma</h4>
-<h4 class="date">2026-06-05</h4>
+<h4 class="date">2026-06-08</h4>
 
 </div>
 
@@ -383,8 +383,8 @@ display: none;
 <h1>Onderzoeksprotocol</h1>
 <table>
 <colgroup>
-<col width="25%" />
-<col width="74%" />
+<col width="20%" />
+<col width="79%" />
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -423,9 +423,9 @@ Duitsland is de grootste handelspartner van Nederland en de
 gemeenschappelijke grens van circa 570 km leidt tot dagelijkse
 interactie in grensregio’s. Eerder onderzoek <span class="citation">(Beerkens 2010)</span> <span class="citation">(Swarte
 et al. 2013)</span> wijst op een mogelijke receptieve meertaligheid in
-de grensstreek.</p>
+de grensstreek door ‘receptive multilingualism’.</p>
 <p>Dit protocol beschrijft de opzet van het surveyonderzoek: van de
-meetinstrumenten en wervinsstrategie tot de gegevensverwerking en
+meetinstrumenten en wervingsstrategie tot de gegevensverwerking en
 overwegingen.</p>
 </div>
 <div id="probleemstelling-doelstelling-en-onderzoeksvragen" class="section level2">
@@ -491,8 +491,7 @@ in het binnenland. - H1: Een hoger opleidingsniveau gaat samen met een
 hogere gemiddelde taalvaardigheid Duits.</p>
 <p>Verwachte CEFR-niveauverdeling op basis van literatuur: gemiddeld A2
 voor jongere groep; gemiddelde B1 voor 40+ groep. Niveaus C1 en C2
-worden als zeldzaam beschouwd in de algemene populatie. [ref ERK
-niveaus]</p>
+worden als zeldzaam beschouwd in de algemene populatie <span class="citation">(Beeker et al. 2015)</span>.</p>
 </div>
 </div>
 <div id="onderzoeksontwerp" class="section level2">
@@ -552,7 +551,7 @@ het formulier.</p>
 <table style="width:99%;">
 <colgroup>
 <col width="7%" />
-<col width="48%" />
+<col width="49%" />
 <col width="7%" />
 <col width="34%" />
 </colgroup>
@@ -642,9 +641,9 @@ leren?</td>
 Hieronder een compleet overzicht:</p>
 <table style="width:99%;">
 <colgroup>
-<col width="9%" />
+<col width="8%" />
 <col width="11%" />
-<col width="78%" />
+<col width="79%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -930,7 +929,7 @@ voldoende beheersen om een enquete te begrijpen.</p>
 <li>Woont minimaal 10 jaar in Nederland</li>
 <li>Duits is niet een moedertaal</li>
 <li>Voldoende Nederlands om de vragenlijst in te vullen</li>
-<li>Bereid tot deelname na mondelinge toestemming</li>
+<li>Bereid tot deelname na mondelinge instemming</li>
 </ul>
 </div>
 <div id="exclusiecriteria" class="section level3">
@@ -948,7 +947,7 @@ Nederland)</li>
 <h3>Steekproefomvang en -methode</h3>
 <p>Nagestreefde minimale steekproef: 40 respondenten. Uiteindelijk
 gerealiseerd: 154 respondenten, weergegeven in de dataset(s) in
-‘/ruwe_data’.</p>
+<code>/ruwe_data</code>.</p>
 <p>Steekproefmethode: gelegenheidssteekproef, aangevuld door werving via
 persoonlijk netwerk. Gekozen gezien gemakkelijke wegen van connectie via
 bijvoorbeeld social media. Daarnaast waren er flyers beschikbaar voor
@@ -964,9 +963,9 @@ gemakkelijke toegang tot de vragenlijst in een openbare ruimte.</p>
 <p>Respondenten werden via de volgende kanalen geworven:</p>
 <table style="width:99%;">
 <colgroup>
-<col width="14%" />
-<col width="41%" />
-<col width="43%" />
+<col width="13%" />
+<col width="37%" />
+<col width="48%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -979,7 +978,7 @@ gemakkelijke toegang tot de vragenlijst in een openbare ruimte.</p>
 <tr class="odd">
 <td>Openbare ruimtes</td>
 <td>Benadering met QR-code (poster).</td>
-<td>Werk, cafe’s</td>
+<td>Werk, cafe’s, etc.</td>
 </tr>
 <tr class="even">
 <td>Sociaal netwerk</td>
@@ -989,8 +988,8 @@ gemakkelijke toegang tot de vragenlijst in een openbare ruimte.</p>
 <tr class="odd">
 <td>Facebook, Instagram</td>
 <td>Posts met aanroepen tot invullen</td>
-<td>Gerichte posts in enquetegroepen/ 40+ groepen ook van
-toepassing</td>
+<td>Gerichte posts in enquetegroepen/ 40+ groepen ook van toepassing
+(spearfishing)</td>
 </tr>
 <tr class="even">
 <td>SurveyCircle</td>
@@ -1056,8 +1055,8 @@ bestand voor analyse in R.</p>
 <table style="width:99%;">
 <colgroup>
 <col width="15%" />
-<col width="23%" />
-<col width="59%" />
+<col width="24%" />
+<col width="60%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1214,6 +1213,21 @@ tijdstempels, Forms-metadata)<br />
 <li>Beschrijven resultaten</li>
 <li>Hypothese testen</li>
 <li>Exploratie andere data</li>
+<li>Item Response Theory (IRT)
+<ul>
+<li>IRT zal alvorens alle andere analyses gebeuren volgens dit
+stappenplan (uitgewerkt te vinden in
+<code>analyse/item_response_implementation.Rmd</code>):
+<ol style="list-style-type: decimal">
+<li>Fitten antwoorden aan IRT model.</li>
+<li>Parameters uit model halen.</li>
+<li>Drempelwaarden dynamisch opstellen.</li>
+<li>Dataframe muteren met nieuwe kolommen voor numerieke score en
+categorisch niveau (CEFR).</li>
+<li>Databestand toegankelijk maken d.m.v. simpelere kolomnamen en
+uitschrijven <code>cleaned_scores.csv</code>.</li>
+</ol></li>
+</ul></li>
 </ul>
 </div>
 <div id="statistische-methoden" class="section level3">
@@ -1222,66 +1236,92 @@ tijdstempels, Forms-metadata)<br />
 per groep • Groepsvergelijking: onafhankelijke t-toets (twee
 leeftijdsgroepen) of Mann-Whitney U (bij niet-normale verdeling) •
 Correlatie: Spearmans rangcorrelatie tussen afstand tot de grens en
-toetsscore • Variantieanalyse: ANOVA of Kruskal-Wallis voor vergelijking
-drie of meer opleidingsniveaus</p>
+toetsscore</p>
 </div>
 </div>
 <div id="fair-principes-en-management" class="section level2">
 <h2>Fair-principes en management</h2>
 <div id="findable" class="section level3">
 <h3>Findable</h3>
-<p>• Dataset heeft een beschrijvende bestandsnaam: resultaat.xlsx /
-resultaat.csv • Een README-bestand beschrijft de inhoud van elke kolom •
-Mappenstructuur: /ruwe_data, /analyse, /figures, /scripts</p>
+<ul>
+<li>Dataset heeft een beschrijvende bestandsnaam:
+<code>Duitse taalvaardigheid onderzoek(1-154).xlsx</code> /
+<code>*.csv, cleaned_scores.csv</code></li>
+<li>Een README-bestand beschrijft de inhoud van elke kolom</li>
+<li>Mappenstructuur: <code>/ruwe_data</code>, <code>/analyse</code>,
+<code>/figures</code>, <code>/scripts</code></li>
+</ul>
 </div>
 <div id="accessible" class="section level3">
 <h3>Accessible</h3>
-<p>• Opgeslagen op Hanze OneDrive (toegankelijk voor onderzoekers en
-begeleiders) • Geback-upt in privé GitHub-repository • Bestanden te
-openen in Excel, R en LibreOffice Calc zonder speciale software</p>
+<ul>
+<li>Opgeslagen op Hanze OneDrive (toegankelijk voor onderzoekers en
+begeleiders)</li>
+<li>Geback-upt in GitHub-repository</li>
+<li>Bestanden te openen in Excel, R etc. zonder speciale software</li>
+</ul>
 </div>
 <div id="interoperable" class="section level3">
 <h3>Interoperable</h3>
-<p>• Export als open formaat (.csv) voor gebruik in R • Kolomnamen zijn
-beschrijvend en gestandaardiseerd • Aandachtspunt: één cel bevat
-meerdere waarden (V8: meervoudig mc) — vereist opschoning in R (one-hot
-encoding).</p>
+<ul>
+<li>Export als open formaat (.csv) voor gebruik in R</li>
+<li>Kolomnamen zijn beschrijvend en gestandaardiseerd</li>
+<li>Aandachtspunt: één cel bevat meerdere waarden (V8: meervoudig mc) —
+vereist opschoning in R.</li>
+</ul>
 </div>
 <div id="reusable" class="section level3">
 <h3>Reusable</h3>
-<p>• Dataverzamelingsprotocol (dit document) beschrijft alle stappen
-volledig • Inclusie- en exclusiecriteria zijn gedocumenteerd •
-Hergebruik door een externe onderzoeker is mogelijk mits toegang tot de
-README</p>
+<ul>
+<li>Dataverzamelingsprotocol (dit document) beschrijft alle stappen
+volledig</li>
+<li>Inclusie- en exclusiecriteria zijn gedocumenteerd</li>
+<li>Hergebruik door een externe onderzoeker is mogelijk mits toegang tot
+de README</li>
+</ul>
 </div>
 </div>
 <div id="verzamelde-literatuur" class="section level2">
 <h2>Verzamelde literatuur</h2>
-<p>Abitzsch, D., Knopp, E., &amp; Michel, M. (2024). Motivatie om Duits
+<p>Geeft de vooraf verzamelde literatuur weer, voor al de gebruikte
+literatuur zie <code>publicatie/paper_refs.bib</code>:</p>
+<ul>
+<li>Abitzsch, D., Knopp, E., &amp; Michel, M. (2024). Motivatie om Duits
 te studeren aan Nederlandse universiteiten. Levende Talen Tijdschrift,
-(2), 13–24. Beeker, A., Fasoglio, D., de Jong, K., Keuning, J., &amp;
-van Til, A. (2015). Weergave van ERK-niveau schrijfvaardigheid Engels,
-Duits en Frans. Levende Talen Tijdschrift, (2), 16–25. Beerkens, R.
-(2010). Receptive multilingualism as a language mode in the Dutch-German
-border area. Waxmann Publishing Co. Gille, E., &amp; Kordes, J. (2013).
-Weergave van vaardigheid Engels en Duits van Nederlandse leerlingen in
-Europees perspectief. Levende Talen Magazine, (1), 23–27. Swarte, F.,
-Schüppert, A., &amp; Gooskens, C. (2013). Do speakers of Dutch use their
-knowledge of German while processing written Danish words? Linguistics
-in the Netherlands, 30(1), 146–159. Van den Noort, M. W. M. L., Bosch,
-P., &amp; Hugdahl, K. (2006). Foreign language proficiency and working
-memory capacity. European Psychologist, 11(4), 289–296. Verkuil, D.
-(2015, maart). Hoge prijs voor gebrekkig Duits. NOS. <a href="https://nos.nl/artikel/2026034" class="uri">https://nos.nl/artikel/2026034</a> Weltens, B., de Bot, K.,
-&amp; van Els, T. (1986). Language attrition in progress. Floris
-Publications. Wilhelm, F. (2018). Foreign language teaching and learning
-in the Netherlands 1500–2000. The Language Learning Journal, 46(1),
-17–27. Zinecker, M., &amp; Konečná, Z. (2014). German language
-proficiency among students of business and management in the Czech
-Republic. DANUBE: Law and Economics Review, 5(3), 173–200.</p>
+(2), 13–24.</li>
+<li>Beeker, A., Fasoglio, D., de Jong, K., Keuning, J., &amp; van Til,
+A. (2015). Weergave van ERK-niveau schrijfvaardigheid Engels, Duits en
+Frans. Levende Talen Tijdschrift, (2), 16–25.</li>
+<li>Beerkens, R. (2010). Receptive multilingualism as a language mode in
+the Dutch-German border area. Waxmann Publishing Co.</li>
+<li>Gille, E., &amp; Kordes, J. (2013). Weergave van vaardigheid Engels
+en Duits van Nederlandse leerlingen in Europees perspectief. Levende
+Talen Magazine, (1), 23–27.</li>
+<li>Swarte, F., Schüppert, A., &amp; Gooskens, C. (2013). Do speakers of
+Dutch use their knowledge of German while processing written Danish
+words? Linguistics in the Netherlands, 30(1), 146–159.</li>
+<li>Van den Noort, M. W. M. L., Bosch, P., &amp; Hugdahl, K. (2006).
+Foreign language proficiency and working memory capacity. European
+Psychologist, 11(4), 289–296.</li>
+<li>Verkuil, D. (2015, maart). Hoge prijs voor gebrekkig Duits. NOS. <a href="https://nos.nl/artikel/2026034" class="uri">https://nos.nl/artikel/2026034</a></li>
+<li>Weltens, B., de Bot, K., &amp; van Els, T. (1986). Language
+attrition in progress. Floris Publications.</li>
+<li>Wilhelm, F. (2018). Foreign language teaching and learning in the
+Netherlands 1500–2000. The Language Learning Journal, 46(1), 17–27.</li>
+<li>Zinecker, M., &amp; Konečná, Z. (2014). German language proficiency
+among students of business and management in the Czech Republic. DANUBE:
+Law and Economics Review, 5(3), 173–200.</li>
+</ul>
 </div>
 <div id="referenties" class="section level2 unnumbered">
 <h2 class="unnumbered">Referenties</h2>
 <div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-AnneBeeker2015" class="csl-entry">
+Beeker, Anne, Daniela Fasoglio, Kim de Jong, Jos Keuning, and Alma van
+Til. 2015. <span>“Weergave van ERK-Niveau Schrijfvaardigheid Engels,
+Duits En Frans; Onderzoek Naar Het Bereikte Niveau Aan Het Eind van Havo
+En Vwo.”</span> <em>Levende Talen Tijdschrift</em>. <a href="https://lt-tijdschriften.nl/ojs/index.php/ltt/article/view/1102/1070">https://lt-tijdschriften.nl/ojs/index.php/ltt/article/view/1102/1070</a>.
+</div>
 <div id="ref-Beerkens2010" class="csl-entry">
 Beerkens, Roos. 2010. <em>Receptive Multilingualism as a Language Mode
 in the Dutch-German Border Area - Roos Beerkens - Google Books</em>.
