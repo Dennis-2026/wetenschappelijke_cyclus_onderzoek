@@ -2,7 +2,7 @@
 
 Jesse Postma (507655), Vani Rembet (450024), Dennis Kuiper (507944)
 
-Kwantitatief surveyonderzoek naar de beheersing van het Duits onder Nederlandse volwassenen (n = 154), uitgevoerd als onderdeel van de wetenschappelijke cyclus aan de Hanze Hogeschool Groningen (2026).
+Kwantitatief surveyonderzoek naar de beheersing van het Duits onder Nederlandse volwassenen (n = 154), uitgevoerd als onderdeel van de cursus wetenschappelijke cyclus aan de Hanze Hogeschool Groningen (2026).
 
 ---
 
