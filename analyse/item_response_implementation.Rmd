@@ -1,5 +1,5 @@
 ---
-title: "Logistic Individual"
+title: "Item Response Theory"
 author: "Jesse Postma"
 date: "`r Sys.Date()`"
 output: html_document
@@ -15,7 +15,7 @@ library(dplyr)
 
 ```
 
-### Dit is een implementatie van logistic regression per persoon zodat er een niveau uit valt te halen.
+### Dit is een implementatie van item response theory per persoon zodat er een score en bijbehorend niveau uit valt te halen.
 
 #### Inlezen en fitten aan model
 
