@@ -443,3 +443,10 @@ Dit was ook wat ik van plan was voor vandaag, ik ga morgen waarschijnlijk nog ee
 - Nieuwe `/supplementary_analyse` folder in `/analyse` gedaan voor supplementary files die we eigenlijk niet gebruiken in de final paper (`analyse_voor_vani.Rmd`, `logistic_regression_test_Vani.Rmd`, `methodes_testen.Rmd`, `verband_tussen_2_resultaten.Rmd`.
 - Alle .Rmd files die ik heb geschreven gerendered.
 - Vergeten info over logistic regression interpretation in de `hulpmiddelen.Rmd` file te zetten; nu wel gedaan.
+- Ik heb de introductie aangepast, vond hem iets te lang en ik heb misschien wat autisme als het gaat om vocabulaire en taalkeuzes
+- Zelfde met abstract trouwens ^
+- Ik heb ik de abstract en introductie referenties neergezet.
+- Alle referenties die ik heb toegevoegd heb ik in de `.bib` file gezet.
+- Ik heb alle referenties in bibtex file gesorteerd op order of appearance (kan wss ook automatisch maar idk dus manual)
+- Wordcount gegenereerd
+Ik denk klaar, de paper is klaar denk ik .. Wel een lange paper, maar wie boeit...
