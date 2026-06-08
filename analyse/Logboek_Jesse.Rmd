@@ -427,3 +427,15 @@ Ik heb eerder vandaag kleine aanpassing van de README gedaan. Zojuist heb ik op 
 - Hovens, ..The position of German in Dutch secondary schools.
 
 Dit was ook wat ik van plan was voor vandaag, ik ga morgen waarschijnlijk nog eens kijken naar de abstract en introductie om die beide iets vloeiender te laten lopen en ook betere bronnen refereren. Ik heb ook hier en daar wat grammatica veranderd.
+
+### 08/06/26
+
+#### Wat ga ik vandaag doen:
+
+- Heb niet echt exacte plannen, sowieso naar abstract en intro kijken.
+
+#### Wat heb ik gedaan vandaag:
+
+- file `individual_scoring_jesse.Rmd` gerenamed naar `item_response_theory.Rmd` voor beter referentie naar de file.
+- protocol edits uitgewerkt (e.g. verkeerde namen, statistische methodes niet gebruikt, beschrijving implementatie Item Response Theory).
+- Extra referentie in protocol waar die mistte.
