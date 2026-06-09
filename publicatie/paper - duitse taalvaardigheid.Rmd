@@ -154,7 +154,7 @@ Verder bedroeg de gemiddelde woonafstand tot de Duitse grens $\approx$ 65.2km en
 De initiële verdeling van taalniveau is weergegeven in Figuur \@ref(fig:cefr-glossover) en Figuur \@ref(fig:theta-density).
 De theta-scores (IRT-scores) benaderen een normaalverdeling (M = 0.0003, SD = 0.81; zie Figuur \@ref(fig:theta-density)), wat verder wordt getoetst in sectie \@ref(hypothese).
 
-```{r afstand-grens, warning=FALSE, fig.cap='Verhouding afstand van Duitse grens tussen respondenten'}
+```{r afstand-grens, warning=FALSE, fig.cap='Verhouding afstand van Duitse grens tussen respondenten.'}
 # figuur 1
 ggplot(data, aes(x = d_grens)) +
     geom_histogram(bins = 20, fill = "#7ac2fc", colour = "black") +
@@ -170,7 +170,7 @@ ggplot(data, aes(x = CEFR)) +
     theme_minimal()
 ```
 
-```{r theta-density, warning=F, fig.cap='Geeft de kansdichtheid van de IRT-scores weer op basis van de behaalde scores. Met dichtheidscurve (blauw) en normaalcurve (rood)'}
+```{r theta-density, warning=F, fig.cap='Geeft de kansdichtheid van de IRT-scores weer op basis van de behaalde scores. Met dichtheidscurve (blauw) en normaalcurve (rood).'}
 #Figuur 3
 
 # theta score
@@ -239,7 +239,7 @@ ggplot(data = data, aes(x = score, y = leeftijd)) +
     geom_boxplot(colour = "grey5") +
     scale_x_continuous(n.breaks = 20) +
     coord_flip() +
-    labs(x = "IRT theta-score", y = "Leeftijdsgroep", title = 'IRT score per leeftijdsgroep')+
+    labs(x = "theta-score", y = "Leeftijdsgroep", title = 'IRT score per leeftijdsgroep')+
     theme_minimal()
 ```
 
@@ -317,7 +317,7 @@ Hierbij wordt gekeken naar drie factoren: of een respondent in Duitsland heeft g
 
 Om te onderzoeken of het wonen of werken in Duitsland samenhangt met de Duitse taalvaardigheid, is het gemeten niveau Duits vergeleken tussen respondenten die wel en niet in Duitsland hebben gewoond of gewerkt.
 
-```{r boxplot-woon-werk, warning=F, fig.cap='Een boxplot die de verdeling van theta-scores laat zien van respondenten die wel/niet in Duitsland hebben gewoond of gewerkt'}
+```{r boxplot-woon-werk, warning=F, fig.cap='Een boxplot die de verdeling van theta-scores laat zien van respondenten die wel/niet in Duitsland hebben gewoond of gewerkt.'}
 
 # plotten
 ggplot(data=data, aes(x=woonwerk_duits, y=score)) +
@@ -423,7 +423,7 @@ Respondenten die aangaven Duits in geen enkele situatie te gebruiken scoren het 
 Om te onderzoeken of de twee leeftijdsgroepen verschillen in hoe belangrijk zij de Duitse taal vinden om te leren, is per leeftijdsgroep het percentage respondenten berekend dat de Duitse taal belangrijk vindt.
 Figuur \@ref(fig:belang-leeftijd) toont deze verdeling per leeftijdsgroep, waarbij onderscheid wordt gemaakt tussen repondenten die de Duitse taal wel of niet belangrijk vinden om te leren.
 
-```{r belang-leeftijd, warning=F, fig.cap='Percentage respondenten per leeftijdsgroep naar oordeel over het belang van de Duitse taal'}
+```{r belang-leeftijd, warning=F, fig.cap='Percentage respondenten per leeftijdsgroep naar oordeel over het belang van de Duitse taal.'}
 
 belang_tabel <- data %>% 
   group_by(leeftijd, duits_belang) %>% 
