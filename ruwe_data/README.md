@@ -1,8 +1,7 @@
-## Deze folder `/ruwe_data` bevat 3 bestanden:
+## Deze folder `/ruwe_data` bevat 2 bestanden:
 
 1.  `Duitse taalvaardigheid onderzoek(1-154).csv`
 2.  `Duitse taalvaardigheid onderzoek(1-154).csv.xlsx`
-3.  `cleaned_scores.csv`
 
 De bestanden volgen de volgende structuur:
 

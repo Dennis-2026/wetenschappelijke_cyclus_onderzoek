@@ -62,7 +62,7 @@ Individuele werkbestanden per onderzoeker of globaal. Niet alle bestanden hierui
 | `logboek_Vani.Rmd` | Proceslogboek Vani |
 | `references_jesse.bib` | Referenties gebruikt in Jesse's analyse/logboek |
 | `images/` | Gegenereerde figuren (IRT-plot, CEFR-verdeling, samenvatting) |
-| `cleaned_scores.csv` | Export uit R met kortere kolomnamen, 1/0 voor antwoorden, IRT scores (154 rows, 66 cols) |
+| `data/cleaned_scores.csv` | Export uit R met kortere kolomnamen, 1/0 voor antwoorden, IRT scores (154 rows, 66 cols) |
 
 ---
 
