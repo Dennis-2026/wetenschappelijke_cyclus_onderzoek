@@ -1,7 +1,8 @@
 ---
-Title: "Logboek - Vani"
-Autheur: "Vani Rembet"
-Output: html_document
+title: "Logboek - Vani"
+author: "Vani Rembet"
+date: "`r Sys.Date()`"
+output: html_document
 ---
 
 # INTRODUCTIE
@@ -11,87 +12,378 @@ Wij doen een onderzoek naar de Duitse taalvaardigheid in Nederland. Het doel van
 In hoeverre verschilt de Duitse taalvaardigheid tussen Nederlandse volwassenen van 40 jaar en ouder en jongere volwassenen (18–39 jaar)? 
 
 ## Hypothese
-Het gemiddelde niveau onder jongeren is A2 en B2 is zeer hoog. Het gemiddelde niveau onder 40-plussers is B1 en C1+ zijn extreem hoge niveaus. 
+Het gemiddelde niveau onder jongeren is A2 en B2 is zeer hoog. Het gemiddelde niveau onder 40-plussers is B1 en C1+ zijn extreem hoge niveaus.
 
-## Gebruikte data
-- Leeftijdsgroepen 
-- Locatie
-- Onderwijsniveau
-- Gebruik aan Duitse taal
-- Hoe belangrijk is de Duitse taal
+```{r setup, message=FALSE}
 
-- Behaalde niveau op basis van de taaltoets (!!!)
+# Gebruikte packages
+library(ggplot2)
+library(dplyr)
+library(mirt)
 
+# Gebruikte data
+data <- read.csv("cleaned_scores.csv")
+
+```
 
 # LOGBOEK
 
----
-Datum: "20-05-2026"
+## 20-05-2026
 
-# Doel van de dag
-- Logboek maken
-- Kijken of wij kunnen beginnen met onze vragenlijstresultaat kunnen toepassen in R
-- Werken aan de Journal Club
+### Doel van de dag
+Kijken of onze groep kunnen beginnen met onze vragenlijstresultaten toepassen in R.
 
-# Motivatie
-- Wij krijgen als opdracht om een logboek te maken en het elke dag bij te houden
-- Wij hebben inmiddels al genoeg gegevens verzameld door onze vragenlijst aan deelnemers te laten maken
-- Journal Club moet voor 24/05 al af zijn
+### Motivatie
+Onze groep hebben inmiddels al genoeg gegevens verzameld door onze vragenlijst aan deelnemers te laten maken. Wij hebben de volgende deelvragen bedacht voor onze onderzoek om een concrete antwoord te kunnen krijgen van onze hoofdvraag:
 
-# Wat heb ik gedaan?
-- Logboek gemaakt
-- Presentatie gemaakt voor Journal Club
----
+- Wat is het gemiddelde CEFR-niveau van Duitse taalvaardigheid per leeftijdsgroep (18-39 jaar en 40+ jaar)?
+- Welke rol speelt de woonlocatie (grensstreek vs. binnenland) bij de actieve beheersing van het Duits?
+- Heeft het opleidingsniveau invloed op de beheersing van de Duitse taal?
+- In welke situaties gebruiken Nederlanders de Duitse taal actief?
+- Hoe beoordelen verschillende leeftijdsgroepen het belang van de Duitse taal voor Nederland?
 
----
-Datum: "21-05-2026"
+### Wat heb ik gedaan?
+Dit is nu het begin van de logboek. Ik heb verder nog niet veel gedaan met de onderzoek. Er was een andere taak dat voorrang heeft en dat was het maken van de Journal Club. Daar was ik de hele dag mee bezig.
 
-# Doel van de dag
-- R-code dat Jesse heeft gemaakt even goed schoonmaken
-- Werken aan de Journal Club
+## 21-05-2026
 
-# Motivatie
-- R moet deze week af zijn volgens de planning in PvA
+### Doel van de dag
+Jesse heeft een grafiek gemaakt over het logistische regressie dat onze groep de uitleg van Dave en Emiel hebben gekregen.
 
-# Wat heb ik gedaan?
-- R-code van Jesse verbeterd (zie git)
-- Verder met de Journal Club
----
+### Motivatie
+Volgens de planning in onze plan van aanpak, moeten de R-code voor het bepalen van de taalniveau moet vóór 26-05 afkrijgen. Dus, bij deze moeten wij beginnen met het uitpuzzelen hoe wij de taalniveau gaan bepalen.
 
----
-Datum: "22-05-2026"
+### Wat heb ik gedaan?
+Jesse heeft een testbestandje gemaakt in de repo waarin de csv van onze resultaten inlaad en ik ging daar ook wat mee prutsen. Jesse had al een grafiek van logistieke regressie gemaakt op basis van een template dat wij van Emiel hebben gekregen. Jesse had het in de repo gezet en ik heb het gedownload. 
 
-# Doel van de dag
-- R-code verbeteren
-- Andere grafieken maken voor andere deelvragen in onze R-code
-- Laatste dingen voor Journal Club afmaken en eventueel inleveren
+De grafiek wou eerst niet laden, dus ik heb de R-code voor mezelf gefixt, en we hebben nu deze grafiekgekregen:
+
+![]("Knipsel.PNG")
+
+## 22-05-2026
+
+### Doel van de dag
+Voor vandaag moet ik de volgende doen:
+- De logistieke grafiek verbeteren
+- Laatste dingen voor Journal Club afmaken
 - Elkaars Git beoordelen
 
-# Motivatie
-- We hebben een grafiek gemaakt voor een gemiddelde niveau van alle deelnemers, maar nog niet op basis van 1 persoon
-- Taak gekregen om elkaars Git te beoordelen
-- Journal Club graag voor mezelf voor het weekend afmaken zodat weekend alleen hoeft te oefenen
+### Motivatie
+Voor de logistieke grafiek hebben we nu wel een grafiek van dat laten zien een gemiddelde niveau van alle deelnemers, maar dat zegt niks over hoe het wordt per individueel gemaakt. Iedereen in de klas heeft de taak gekregen om elkaars Git te beoordelen. De Journal Club wil ik graag voor mezelf proberen vóór komende weekend afmaken, zodat weekend alleen hoeft te oefenen.
 
-# Wat heb ik gedaan?
-- Een aangepaste grafiek gemaakt waarmee je ziet wat voor niveau per persoon heeft gehaald op basis van de hoeveel gehaalde vragen per niveau.
-- Een drempel toegevoegd in de code om niveau makkelijker te bepalen
-- Verder met de Journal Club gewerkt. Het is nog steeds niet af :(
----
+### Wat heb ik gedaan?
+Ik heb een grafiek gemaakt waarmee je ziet wat voor niveau per persoon heeft gehaald op basis van de hoeveel gehaalde vragen per niveau. Wij hebben in de groep afgesproken om een drempel te gebruiken om te bepalen waar de grens ligt voor een individu een bepaald categorie heeft gehaald. We hebben afgeproken om de drempel op 6 te houden. Dat betekent dat als een individu 6 vragen goed heeft beantwoordt, dan heeft degene het niveau behaald. Dit hebben wij toegevoegd in onze code om niveau makkelijker te bepalen.
 
----
-Datum: "25-05-2026"
+Ik heb eerst niveaus bepaald per vraag en groepeer alle 50 vragen in groep van 10 per niveau.
+```{r}
+# Niveaus
+german_long$gedeelte <- ceiling(german_long$question_num / 10) * 10
+```
 
-# Doel van de dag
-- R-code verbeteren
-- Laatste dingen voor Journal Club afmaken en eventueel inleveren
-- Eventueel andere grafieken maken voor andere deelvragen in R
+Daarna het aantal goede antwoorden per persoon per groep tellen.
+```{r}
+# Aantal goed per persoon per niveau
+scores_gedeelte <- aggregate(answer ~ V1 + gedeelte, data = german_long, FUN = sum)
+```
 
-# Motivatie
-- Van Jesse en Dennis een probleem gekregen over mijn R-code dat gefixt moet
-- Journal Club moet echt af zijn voor 26/05
-- Mocht ik nog tijd heb, dan misschien alvast beginnen met het maken van andere grafieken
+Daarna één specifiek individu selecteren. De individu is op basis van de rijnummer. Vervolgens de drempel toepassen.
+```{r}
+# Kies een persoon
+scores_gedeelte <- aggregate(answer ~ V1, data = german_long, FUN = mean)
+colnames(scores_per_persoon) <- c("persoon", "score")
 
-# Wat heb ik gedaan?
-- Probleem van mijn R-code gefixt: scores_per_persoon was niet gedefinieerd, maar nu wel.
-- 
----
+persoon_id <- scores_per_persoon$persoon[67]
+persoon_data <- subset(german_long, V1 == persoon_id)
+
+# Drempel
+drempel <- 6
+```
+
+Als laatst een boolean toevoegen op basis van de drempel dat bekijkt per niveaugroep. De hoogste niveau wordt dan bepaald wanneer de eerste false tegenkomt en de volgende true (na de eerste false) wordt dan verder niet meegeteld. 
+```{r}
+persoon_scores <- subset(scores_gedeelte, V1 == persoon_id)
+persoon_scores <- persoon_scores[order(persoon_scores$gedeelte), ]
+behaald <- persoon_scores$gedeelte[cumprod(persoon_scores$answer >= drempel) == 1]
+
+hoogste_niveau <- ifelse(length(behaald) > 0, max(behaald), 0)
+```
+
+Daarna een grafiek van gemaakt en de grafiek ziet er zo uit:
+![]("Knipsel(1).PNG")
+
+Verder heb ik aan mijn Journal Club gewerkt.
+
+## 25-05-2026
+
+### Doel van de dag
+Vandaag moet ik de volgende doen:
+- Mijn R-code van het bepalen van niveau per individueel verbeteren
+- Laatste dingen voor Journal Club afmaken
+
+### Motivatie
+Jesse en Dennis hebben een probleem gekregen wanneer zij mijn R-code proberen te runnen. Dat moet gefixt worden. Verder moet de Journal Club echt af zijn voor 26-05.
+
+### Wat heb ik gedaan?
+Ik heb een error gezien dat scores_per_persoon was niet gedefinieerd. Dat was inderdaad een typfout en dus heb ik het verbeterd:
+
+```{r}
+# Kies een persoon
+scores_per_persoon <- aggregate(answer ~ V1, data = german_long, FUN = mean)
+colnames(scores_per_persoon) <- c("persoon", "score")
+
+persoon_id <- scores_per_persoon$persoon[67]
+persoon_data <- subset(german_long, V1 == persoon_id)
+```
+
+Verder heb ik met de Journal Club gewerkt en een presentatie daarvoor gemaakt.
+
+FAIR-checklist deel 3 met Jesse ingevuld in onze plan van aanpak.
+
+## 26-05-2026 
+
+### Doel van de dag
+Een manier bepalen hoe onze groep een niveau gaan bepalen en welke methode en grafiek gaan wij gebruiken. Verder met de Journal Club bezig zijn.
+
+### Motivatie
+In het weekend moest Dennis een scatterplot maken van beide methoden van mij en Jesse om een verschil te kunnen vinden van onze resultaten. Het is ook om te bepalen welke manier van het behalen van CEFR-niveau en welke methode we gaan gebruiken. Helaas was hem niet gelukt, maar hij moet alsnog gedaan worden.
+
+### Wat heb ik gedaan?
+Ik heb met behulp van chatgpt een snelle scatterplot gemaakt. Ik heb gebruik gemaakt van AI, want het was eerst niet mijn taak, en we moesten snel een beslissing nemen van welke grafiek en methode het wordt voor in onze paper.
+Ik heb aan AI gevraagd om een scatterplot te maken met een verband tussen de resultaten van mij en Jesse. Het resultaat is te vinden in de repo onder analyse/supplementay_analyse/verband_tussen_2_resultaten.Rmd.
+
+![]("Knipsel(3).PNG")
+
+Op basis van deze resultaat, hebben wij veel overeenkomsten op niveau A1. Voor hogere niveaus zijn er grotere verschillen. Toch hebben wij uiteindelijk gekozen om de grafiek en methode van Jesse te gebruiken, want hij ziet er iets meer netter uit.
+
+## 27-05-2026
+
+### Doel van de dag
+Laatste dingen voor Journal Club afmaken, inleveren, oefenen en presenteren op 27-05.
+
+### Motivatie
+De presentatie van Journal Club is vandaag om 09:00 uur.
+
+### Wat heb ik gedaan?
+De Journal Club gepresenteerd. Ik bleef niet lang op school na mijn presentatie, want ik moest naar het ziekenhuis.
+
+## 01-06-2026
+
+### Doel van de dag
+Onze groep moet nu andere grafieken maken voor de deelvragen. Ik heb de taak gekregen om deze gedeelte te beantwoorden door een grafiek te maken:
+- Belang van duits:
+vinden ouderen belangrijken dan jongeren? ja/nee (idk staafdiag denk ik?)
+- Schatting vs werkelijke score:
+correlatie schatting vs score (tabel of gestapelde staafdiag?)
+wie onderschat/overschat meest
+
+Ook moet ik de hoofdvraag in de paper beantwoorden.
+
+### Motivatie
+Om de hoofdvraag verder te kunnen beantwoorden, hebben wij ook deelvragen bedacht zodat verschillende factoren dat mogelijk invloed hebben op de Duitse taalvaardigheid meer in kaart te kunnen brengen. Het antwoord voor de hoofdvraag kan ik in de paper schrijven met resultaten van jesse dat stonden in de github onder analyse_voor_vani.Rmd.
+
+### Wat heb ik gedaan?
+Voor de deelvraag belang vs duits heb ik een bargrafiek van gemaakt.
+
+Eerst heb ik getelt hoeveel mensen in elke combinatie van leeftijd + ja/nee vallen.
+```{r}
+belang_tabel <- data %>% 
+  group_by(leeftijd, duits_belang) %>%
+```
+
+Daarna hergroeperen op alleen leeftijd en in percentage zetten.
+```{r}
+summarise(n = n()) %>% 
+  group_by(leeftijd) %>% 
+  mutate(percentage = n / sum(n) * 100)
+```
+
+Tot slot een bargrafiek gemaakt met twee bars per leeftijdsgroep.
+```{r}
+# Plotten
+ggplot(belang_tabel, aes(x = leeftijd, y = percentage, fill = duits_belang)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Belang van Duise taal per leeftijdsgroep",
+       x = "Leeftijdsgroep", y = "Percentage (%)", fill = "Duits belangrijk?") +
+  theme_minimal()
+```
+
+## 02-06-2026
+
+### Doel van de dag
+Ik moet de deze deelvraag nog beantwoorden:
+- Schatting vs werkelijke score:
+correlatie schatting vs score (tabel of gestapelde staafdiag?)
+wie onderschat/overschat meest
+
+Ook moet ik wat schrijven over het antwoord voor de hoofdvraag met resultaten van jesse dat stonden in de github onder analyse_voor_vani.Rmd.
+
+### Wat heb ik gedaan?
+Ik ben begonnen met het schrijven van onze conclusie en discussie. Het bestand dat Jesse heeft gegeven snap ik er amper iets van en de afbeeldingen zijn niet te zien doordat ze niet willen laden en error krijgen. Ik heb zijn R-bestand "analyse_jesse.Rmd" gezien om meer begrip te krijgen. Daarna heb ik gemerkt dat hij hetzelfde tuk code al op paper onder de Op basis van de bestanden 
+
+De conclusie ziet er tot zo ver zo uit:
+
+"  # Discussie en conclusie
+
+  ## Conclusie
+  Uit dit onderzoek blijkt dat respondenten van de leeftijdsgroep 40+ gemiddeld een hogere niveau van Duitse taalvaardigheid behaalden (M = $\approx$ 0.32, SD = $\approx$ 0.70, CEFR = B1) vergeleken met de leeftijdsgroep 18-40 (M = $\approx$ -0.40, SD = $\approx$ 0.77, CEFR = A2). Dit verschil was statisctisch significant (t = -5.97, df = 136.72, p < .001, d = 0.98) zoals aangetoond in de sectie \@ref(hypothese), wat wijst op een groot effect.
+
+```{r hoofdvraag1, results='asis', warning=F}
+
+tr_A2 <- -0.5890936
+tr_B1 <- -0.2340141
+tr_B2 <- 0.4347344
+tr_c12 <- 0.8854923
+
+get_level <- function(score) {
+  thresholds <- c(tr_A2, tr_B1, tr_B2, tr_c12)
+  levels <- c("A1", "A2", "B1", "B2", "C1_2")
+  levels[findInterval(score, thresholds) + 1]
+}
+
+data_summary <- data %>%
+  group_by(leeftijd) %>%
+  summarise(
+    n = n(),
+    mean_score = mean(score, na.rm = TRUE),
+    sd_score = sd(score, na.rm = TRUE),
+    lvl = get_level(mean_score),
+    .groups = "drop"
+  )
+
+data_summary %>%
+  gt::gt() %>%
+  gt::tab_caption(
+    caption = "Snippet wat het aantal personen, de gemiddelde theta-score, de standaard deviatie en het gemiddelde CEFR niveau van de leeftijdsgroepen weergeeft."
+  )%>%
+    gt::as_latex()%>%
+    cat()
+```
+  Om meer beeld te geven van de taalvaardigheid, toont tabel \@ref(tab:hoofdvraag2) de verdeling van CEFR-niveaus per leeftijdsgroep. 
+Hieruit blijkt dat de 18-40 groep voornamelijk op de lagere CEFR-niveaus scoorden: bijna 40% van deze groep behaalde een A1-niveau, en samen met A2 zat ruim de helft (58.8%) op de twee laagste niveaus. De 40+ groep laat een duidelijk andere verdeling zien: slechts 22.1% behaalde deze groep het niveau A1 of A2, terwijl 44.1% een B2-niveau of hoger behaalde.
+
+```{r hoofdvraag2, results='asis', warning=F}
+
+cefr_tabel <- data %>%
+  group_by(leeftijd, CEFR) %>%
+  summarise(n = n(), .groups = "drop") %>%
+  group_by(leeftijd) %>%
+  mutate(percentage = round(n / sum(n) * 100, 1)) %>%
+  select(-n) %>%
+  pivot_wider(names_from = CEFR, 
+              values_from = percentage, 
+              values_fill = 0)
+
+cefr_tabel %>%
+  gt::gt() %>%
+  gt::tab_caption("Percentage respondenten per CEFR-niveau per leeftijdsgroep.") %>%
+  gt::as_latex() %>%
+  cat()
+```
+  Samenvattend kan worden gesteld dat de Duitse taalvaardigheid significant verschilt tussen de twee leefdtijdsgroepen, waarbij de 40+ groep duidelijk beter presenteert dan de 18-40 groep."
+
+Verder heb ik gedeelten voor de discussie stukje gemaakt. Ik kan pas met de discussie bezig wanneer ik andere grafieken heb gekregen van Dennis en Jesse.
+
+## 03-06-2026
+
+### Doel van de dag
+Ik moet de deze deelvraag nog beantwoorden:
+- Schatting vs werkelijke score:
+correlatie schatting vs score (tabel of gestapelde staafdiag?)
+wie onderschat/overschat meest
+
+### Wat heb ik gedaan?
+Ik heb het verschil tussen de schatting van de gemaakte score en de echt behaalde score berekend. Daarna op basis van het verschil tussen de twee gaan labelen. Bij verschilwaarde van 0, zeg ik dat er geen verschil is.
+```{r}
+# Schatting omzetten naar z-score zodat het vergelijkbaar is met theta
+data_schatting <- data %>%
+  mutate(
+    z_score = scale(schatting)[,1],
+    verschil    = z_score - score,
+    richting    = case_when(
+      verschil > 0.5 ~ "Grote overschatting",
+      verschil > 0 ~ "Kleine overschatting",
+      verschil < 0 ~ "Onderschatting",
+      TRUE ~ "Geen verschil"
+    )
+    )
+```
+
+Daarna heb ik een gestapelde staafdiagram van gemaakt.
+```{r}
+# Plotten
+ggplot(data_schatting, aes(x = factor(schatting), fill = richting)) +
+  geom_bar(position = "stack") +
+  labs(title = "Schatting vs richting",
+       x = "Eigen schatting (1 = laag, 5 = hoog)",
+       y = "Aantal respondenten") +
+  theme_minimal()
+```
+
+## 04-06-2026
+
+### Doel van de dag
+Ik moet de volgende doen:
+- Conclusie en discussie afmaken
+- De grafiek voor deelvraag "schatting vs score" veranderen
+
+## Motivatie
+Ik ben er pas achtergekomen dat de gestapelde staafdiagram heel erg logisch was, dus heb ik hulp gevraagd aan chatgpt naar wat voor soort diagram ik kan maken. Chatgpt zegt dat ik beter een scatterplot kan maken om de correlatie tussen de schatting en de echt behaalde score zichtbaar te maken. Ook was het handig om een regressielijn aan te tonen om het algemene verband duidelijker te laten zien.
+
+### Wat heb ik gedaan?
+Omdat ik het te lastig vond met het maken van regressielijn, had ik chatgpt gevraagd om even snel de scatterplot te maken met de regressielijn.
+```{r}
+# r-waarde
+r_waarde <- cor(data$schatting, data$score)
+
+ggplot(data_schatting, aes(x = schatting, y = score)) +
+  geom_jitter(aes(color = richting), width = 0.1, alpha = 0.7) +
+  geom_smooth(method = "lm", se = TRUE, color = "grey5") +
+  annotate("text", x = 1.5, y = 2, label = sprintf("r = %.2f", r_waarde), size = 5) +
+  labs(title = "Schatting vs werkelijke theta-score",
+       x = "Eigen schatting (1 = laag, 5 = hoog)",
+       y = "Theta-score (WSS)",
+       color = "") +
+  theme_minimal()
+```
+
+Het laat zien dat het de correlatie tussen de schatting en de echt behaalde score berekent. De r-waarde geeft aan hoe sterk de twee scores samenhangen (hoe dichter bij 1 is, hoe sterker het verband is).
+
+Verder heb ik aan Dennis gevraagd of hij zijn grafieken kunnen doorsturen zodat ik de rest van de deelvragen in onze paper kan beantworden. Wel bijna alles kunnen beantwoorden, behalve het stukje van de gedeelte "locatie", want hij is van plan om zijn diagram nog te gaan veranderen. Dus dan wacht ik wel even totdat hij daarmee klaar is.
+
+## 05-06-2026
+
+### Doel van de dag
+Voornamelijk de paper gewoon af krijgen.
+
+### Wat heb ik gedaan?
+De gedeelte discussie afgemaakt op basis van alle resultaten tot zo ver:
+
+" ## Interpretatie
+  De 40+ groep scoort hoger doordat deze groep waarschijnlijk meer blootstelling heeft gehad aan de Duitse taal. Dit wordt ondersteund door de resultaten uit de \@ref(blootstelling): repondenten die in Duitsland hebben gewoond of gewerkt, een Duits familielid of kennis hebben, of Duits regelmatig gebruiken in het dagelijks leven scoren allemaal gemiddeld hoger.
+Daarnaast vindt een groter percentage van de 40+ groep de Duitse taal belangrijk, wat kan bijdragen aan een hogere motivatie om de taal teleren of te onderhouden.
+Ook de eigen inschatting van het niveau sluit hier op aan: de correlatie tussen schatting en werkelijke score (r = 0.62) toont dat respondenten hun niveau redelijk goed inschatten, al lagen de meeste afwijkingen in de richting van onderschatting.
+
+  ## Beperkingen
+  Dit onderzoek kent een aantal berperkingen. Ten eerste is de steekproef geografisch niet representatief voor heel Nederland. De meerderheid van de respondenten werd geworven in de regio Groningen. Omdat Groningen relatief dicht bij de Duitse grens ligt, is het mogelijk dat respondenten gemiddeld meer blootstelling aan de Duitse taal hebben gehad dan de gemiddelde Nederlander. Dit verklaart ook het onverwachte resultaat uit de \@ref(regressie), waarbij een grotere afstand tot de grens samenhing met een hogere taalvraadigheid. Dit is waarschijnlijk een gevolg van de schreve steekproef en niet een werkelijk verband.
+Ten tweede kon niet worden gecontroleerd of deelnemers hulpmiddelen hebben gebruikt tijdens de toets, wat de betrouwbaarheid van de scores mogelijk aantast.
+Ten derde waren sommige groepen zoals basisonderwijs en vwo zeer klein, waardoor uitspraken over deze groepen voorzichtig geïnterpreteerd moeten worden.
+
+  ## Aanbevelingen
+  Voor vervolgonderzoek wordt aanbevolen om geografich gespreidere steekproef te gebruiken, waarbij respondenten evenredig worden geworven uit verschillende regio's van Nederland. Dit vergroot de representativiteit van de resultaten en voorkomt vertekening door regionale blootstelling aan de Duitse taal.
+Daarnaast wordt aanbevolen de toets af te nemen onder gecontroleerde omstandigheden, zodat het gebruik van hulpmiddel wordt voorkomen.
+Tot slot zou een grotere steekproef per opleidingsgroep meer betrouwbare uitspraken mogelijk maken over de relatie tussen opleidingsniveau en Duitse taalvaardigheid."
+
+Verder nog aan het wachten op de final grafiek van "locatie".
+
+## 09-06-2026
+
+### Doel van de dag
+- Feedback gevraagd aan de docent over onze paper
+- Kleine aanpassingen in de paper doen
+- Logboek verder afmaken
+
+### Motivatie
+Vandaag is de deadline. Jesse heeft de beschrijving van de gedeelte "locatie" nog wat aangepast op basis van de nieuwe grafiek, dus dat hoef ik ook niet meer te doen.
+
+### Wat heb ik gedaan?
+Onze groep hebben kleine aanpassingen gemaakt op de grafieken door betere titel op de grafieken toe te voegen in onze paper. Verder de logboek aangepast om zo uitgebreid mogelijk te vertellen om mogelijk reproducerbaar te maken.
