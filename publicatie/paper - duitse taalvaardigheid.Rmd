@@ -53,6 +53,9 @@ In dit onderzoek staat de volgende hoofdvraag centraal: *In hoeverre verschilt d
 Onze deelvragen zijn: *Hoe beoordelen jongeren en 40+'ers het belang van de Duitse taal?*, *Welke rol speelt de woonlocatie bij de actieve beheersing van de Duitse taal?* en *Heeft het onderwijsniveau invloed op het beheersen van de Duitse taalvaardigheid?* De verwachting is dat oudere generaties gemiddeld een hogere taalbeheersing hebben dan jongere generaties, dat mensen in grensregio's meer blootstelling hebben gehad aan het Duits in het dagelijks leven (via boodschappen, werk of sociale contacten) en daardoor beter scoren, en dat een hoger behaald opleidingsniveau samenhangt met een betere taalbeheersing.
 
 Taalvaardigheid wordt gemeten aan de hand van de CEFR-niveaus (A1 t/m C2, waarbij A1 beginnersniveau en C2 'near-native' wordt genoemd; ook wel ERK-niveaus genoemd), het internationale referentiekader voor Europese talen [@coe2020].
+
+Het doel van dit onderzoek is om inzicht te krijgen in de beheersing van de Duitse taal onder Nederlandse volwassenen. Dit doel willen wij bereiken door deelnemers te vragen een taaltoets af te leggen, gecombineerd met een vragenlijst over relevante achtergrondkenmerken. De resultaten worden per groep vergeleken om verbanden tussen de genoemde factoren en het taalniveau in kaart te brengen.
+
 De verwachting is dat de 40+ groep gemiddeld hoger scoort dan de jongere groep, dat nabijheid van de grens positief samenhangt met taalniveau, en dat een hoger opleidingsniveau positief correleert met taalvaardigheid.
 
 # Methodologie
