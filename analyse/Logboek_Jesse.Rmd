@@ -463,4 +463,12 @@ Ik denk klaar, de paper is klaar denk ik .. Wel een lange paper, maar wie boeit.
 - Door de intro en abstract gelopen met Dennis, hier en daar dingen aangepast/toegevoegd.
 - Hier en daar grammatica en taalfouten eruit gehaald met Dennis.
 - README aangepast
-- Laatste logboek changes
+- Met Vani en Dennis de paper doorgeweest en:
+  - Titels en captions van figuren aangepast.
+  - Sommige tekst aangepast/verplaatst.
+  - Spelfouten weggehaald (m.b.v. Claude).
+- Nog gemiddelde veranderd in de abstract: B2 -> B1
+- 65% bij belang toegevoegd, anders incomplete zin..
+- Dit gelogged.
+
+*Jesse Postma, 507655, 09/06/26, De Wetenschappelijke Cyclus | Duitse taalvaardigheid onder Nederlanders*
