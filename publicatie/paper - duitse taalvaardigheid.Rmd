@@ -79,13 +79,9 @@ Hiermee zijn de verzamelde data georganiseerd, verwerkt en geanalyseerd, en gevi
 
 Er is gebruik gemaakt van verschillende software voor verwerking en analyse:
 
--   Microsoft Forms
+- Microsoft Forms
 
--   Microsoft Excel
-
--   Rstudio
-
--   R
+- R $\geq$ 4.3
 
 Bij de analyse met R zijn de volgende libraries gebruikt:
 
@@ -100,6 +96,8 @@ Bij de analyse met R zijn de volgende libraries gebruikt:
 | stringr    | 1.6.0  | Nettere string manipulatie in R.         | [@stringr] |
 | car        | 3.1.5  | Berekenen VIF waardes multicollinearity. | [@carpack] |
 
+: Weergave gebruikte libraries met versie, gebruiksdoel, en referentie.
+
 ## Methoden
 
 ### Doelgroepbepaling
@@ -107,15 +105,15 @@ Bij de analyse met R zijn de volgende libraries gebruikt:
 Om de betrouwbaarheid van de resultaten te waarborgen, is er voorafgaand aan het experiment een screening uitgevoerd onder de potentiële deelnemers.
 Hierbij werd bekeken of de deelnemers voldeden aan de volgende specifieke criteria:
 
--   Deelnemer is minstens 18 jaar en heeft een schoolopleiding afgerond.
+- Deelnemer is minstens 18 jaar en heeft een schoolopleiding afgerond.
 
 <!-- -->
 
--   Deelnemer moet Duits niet als moedertaal hebben.
+- Deelnemer moet Duits niet als moedertaal hebben.
 
 <!-- -->
 
--   Deelnemer is minstens 10 jaar woonachtig in Nederland.
+- Deelnemer is minstens 10 jaar woonachtig in Nederland.
 
 Deelnemers die aan deze criteria voldeden, werden vervolgens geïnformeerd over het doel van het onderzoek en de opzet van het experiment.
 Daarna werd hen gevraagd of zij wilden deelnemen door de QR-code te scannen.
@@ -124,11 +122,11 @@ Daarna werd hen gevraagd of zij wilden deelnemen door de QR-code te scannen.
 
 Nadat de respondent akkoord ging met deelname, werd de vragenlijst in drie onderdelen doorlopen:
 
--   De achtergrondvragen brachten demografische variabelen in kaart.
+- De achtergrondvragen brachten demografische variabelen in kaart.
 
--   De Duitse leestoets bracht een objectieve meting per individu, opgedeeld in secties per taalniveau van het CEFR.
+- De Duitse leestoets bracht een objectieve meting per individu, opgedeeld in secties per taalniveau van het CEFR.
 
--   De evaluatievragen met betrekking tot de beheersingsgraad van de Duitse taal bracht een subjectieve ervaring en zelf ingeschatte beheersingsgraad van de deelnemers in kaart.
+- De evaluatievragen met betrekking tot de beheersingsgraad van de Duitse taal bracht een subjectieve ervaring en zelf ingeschatte beheersingsgraad van de deelnemers in kaart.
 
 Om de motivatie voor de deelnemers te houden en vroegtijdige uitval te voorkomen, was de vragenlijst kort en bondig van opzet.
 Daarnaast werd vooraf benadrukt dat deelname aan het onderzoek anoniem was en dat "weinig/geen kennis van de Duitse taal" nog steeds een waardevol resultaat oplevert voor het onderzoek.
@@ -150,7 +148,7 @@ Gedetailleerde uitwerkingen van protocollen zijn te vinden in de repository.
 In de resultatensectie worden beschrijvende statistieken en afgeleide resultaten gepresenteerd op basis van de dataset van de onderzochte respondenten.
 De steekproef bedroeg 154 respondenten.
 De respondenten zijn opgesplitst in 2 leeftijdsgroepen (18-40, 40+) waarvan 44% (N = 68) jonger dan 40 (18-40) tegen 56% (N=86) ouder dan 40 (40+).
-De meerderheid van de respondenten had een HBO of WO diploma (31%, 29% respectievelijk).
+De meerderheid van de respondenten had een HBO of WO (universiair) diploma (31%, 29% respectievelijk).
 Basisonderwijs was de kleinste groep met 1.3% (N=2) van alle respondenten.
 Verder bedroeg de gemiddelde woonafstand tot de Duitse grens $\approx$ 65.2km en was de standaard deviatie daarop $\approx$ 51.8km (zie Figuur \@ref(fig:afstand-grens)).
 De initiële verdeling van taalniveau is weergegeven in Figuur \@ref(fig:cefr-glossover) en Figuur \@ref(fig:theta-density).
