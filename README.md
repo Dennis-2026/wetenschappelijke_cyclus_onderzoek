@@ -29,6 +29,7 @@ Onbewerkte data-export vanuit Microsoft Forms, niet aan te passen.
 | `Duitse taalvaardigheid onderzoek(1-154).csv.xlsx` | Ruwe export (154 rows, 66 cols) |
 | `Duitse taalvaardigheid onderzoek(1-154).csv` | Ruwe export (csv) (154 rows, 66 cols) |
 | `cleaned_scores.csv` | Export uit R met kortere kolomnamen, 1/0 voor antwoorden, IRT scores (154 rows, 66 cols) |
+| `README.md` | Uitleg inhoud `ruwe_data` map |
 
 ---
 
@@ -49,14 +50,14 @@ Individuele werkbestanden per onderzoeker of globaal. Niet alle bestanden hierui
 
 | Bestand | Beschrijving |
 |---|---|
-| `analyse_jesse.Rmd` | Hoofdanalyse Jesse (Beschrijvende statistiek, hypothese toetsing, IRT-scoring, CEFR-mapping, regressie) |
-| `analyse_Dennis.Rmd` | Analyse Dennis |
+| `analyse_jesse.Rmd` | Hoofdanalyse Jesse (Beschrijvende statistiek, hypothese toetsing, CEFR-mapping, regressie) |
+| `analyse_Dennis.Rmd` | Analyse Dennis (Beantwoorden deelvragen) |
 | `analyse_vani.Rmd` | Analyse Vani (Hoofdvraag en deelvraag beantwoording, supplementaire analyse) |
-| `analyse_voor_vani.Rmd` | Voorbereidend script ten behoeve van Vanis analyse door JP|
-| `individual_scoring_jesse.Rmd` | Individuele IRT-scoring per respondent |
-| `verband_tussen_2_resultaten.Rmd` | Verband tussen twee uitkomstvariabelen (IRT vs. Logistische regressie) door VR |
-| `logistic_regression_test_Vani.Rmd` | Logistische regressietest door VR |
-| `methodes_testen.Rmd` DK | Verkenning van statistische methodes (gelimiteerde resultaten) |
+| `supplementary_analyse/analyse_voor_vani.Rmd` | Voorbereidend script ten behoeve van Vanis analyse/vertolking figuren door JP|
+| `item_response_implementation.Rmd` | Implementatie individuele IRT-scoring per respondent |
+| `supplementary_analyse/verband_tussen_2_resultaten.Rmd` | Verband tussen twee uitkomstvariabelen (IRT vs. Logistische regressie) door VR |
+| `supplementary_analyse/logistic_regression_test_Vani.Rmd` | Logistische regressietest door VR |
+| `supplementary_analyse/methodes_testen.Rmd` DK | Verkenning van statistische methodes (gelimiteerde resultaten) |
 | `Logboek_Jesse.Rmd` | Proceslogboek Jesse |
 | `logboek_Dennis.Rmd` | Proceslogboek Dennis |
 | `logboek_Vani.Rmd` | Proceslogboek Vani |
@@ -81,7 +82,7 @@ Ondersteunende documenten en hulpmiddelen.
 
 | Bestand | Beschrijving |
 |---|---|
-| `hulpmiddelen.Rmd` | Overzicht van gebruikte R-functies en packages |
+| `hulpmiddelen.Rmd` | Overzicht van gebruikte tutorials/explainers |
 | `hulpmiddelen.html` | Gerenderde versie |
 | `references_hulp.bib` | Bijbehorende referenties |
 
@@ -97,4 +98,4 @@ Benodigde R-packages staan vermeld in de YAML-header van het Rmd-bestand en ook 
 
 ## Dataherkomst
 
-Data verzameld via Microsoft Forms (mei 2026). Ruwe export staat in `ruwe_data/`. De opgeschoonde versie (`cleaned_scores.csv`) is afgeleid via IRT-scoring in `analyse/individual_scoring_jesse.Rmd` en staat in `publicatie/` als invoer voor de paper.
+Data verzameld via Microsoft Forms (mei 2026). Ruwe export staat in `ruwe_data/`. De opgeschoonde versie (`cleaned_scores.csv`) is afgeleid via IRT-scoring in `analyse/item_response_implementation.Rmd` en staat in `publicatie/` als invoer voor de paper.

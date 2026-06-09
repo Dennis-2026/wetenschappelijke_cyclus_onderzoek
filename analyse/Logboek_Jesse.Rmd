@@ -450,3 +450,17 @@ Dit was ook wat ik van plan was voor vandaag, ik ga morgen waarschijnlijk nog ee
 - Ik heb alle referenties in bibtex file gesorteerd op order of appearance (kan wss ook automatisch maar idk dus manual)
 - Wordcount gegenereerd
 Ik denk klaar, de paper is klaar denk ik .. Wel een lange paper, maar wie boeit...
+
+
+### 09/06/26
+
+#### Wat ga ik vandaag doen:
+
+- Readme aanpassen met laatste fixes
+
+#### Wat heb ik gedaan vandaag:
+
+- Door de intro en abstract gelopen met Dennis, hier en daar dingen aangepast/toegevoegd.
+- Hier en daar grammatica en taalfouten eruit gehaald met Dennis.
+- README aangepast
+- Laatste logboek changes
