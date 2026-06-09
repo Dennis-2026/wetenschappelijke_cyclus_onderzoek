@@ -8,7 +8,7 @@ author: |
 lang: en # dit zorgt er voor dat "abstract" "samenvatting" gaat heten
 
 abstract: |
- De Duitse taal speelt een centrale rol in de Nederlandse economie, gezien Duitsland een van de grootste handelspartners van Nederland is. Toch neemt de beheersing van het Duits onder nederlandsers al jaren af: het aantal eindexamenkandidaten Duits daal al geruime tijd, en ook het aantal studenten aan universitaire Duitse studies krimpt [@DorisAbitzsch2024]. Dit roept de vraag op in welke mate Nederlandse volwassenen de Duitse taal daadwerkelijk beheersen, en welke factoren van invloed zijn. Eerder onderzoek wijst op dalende interesse in het Duits onder jongeren [@Examengegevens], maar kwantitatief vergelijkend onderzoek naar taalbeheersing en invloedhebbende factoren ontbreekt grotendeels. Dit onderzoek dient om inzicht te bieden in de huidige staat van taalvaardigheid onder Nederlanders en achterliggende verklarende factoren. Er werd een kwantitatief onderzoek uit waarbij deelnemers een taaltoets op basis van CEFR-niveaus aflegden, aangevuld met een vragenlijst over relevante achtergrondkenmerken. Data werden geanalyseerd met behulp van een onafhankelijke t-toets, effectgrootte en multilineaire regressie in R. Uit de resultaten blijkt dat mensen van 40 jaar en ouder significant hoger scoorden dan de groep van 18 tot 39 jaar (gemiddeld CEFR-niveau B2 versus A2; t = -5.97, p < 0.001, d = .98). Opleidingsniveau toonde een licht positieve trend maar geen statistisch significant effect. De resultaten suggereren dat blootstelling aan de Duitse taal een belangrijkere voorspeller is voor taalvaardigheid dan opleidingsniveau of woonlocatie. Voor beleidsmakers en onderwijzers onderstreept dit het belang van functioneel en communicatief taalgebruik in het onderwijs, zoals ook beschreven door Wilhelm [@Wilhelm2018].   
+ De Duitse taal speelt een centrale rol in de Nederlandse economie, gezien Duitsland een van de grootste handelspartners van Nederland is. Toch neemt de beheersing van het Duits onder nederlandsers al jaren af: het aantal eindexamenkandidaten Duits daal al geruime tijd, en ook het aantal studenten aan universitaire Duitse studies krimpt [@DorisAbitzsch2024]. Dit roept de vraag op in welke mate Nederlandse volwassenen de Duitse taal daadwerkelijk beheersen, en welke factoren van invloed zijn. Eerder onderzoek wijst op dalende interesse in het Duits onder jongeren [@Examengegevens; @DorisAbitzsch2024], maar kwantitatief vergelijkend onderzoek naar taalbeheersing en invloedhebbende factoren ontbreekt grotendeels. Dit onderzoek dient om inzicht te bieden in de huidige staat van taalvaardigheid onder Nederlanders en achterliggende verklarende factoren. Wij richten ons met name op leeftijd, opleidingsniveau, de situaties waarin Duits wordt gebruikt, hoevaak Duits wordt wordt gebruikt, de blootstelling aan de Duitse taal en woonlocatie (grensregio versus Randstad). Er werd een kwantitatief onderzoek uitgevoerd waarbij deelnemers een taaltoets op basis van CEFR-niveaus aflegden, aangevuld met een vragenlijst over relevante achtergrondkenmerken. Data werd geanalyseerd met behulp van een onafhankelijke t-toets, effectgrootte en multilineaire regressie in R. Uit de resultaten blijkt dat mensen van 40 jaar en ouder significant hoger scoorden dan de groep van 18 tot 39 jaar (gemiddeld CEFR-niveau B2 versus A2; t = -5.97, p < 0.001, d = .98). Opleidingsniveau toonde een licht positieve trend maar geen statistisch significant effect. De resultaten suggereren dat blootstelling aan de Duitse taal een belangrijkere voorspeller is voor taalvaardigheid dan opleidingsniveau of woonlocatie. Voor beleidsmakers en onderwijzers onderstreept dit het belang van functioneel en communicatief taalgebruik in het onderwijs, zoals ook beschreven door Wilhelm [@Wilhelm2018].   
 
 
 bibliography: paper_refs.bib
@@ -49,7 +49,10 @@ Sinds 2019 daalt het aantal eindexamenkandidaten Duits, en ook het aantal studen
 Dit roept de vraag op in welke mate Nederlandse volwassenen de Duitse taal beheersen, en welke factoren daarbij van invloed zijn.
 
 In dit onderzoek staat de volgende hoofdvraag centraal: *In hoeverre verschilt de Duitse taalvaardigheid tussen Nederlandse volwassenen van 40 jaar en ouder en jongere volwassenen (18-39 jaar)?* Aanvullend wordt onderzocht welke rol opleidingsniveau, blootstelling en woonlocatie spelen.
-Taalvaardigheid wordt gemeten aan de hand van de CEFR-niveaus (A1 t/m C2; ook wel ERK-niveaus genoemd), het internationale referentiekader voor Europese talen [@coe2020].
+
+Onze deelvragen zijn: \**Hoe beoordelen jongeren en 40+'ers het belang van de Duitse taal?*, *Welke rol speelt de woonlocatie bij de actieve beheersing van de Duitse taal?* en *Heeft het onderwijsniveau invloed op het beheersen van de Duitse taalvaardigheid?* De verwachting is dat oudere generaties gemiddeld een hogere taalbeheersing hebben dan jongere generaties, dat mensen in grensregio's meer blootstelling hebben gehad aan het Duits in het dagelijks leven (via boodschappen, werk of sociale contacten) en daardoor beter scoren, en dat een hoger behaald opleidingsniveau samenhangt met een betere taalbeheersing.
+
+Taalvaardigheid wordt gemeten aan de hand van de CEFR-niveaus (A1 t/m C2, waarbij A1 beginnersniveau en C2 'near-native' wordt genoemd; ook wel ERK-niveaus genoemd), het internationale referentiekader voor Europese talen [@coe2020].
 De verwachting is dat de 40+ groep gemiddeld hoger scoort dan de jongere groep, dat nabijheid van de grens positief samenhangt met taalniveau, en dat een hoger opleidingsniveau positief correleert met taalvaardigheid.
 
 # Methodologie
@@ -76,13 +79,13 @@ Hiermee zijn de verzamelde data georganiseerd, verwerkt en geanalyseerd, en gevi
 
 Er is gebruik gemaakt van verschillende software voor verwerking en analyse:
 
-- Microsoft Forms
+-   Microsoft Forms
 
-- Microsoft Excel
+-   Microsoft Excel
 
-- Rstudio
+-   Rstudio
 
-- R
+-   R
 
 Bij de analyse met R zijn de volgende libraries gebruikt:
 
@@ -104,15 +107,15 @@ Bij de analyse met R zijn de volgende libraries gebruikt:
 Om de betrouwbaarheid van de resultaten te waarborgen, is er voorafgaand aan het experiment een screening uitgevoerd onder de potentiële deelnemers.
 Hierbij werd bekeken of de deelnemers voldeden aan de volgende specifieke criteria:
 
-- Deelnemer is minstens ouder zijn dan 18 jaar en heeft een schoolopleiding afgerond.
+-   Deelnemer is minstens 18 jaar en heeft een schoolopleiding afgerond.
 
 <!-- -->
 
-- Deelnemer moet Duits niet als moedertaal hebben.
+-   Deelnemer moet Duits niet als moedertaal hebben.
 
 <!-- -->
 
-- Deelnemer is minstens langer dan 10 jaar woonachtig in Nederland.
+-   Deelnemer is minstens 10 jaar woonachtig in Nederland.
 
 Deelnemers die aan deze criteria voldeden, werden vervolgens geïnformeerd over het doel van het onderzoek en de opzet van het experiment.
 Daarna werd hen gevraagd of zij wilden deelnemen door de QR-code te scannen.
@@ -121,11 +124,11 @@ Daarna werd hen gevraagd of zij wilden deelnemen door de QR-code te scannen.
 
 Nadat de respondent akkoord ging met deelname, werd de vragenlijst in drie onderdelen doorlopen:
 
-- De achtergrondvragen brachten demografische variabelen in kaart.
+-   De achtergrondvragen brachten demografische variabelen in kaart.
 
-- De Duitse leestoets bracht een objectieve meting per individu, opgedeeld in secties per taalniveau van het CEFR.
+-   De Duitse leestoets bracht een objectieve meting per individu, opgedeeld in secties per taalniveau van het CEFR.
 
-- De evaluatievragen met betrekking tot de beheersingsgraad van de Duitse taal bracht een subjectieve ervaring en zelf ingeschatte beheersingsgraad van de deelnemers in kaart.
+-   De evaluatievragen met betrekking tot de beheersingsgraad van de Duitse taal bracht een subjectieve ervaring en zelf ingeschatte beheersingsgraad van de deelnemers in kaart.
 
 Om de motivatie voor de deelnemers te houden en vroegtijdige uitval te voorkomen, was de vragenlijst kort en bondig van opzet.
 Daarnaast werd vooraf benadrukt dat deelname aan het onderzoek anoniem was en dat "weinig/geen kennis van de Duitse taal" nog steeds een waardevol resultaat oplevert voor het onderzoek.
@@ -305,7 +308,8 @@ ggplot(data=niveau_Duits_per_opleidingsniveau, aes(x=schoolniveaus, y=gemiddelde
   xlab('hoogst behaald diploma') +
   ylab('Theta-score') +
     guides(fill = guide_legend(title = "CEFR-niveau")) +
-    theme_minimal()
+  theme_minimal() +
+  theme(axis.text.x=element_text(angle=45,hjust=1))
 ```
 
 Uit Figuur \@ref(fig:barplot-opleiding) is geen duidelijk stijgend patroon zichtbaar van laag naar hoog opleidingsniveau.

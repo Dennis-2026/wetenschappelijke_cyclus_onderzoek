@@ -225,21 +225,27 @@ barplot_situaties
 ```
 
 ```{r}
+library(ggplot2)
+
+# data inlezen
 data <- read.csv("../ruwe_data/cleaned_scores.csv", header = T, sep = ',')
 
+# variabelen maken van de leeftijdsgroepen en niveaus Duits
 leeftijd <- data$leeftijd
 niveaus_Duits <- data$score
 
+# gemiddelde Duits niveau per leeftijdsgroep berekenen
 niveau_Duits_leeftijd <- aggregate(niveaus_Duits ~ leeftijd, data, FUN = mean)
 
-cefr <- get_level(niveau_Duits_leeftijd$niveaus_Duits)
+# scores omzetten naar cefr-niveaus
+cefr_leeftijd <- get_level(niveau_Duits_leeftijd$niveaus_Duits)
 
 # plotten
-barplot_fam_kennis <- ggplot(data=niveau_Duits_leeftijd, aes(x=leeftijd, y=niveaus_Duits, fill=cefr)) +
+barplot_fam_kennis <- ggplot(data=niveau_Duits_leeftijd, aes(x=leeftijd, y=niveaus_Duits, fill=cefr_leeftijd)) +
   geom_col() +
   xlab('leeftijd') +
   ylab('gemiddelde niveau Duits') +
-  labs(title = 'gemiddelde niveau Duits onder jongeren en mensen van 40+') +
+  labs(title = 'gemiddelde niveau Duits onder jongeren en 40+\'ers') +
   theme_minimal()
 
 barplot_fam_kennis
