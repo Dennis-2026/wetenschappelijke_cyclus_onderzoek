@@ -648,14 +648,16 @@ paper veranderd: data &lt;- read.csv(“../ruwe_data/cleaned_scores.csv”,
 header = T, sep = ‘,’). Ik heb hier het woord ‘ruwe_data’ vervangen door
 ‘analyse’, omdat dit bestand nu bij ‘analyse’ staat en niet bij
 ‘ruwe_data’. Zonder deze aanpassing zouden we foutmeldingen krijgen,
-omdat de functie read.csv het bestand niet kan vinden. Het bestand zou
-dan in de verkeerde map staan. Ik heb voor de zekerheid nog even
-gecontroleerd of alle code nog werkt. De code werkt nog en de repository
-heeft nu de structuur die we volgens Brightspace moeten aanhouden. Jesse
-heeft mij verteld dat de cleaned_scores.csv volgens de template in
-Brightspace in een map genaamd ‘data’ in analyse moet staan. Ik heb
-daarom in analyse een nieuwe map genaamd ‘data’ aangemaakt. Ik heb
-cleaned_scores.csv in deze nieuwe map gezet. Onze paper is klaar.</p>
+omdat de functie read.csv() het bestand niet kan vinden. Het bestand zou
+dan in de verkeerde map staan. Jesse heeft mij verteld dat de
+cleaned_scores.csv volgens de template in Brightspace in een map genaamd
+‘data’ in analyse moet staan. Ik heb daarom in analyse een nieuwe map
+genaamd ‘data’ aangemaakt. Ik heb cleaned_scores.csv in deze nieuwe map
+gezet. Ik heb de eerder genoemde code weer veranderd. De code is nu dit:
+read.csv(“../analyse/data/cleaned_scores.csv”, header = T, sep = ‘,’).
+Ik heb voor de zekerheid nog even gecontroleerd of alle code nog werkt.
+De code werkt nog en de repository heeft nu de structuur die we volgens
+Brightspace moeten aanhouden. Onze paper is klaar.</p>
 </div>
 
 
