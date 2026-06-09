@@ -23,7 +23,6 @@ library(mirt)
 
 # Gebruikte data
 data <- read.csv("cleaned_scores.csv")
-
 ```
 
 # LOGBOEK
@@ -58,7 +57,7 @@ Jesse heeft een testbestandje gemaakt in de repo waarin de csv van onze resultat
 
 De grafiek wou eerst niet laden, dus ik heb de R-code voor mezelf gefixt, en we hebben nu deze grafiekgekregen:
 
-![]("Knipsel.PNG")
+![]("images/Knipsel.PNG")
 
 ## 22-05-2026
 
@@ -75,19 +74,19 @@ Voor de logistieke grafiek hebben we nu wel een grafiek van dat laten zien een g
 Ik heb een grafiek gemaakt waarmee je ziet wat voor niveau per persoon heeft gehaald op basis van de hoeveel gehaalde vragen per niveau. Wij hebben in de groep afgesproken om een drempel te gebruiken om te bepalen waar de grens ligt voor een individu een bepaald categorie heeft gehaald. We hebben afgeproken om de drempel op 6 te houden. Dat betekent dat als een individu 6 vragen goed heeft beantwoordt, dan heeft degene het niveau behaald. Dit hebben wij toegevoegd in onze code om niveau makkelijker te bepalen.
 
 Ik heb eerst niveaus bepaald per vraag en groepeer alle 50 vragen in groep van 10 per niveau.
-```{r}
+```{r eval=FALSE}
 # Niveaus
 german_long$gedeelte <- ceiling(german_long$question_num / 10) * 10
 ```
 
 Daarna het aantal goede antwoorden per persoon per groep tellen.
-```{r}
+```{r eval=FALSE}
 # Aantal goed per persoon per niveau
 scores_gedeelte <- aggregate(answer ~ V1 + gedeelte, data = german_long, FUN = sum)
 ```
 
 Daarna één specifiek individu selecteren. De individu is op basis van de rijnummer. Vervolgens de drempel toepassen.
-```{r}
+```{r eval=FALSE}
 # Kies een persoon
 scores_gedeelte <- aggregate(answer ~ V1, data = german_long, FUN = mean)
 colnames(scores_per_persoon) <- c("persoon", "score")
@@ -100,7 +99,7 @@ drempel <- 6
 ```
 
 Als laatst een boolean toevoegen op basis van de drempel dat bekijkt per niveaugroep. De hoogste niveau wordt dan bepaald wanneer de eerste false tegenkomt en de volgende true (na de eerste false) wordt dan verder niet meegeteld. 
-```{r}
+```{r eval=FALSE}
 persoon_scores <- subset(scores_gedeelte, V1 == persoon_id)
 persoon_scores <- persoon_scores[order(persoon_scores$gedeelte), ]
 behaald <- persoon_scores$gedeelte[cumprod(persoon_scores$answer >= drempel) == 1]
@@ -109,7 +108,7 @@ hoogste_niveau <- ifelse(length(behaald) > 0, max(behaald), 0)
 ```
 
 Daarna een grafiek van gemaakt en de grafiek ziet er zo uit:
-![]("Knipsel(1).PNG")
+![]("images/Knipsel1.PNG")
 
 Verder heb ik aan mijn Journal Club gewerkt.
 
@@ -126,7 +125,7 @@ Jesse en Dennis hebben een probleem gekregen wanneer zij mijn R-code proberen te
 ### Wat heb ik gedaan?
 Ik heb een error gezien dat scores_per_persoon was niet gedefinieerd. Dat was inderdaad een typfout en dus heb ik het verbeterd:
 
-```{r}
+```{r eval=FALSE}
 # Kies een persoon
 scores_per_persoon <- aggregate(answer ~ V1, data = german_long, FUN = mean)
 colnames(scores_per_persoon) <- c("persoon", "score")
@@ -151,7 +150,7 @@ In het weekend moest Dennis een scatterplot maken van beide methoden van mij en 
 Ik heb met behulp van chatgpt een snelle scatterplot gemaakt. Ik heb gebruik gemaakt van AI, want het was eerst niet mijn taak, en we moesten snel een beslissing nemen van welke grafiek en methode het wordt voor in onze paper.
 Ik heb aan AI gevraagd om een scatterplot te maken met een verband tussen de resultaten van mij en Jesse. Het resultaat is te vinden in de repo onder analyse/supplementay_analyse/verband_tussen_2_resultaten.Rmd.
 
-![]("Knipsel(3).PNG")
+![]("images/Knipsel2.PNG")
 
 Op basis van deze resultaat, hebben wij veel overeenkomsten op niveau A1. Voor hogere niveaus zijn er grotere verschillen. Toch hebben wij uiteindelijk gekozen om de grafiek en methode van Jesse te gebruiken, want hij ziet er iets meer netter uit.
 
@@ -185,20 +184,20 @@ Om de hoofdvraag verder te kunnen beantwoorden, hebben wij ook deelvragen bedach
 Voor de deelvraag belang vs duits heb ik een bargrafiek van gemaakt.
 
 Eerst heb ik getelt hoeveel mensen in elke combinatie van leeftijd + ja/nee vallen.
-```{r}
+```{r eval=FALSE}
 belang_tabel <- data %>% 
   group_by(leeftijd, duits_belang) %>%
 ```
 
 Daarna hergroeperen op alleen leeftijd en in percentage zetten.
-```{r}
+```{r eval=FALSE}
 summarise(n = n()) %>% 
   group_by(leeftijd) %>% 
   mutate(percentage = n / sum(n) * 100)
 ```
 
 Tot slot een bargrafiek gemaakt met twee bars per leeftijdsgroep.
-```{r}
+```{r eval=FALSE}
 # Plotten
 ggplot(belang_tabel, aes(x = leeftijd, y = percentage, fill = duits_belang)) +
   geom_bar(stat = "identity", position = "dodge") +
@@ -227,7 +226,7 @@ De conclusie ziet er tot zo ver zo uit:
   ## Conclusie
   Uit dit onderzoek blijkt dat respondenten van de leeftijdsgroep 40+ gemiddeld een hogere niveau van Duitse taalvaardigheid behaalden (M = $\approx$ 0.32, SD = $\approx$ 0.70, CEFR = B1) vergeleken met de leeftijdsgroep 18-40 (M = $\approx$ -0.40, SD = $\approx$ 0.77, CEFR = A2). Dit verschil was statisctisch significant (t = -5.97, df = 136.72, p < .001, d = 0.98) zoals aangetoond in de sectie \@ref(hypothese), wat wijst op een groot effect.
 
-```{r hoofdvraag1, results='asis', warning=F}
+```{r eval=FALSE, hoofdvraag1, results='asis', warning=F}
 
 tr_A2 <- -0.5890936
 tr_B1 <- -0.2340141
@@ -261,7 +260,7 @@ data_summary %>%
   Om meer beeld te geven van de taalvaardigheid, toont tabel \@ref(tab:hoofdvraag2) de verdeling van CEFR-niveaus per leeftijdsgroep. 
 Hieruit blijkt dat de 18-40 groep voornamelijk op de lagere CEFR-niveaus scoorden: bijna 40% van deze groep behaalde een A1-niveau, en samen met A2 zat ruim de helft (58.8%) op de twee laagste niveaus. De 40+ groep laat een duidelijk andere verdeling zien: slechts 22.1% behaalde deze groep het niveau A1 of A2, terwijl 44.1% een B2-niveau of hoger behaalde.
 
-```{r hoofdvraag2, results='asis', warning=F}
+```{r eval=FALSE, hoofdvraag2, results='asis', warning=F}
 
 cefr_tabel <- data %>%
   group_by(leeftijd, CEFR) %>%
@@ -293,7 +292,7 @@ wie onderschat/overschat meest
 
 ### Wat heb ik gedaan?
 Ik heb het verschil tussen de schatting van de gemaakte score en de echt behaalde score berekend. Daarna op basis van het verschil tussen de twee gaan labelen. Bij verschilwaarde van 0, zeg ik dat er geen verschil is.
-```{r}
+```{r eval=FALSE}
 # Schatting omzetten naar z-score zodat het vergelijkbaar is met theta
 data_schatting <- data %>%
   mutate(
@@ -309,7 +308,7 @@ data_schatting <- data %>%
 ```
 
 Daarna heb ik een gestapelde staafdiagram van gemaakt.
-```{r}
+```{r eval=FALSE}
 # Plotten
 ggplot(data_schatting, aes(x = factor(schatting), fill = richting)) +
   geom_bar(position = "stack") +
@@ -331,7 +330,7 @@ Ik ben er pas achtergekomen dat de gestapelde staafdiagram heel erg logisch was,
 
 ### Wat heb ik gedaan?
 Omdat ik het te lastig vond met het maken van regressielijn, had ik chatgpt gevraagd om even snel de scatterplot te maken met de regressielijn.
-```{r}
+```{r eval=FALSE}
 # r-waarde
 r_waarde <- cor(data$schatting, data$score)
 
