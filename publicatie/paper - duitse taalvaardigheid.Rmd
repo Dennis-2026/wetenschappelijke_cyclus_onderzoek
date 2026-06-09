@@ -38,7 +38,7 @@ library(dplyr)
 library(effectsize)
 library(gt)
 
-data <- read.csv("../analyse/cleaned_scores.csv", header = T, sep = ',')
+data <- read.csv("../analyse/data/cleaned_scores.csv", header = T, sep = ',')
 ```
 
 # Introductie
