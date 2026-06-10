@@ -326,14 +326,20 @@ Ik moet de volgende doen:
 - De grafiek voor deelvraag "schatting vs score" veranderen
 
 ## Motivatie
-Ik ben er pas achtergekomen dat de gestapelde staafdiagram heel erg logisch was, dus heb ik hulp gevraagd aan chatgpt naar wat voor soort diagram ik kan maken. Chatgpt zegt dat ik beter een scatterplot kan maken om de correlatie tussen de schatting en de echt behaalde score zichtbaar te maken. Ook was het handig om een regressielijn aan te tonen om het algemene verband duidelijker te laten zien.
+Ik ben er pas achtergekomen dat de gestapelde staafdiagram onlogisch was, dus heb ik hulp gevraagd aan chatgpt naar wat voor soort diagram ik kan maken. Chatgpt zegt dat ik beter een scatterplot kan maken om de correlatie tussen de schatting en de echt behaalde score zichtbaar te maken. Ook was het handig om een regressielijn aan te tonen om het algemene verband duidelijker te laten zien.
 
 ### Wat heb ik gedaan?
-Omdat ik het te lastig vond met het maken van regressielijn, had ik chatgpt gevraagd om even snel de scatterplot te maken met de regressielijn.
+Omdat ik het te lastig vond met het maken van regressielijn, had ik chatgpt gevraagd om een paar tips te geven om mij te helpen. Uiteibdelijk ben ik met deze gekomen:
+
+Om de regressielijn te maken, moet je een r-waarde bepalen van een samenhang tussen de twee scores van de schatting en de echte behaalde score:
 ```{r eval=FALSE}
 # r-waarde
 r_waarde <- cor(data$schatting, data$score)
+```
+Hier is de r-waarde de corelatie van de twee scores. Hoe dichter bij 1 is, hoe sterker het verband is. De r-waarde kwam uit iets met een waarde van 0.62. Dat betekent dat mensen hun niveau redelijk goed inschatten, maar niet perfect, want de waarde zat net boven de 0.50 (de helft).
 
+Daarna het grafiek maken:
+```{r eval=FALSE}
 ggplot(data_schatting, aes(x = schatting, y = score)) +
   geom_jitter(aes(color = richting), width = 0.1, alpha = 0.7) +
   geom_smooth(method = "lm", se = TRUE, color = "grey5") +
@@ -345,7 +351,10 @@ ggplot(data_schatting, aes(x = schatting, y = score)) +
   theme_minimal()
 ```
 
-Het laat zien dat het de correlatie tussen de schatting en de echt behaalde score berekent. De r-waarde geeft aan hoe sterk de twee scores samenhangen (hoe dichter bij 1 is, hoe sterker het verband is).
+Op basis daarvan, heb ik deze conclusie genomen en geschreven:
+"Uit Figuur @ref(fig:data-schatting) blijkt dat de correlatie tussen de eigen schatting van behaalde niveau en de werkelijke theta-score bedroeg r = 0.62 dat wijst op een matig tot sterk verband. Dit betekent dat respondenten hun behaalde niveaus redelijk goed hebben ingeschat, al was het niet helemaal perfect. 
+
+Uit de scatterplot blijkt dat de meeste afwijkingen in de richting van onderschatting lagen, maar dat het gemiddelde dichter bij kleine onderschatting lag."
 
 Verder heb ik aan Dennis gevraagd of hij zijn grafieken kunnen doorsturen zodat ik de rest van de deelvragen in onze paper kan beantworden. Wel bijna alles kunnen beantwoorden, behalve het stukje van de gedeelte "locatie", want hij is van plan om zijn diagram nog te gaan veranderen. Dus dan wacht ik wel even totdat hij daarmee klaar is.
 
